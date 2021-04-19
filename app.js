@@ -58,7 +58,7 @@ function movePlayer() {
     if (keys['w'] && player.y > 70) {
         player.frameY = 3;
         player.y -= player.speed;
-    } else if (keys['s'] && player.y < 700) {
+    } else if (keys['s'] && player.y < 660) {
         player.frameY = 0;
         player.y += player.speed;
     } else if (keys['a'] && player.x > 250) {
