@@ -1,0 +1,51 @@
+/* font-family: 'Orbitron', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Zen Dots', cursive; */
+
+body {
+    height: 100%;
+    background-image: url(../assets/space.png);
+    font-family: 'Press Start 2P', cursive;
+}
+
+li {
+    list-style: none;
+    color: white;
+    margin-top: 1rem;
+}
+
+.game-title {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    width: 20%;
+    color: yellow;
+    text-align: center;
+}
+
+#main-canvas {
+    width: 1200px;
+    height: 900px;
+    border-radius: 5%;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    border: 2px solid blue;
+    height: 100%;
+    
+}
+
+.start-quest-area {
+    border: 10px solid red;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 52%;
+    bottom: 72.5%;
+    z-index: 1000;
+}
