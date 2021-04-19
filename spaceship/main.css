@@ -4,8 +4,10 @@ font-family: 'Zen Dots', cursive; */
 
 body {
     height: 100%;
-    background-image: url(../assets/space.png);
     font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 li {
@@ -13,6 +15,8 @@ li {
     color: white;
     margin-top: 1rem;
 }
+
+
 
 .game-title {
     color: white;
@@ -24,8 +28,8 @@ li {
 }
 
 #main-canvas {
-    width: 1200px;
-    height: 900px;
+    width: 1000px;
+    height: 700px;
     border-radius: 5%;
     background: transparent;
     position: absolute;
@@ -38,14 +42,4 @@ li {
     border: 2px solid blue;
     height: 100%;
     
-}
-
-.start-quest-area {
-    border: 10px solid red;
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    left: 52%;
-    bottom: 72.5%;
-    z-index: 1000;
 }
