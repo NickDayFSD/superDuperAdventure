@@ -34,8 +34,18 @@ li {
     transform: translate(-50%, -50%);
 }
 
+.container {
+    border: 2px solid blue;
+    height: 100%;
+    
+}
+
 .start-quest-area {
-    border: 1px solid blue;
-    width: 40px;
-    height: 40px;
+    border: 10px solid red;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 52%;
+    bottom: 72.5%;
+    z-index: 1000;
 }
