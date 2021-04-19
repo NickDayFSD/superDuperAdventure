@@ -1,5 +1,22 @@
-// import functions and grab DOM elements
+const sliderArray = document.querySelectorAll('.slider-inputs');
 
-// initialize state
+const form = document.querySelector('form');
 
-// set event listeners to update state and DOM
+console.log(sliderArray);
+
+for (let slider of sliderArray) {
+    const current = slider.value;
+    console.log(current)
+}
+// on mousemove
+form.addEventListener('change', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const attributesData =
+        console.log(e.target.value);
+})
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+})

@@ -19,8 +19,38 @@
         </section>
         <form>
             <label>
-
+                <input type="text" name="name" placeholder="Name" required>
             </label>
+            <label>
+                <input type="text" name="tagline" placeholder="Tagline" required>
+            </label>
+            <div id="attribute-points">
+                <label>
+                    Attribute Points Available:
+                    <span id="available-attribute-points"> 10 </span>
+                </label>
+                <label>
+                    Cunning
+                    <input type="range" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="cunning-point-value"></span>
+                </label>
+                <label>
+                    Strength
+                    <input type="range" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="strength-point-value"></span>
+                </label>
+                <label>
+                    Marksmanship
+                    <input type="range" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="marksmanship-point-value"></span>
+                </label>
+                <label>
+                    Charisma
+                    <input type="range" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="charisma-point-value"></span>
+                </label>
+            </div>
+            <button id="submit"> Submit </button>
         </form>
     </main>
 
