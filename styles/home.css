@@ -1,0 +1,10 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#attribute-points {
+    display: flex;
+    flex-direction: column;
+}

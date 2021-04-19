@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/main.css" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
-    <canvas id="main-canvas"></canvas>
+<body>
+    <main>
+        <section id="description">
+            <p></p>
+        </section>
+        <form>
+            <label>
+                <input type="text" name="name" placeholder="Name" required>
+            </label>
+            <label>
+                <input type="text" name="tagline" placeholder="Tagline" required>
+            </label>
+            <div id="attribute-points">
+                <label>
+                    Attribute Points Available:
+                    <span id="available-attribute-points"> 10 </span>
+                </label>
+                <label>
+                    Cunning
+                    <input type="number" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="cunning-point-value" class="input-span"> 0 </span>
+                </label>
+                <label>
+                    Strength
+                    <input type="number" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="strength-point-value" class="input-span"> 0 </span>
+                </label>
+                <label>
+                    Marksmanship
+                    <input type="number" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="marksmanship-point-value" class="input-span"> 0 </span>
+                </label>
+                <label>
+                    Charisma
+                    <input type="number" class="slider-inputs" name="attributes" max="10" min="0" step="1" value="0">
+                    <span id="charisma-point-value" class="input-span"> 0 </span>
+                </label>
+            </div>
+            <button id="submit"> Submit </button>
+        </form>
+    </main>
+
 
     <script type="module" src="app.js"></script>
-  </body>
+</body>
+
 </html>
