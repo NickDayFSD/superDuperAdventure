@@ -1,15 +1,21 @@
 const canvas = document.querySelector('#main-canvas');
-const startQuestArea = document.getElementById('startQuestArea');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
 
 const keys = [];
 
+const planetOne = {
+    x: 900,
+    y: 600,
+    width: 70,
+    height: 48,
+};
+
 const player = {
     x: 400,
     y: 400,
-    width: 35,
+    width: 70,
     height: 48,
     frameX: 0,
     frameY: 0,
@@ -18,12 +24,20 @@ const player = {
 };
 
 const playerSprite = new Image();
-playerSprite.src = '../assets/main.png';
+playerSprite.src = '../assets/spaceship_left.png';
+const planetOneSprite = new Image();
+planetOneSprite.src = '../assets/Terran.png';
 const background = new Image();
-background.src = '../assets/Skeld.jpeg';
+background.src = '../assets/space.png';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+}
+
+function intersectRect(item1, item2) {
+    if ((player.x + player.y) === (planetOne.x + planetOne.y)){
+        window.location = './quest/index.html' ;
+    }
 }
 
 function animate() {
@@ -40,8 +54,20 @@ function animate() {
         player.width,
         player.height
     );
+    drawSprite(
+        planetOneSprite,
+        planetOne.width * player.frameX,
+        planetOne.height * player.frameY,
+        planetOne.width,
+        planetOne.height,
+        planetOne.x,
+        planetOne.y,
+        planetOne.width,
+        planetOne.height
+    );
     movePlayer();
     requestAnimationFrame(animate);
+    intersectRect(planetOne, player);
 }
 
 animate();
@@ -56,23 +82,18 @@ window.addEventListener('keyup', function (e) {
 
 function movePlayer() {
     if (keys['w'] && player.y > 70) {
-        player.frameY = 3;
+        
         player.y -= player.speed;
     } else if (keys['s'] && player.y < 660) {
-        player.frameY = 0;
+        
         player.y += player.speed;
     } else if (keys['a'] && player.x > 250) {
-        player.frameY = 1;
+        
         player.x -= player.speed;
     } else if (keys['d'] && player.x < 940) {
-        player.frameY = 2;
+        
         player.x += player.speed;
     }
 }
 
-// Quest Initiate in spaceship
-
-if (player.y === 180 && player.x === 650) {
-    alert('You have started a quest!');
-}
 
