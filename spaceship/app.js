@@ -97,9 +97,4 @@ function movePlayer() {
     }
 }
 
-// Quest Initiate in spaceship
-
-if (player.y === 180 && player.x === 650) {
-    alert('You have started a quest!');
-}
 
