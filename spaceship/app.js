@@ -36,7 +36,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 function intersectRect() {
     if ((player.x + player.y) === (planetOne.x + planetOne.y)) {
-        window.location = './quest/index.html';
+        window.location = '../map/index.html';
     }
 }
 
@@ -82,16 +82,12 @@ window.addEventListener('keyup', (e) => {
 
 function movePlayer() {
     if (keys['w'] && player.y > 70) {
-
         player.y -= player.speed;
-    } else if (keys['s'] && player.y < 660) {
-
+    } else if (keys['s'] && player.y < 800) {
         player.y += player.speed;
-    } else if (keys['a'] && player.x > 250) {
-
+    } else if (keys['a'] && player.x > 150) {
         player.x -= player.speed;
-    } else if (keys['d'] && player.x < 940) {
-
+    } else if (keys['d'] && player.x < 960) {
         player.x += player.speed;
     }
 }
