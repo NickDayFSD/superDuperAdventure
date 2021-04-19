@@ -11,20 +11,21 @@ export function getUser() {
     return JSON.parse(localStorage.getItem(USER));
 }
 
-export function createUser(name, tagline, hp, cunning, strength, marksmanship, charisma) {
+export function createUser(name, tagline, formArray) {
     const user = {
         name,
-        tagline,
-        hp,
+        age: 18,
+        hp: 30 + 3*formArray[1],
         xp: 0,
-        cunning,
-        strength,
-        marksmanship,
-        charisma,
+        credits: 0,
         equipment: [],
         friends: [],
-        gold: 0,
-        age: 18,
+        tagline,
+        intelligence: formArray[0],
+        stength: formArray[1],
+        marksmanship: formArray[2],
+        charisma: formArray[3],
+        luck: formArray[4],
         morality: 0,
         wisdom: 0,
     }

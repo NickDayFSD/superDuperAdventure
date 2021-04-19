@@ -1,30 +1,48 @@
-const sliderArray = document.querySelectorAll('.slider-inputs');
-const spanArray = document.querySelectorAll('.input-span');
+import { createUser, setUser } from "./local-storage-utils.js";
+
+const attributeInputs = document.querySelectorAll('.attribute-inputs');
 const totalAttributePoints = document.querySelector('#available-attribute-points');
 
 const form = document.querySelector('form');
 
 
-console.log(sliderArray)
 form.addEventListener('change', (e) => {
     e.preventDefault();
-    const cunning = Number(sliderArray[0].value);
-    const strength = Number(sliderArray[1].value);
-    const marksmanship = Number(sliderArray[2].value);
-    const charisma = Number(sliderArray[3].value);
-    let attributeTotal = strength + cunning + marksmanship + charisma;
-    let totalPoints = 10 - attributeTotal;
+    const intelligence = Number(attributeInputs[0].value);
+    const strength = Number(attributeInputs[1].value);
+    const marksmanship = Number(attributeInputs[2].value);
+    const charisma = Number(attributeInputs[3].value);
+    const luck = Number(attributeInputs[4].value);
 
-    for (let slider of sliderArray) {
-        let nextSibling = slider.nextElementSibling;
-        nextSibling.textContent = slider.value;
-        slider.max = totalPoints;
+    let attributeTotal = strength + intelligence + marksmanship + charisma + luck;
+    let totalPoints = 8 - attributeTotal;
+
+    for (let attribute of attributeInputs) {
+        attribute.max = totalPoints + attribute.value;
     }
 
     totalAttributePoints.textContent = totalPoints;
 
+    const attributeArray = [intelligence, strength, marksmanship, charisma, luck]
+
+    return attributeArray;
 })
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const tagline = formData.get('tagline');
+    const attributeArray = [
+        formData.get('intelligence'), 
+        formData.get('strength'),
+        formData.get('marksmanship'),
+        formData.get('charisma'),
+        formData.get('luck')
+    ]
+
+    const user = createUser(name, tagline, attributeArray);
+    setUser(user);
+    window.location = './map'
 })
