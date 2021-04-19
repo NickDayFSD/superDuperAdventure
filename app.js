@@ -13,12 +13,12 @@ form.addEventListener('change', (e) => {
     const marksmanship = Number(sliderArray[2].value);
     const charisma = Number(sliderArray[3].value);
     let attributeTotal = strength + cunning + marksmanship + charisma;
-    let totalPoints = 10 - attributeTotal;
+    let totalPoints = 5 - attributeTotal;
 
     for (let slider of sliderArray) {
         let nextSibling = slider.nextElementSibling;
         nextSibling.textContent = slider.value;
-        slider.max = totalPoints;
+        slider.max = totalPoints + slider.value;
     }
 
     totalAttributePoints.textContent = totalPoints;
