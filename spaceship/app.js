@@ -34,6 +34,12 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
+function intersectRect(item1, item2) {
+    if ((player.x + player.y) === (planetOne.x + planetOne.y)){
+        window.location = './quest/index.html' ;
+    }
+}
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, 1200, 900);
@@ -61,6 +67,7 @@ function animate() {
     );
     movePlayer();
     requestAnimationFrame(animate);
+    intersectRect(planetOne, player);
 }
 
 animate();
