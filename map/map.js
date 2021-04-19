@@ -45,11 +45,11 @@ function animate() {
 
 animate();
 
-window.addEventListener('keydown', function (e) {
+window.addEventListener('keydown', (e) => {
     keys[e.key] = true; // Another way to add key presses into the keys array
 });
 
-window.addEventListener('keyup', function (e) {
+window.addEventListener('keyup', (e) => {
     delete keys[e.key];
 });
 
