@@ -18,9 +18,9 @@ const player = {
 };
 
 const playerSprite = new Image();
-playerSprite.src = './assets/main.png';
+playerSprite.src = '../assets/main.png';
 const background = new Image();
-background.src = './assets/Skeld.jpeg';
+background.src = '../assets/Skeld.jpeg';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
