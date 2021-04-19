@@ -34,9 +34,9 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
-function intersectRect(item1, item2) {
-    if ((player.x + player.y) === (planetOne.x + planetOne.y)){
-        window.location = './quest/index.html' ;
+function intersectRect() {
+    if ((player.x + player.y) === (planetOne.x + planetOne.y)) {
+        window.location = './quest/index.html';
     }
 }
 
@@ -72,27 +72,26 @@ function animate() {
 
 animate();
 
-window.addEventListener('keydown', function(e) {
+window.addEventListener('keydown', (e) => {
     keys[e.key] = true; // Another way to add key presses into the keys array
-    console.log(keys);
 });
 
-window.addEventListener('keyup', function(e) {
+window.addEventListener('keyup', (e) => {
     delete keys[e.key];
 });
 
 function movePlayer() {
     if (keys['w'] && player.y > 70) {
-        
+
         player.y -= player.speed;
     } else if (keys['s'] && player.y < 660) {
-        
+
         player.y += player.speed;
     } else if (keys['a'] && player.x > 250) {
-        
+
         player.x -= player.speed;
     } else if (keys['d'] && player.x < 940) {
-        
+
         player.x += player.speed;
     }
 }
