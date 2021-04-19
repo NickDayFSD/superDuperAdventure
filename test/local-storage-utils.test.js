@@ -7,7 +7,7 @@ test('Test setUser function', (expect) => {
     // Set up your arguments and expectations
     const user = {
         age: 12,
-    }
+    };
 
     setUser(user);
 
@@ -27,7 +27,7 @@ test('Test getUser function', (expect) => {
     // Set up your arguments and expectations
     const user = {
         age: 12,
-    }
+    };
 
     setUser(user);
 

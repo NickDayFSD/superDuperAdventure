@@ -1,4 +1,4 @@
-import { createUser, setUser } from "./local-storage-utils.js";
+import { createUser, setUser } from './local-storage-utils.js';
 
 const attributeInputs = document.querySelectorAll('.attribute-inputs');
 const totalAttributePoints = document.querySelector('#available-attribute-points');
@@ -22,11 +22,7 @@ form.addEventListener('change', (e) => {
     }
 
     totalAttributePoints.textContent = totalPoints;
-
-    const attributeArray = [intelligence, strength, marksmanship, charisma, luck]
-
-    return attributeArray;
-})
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -35,14 +31,14 @@ form.addEventListener('submit', (e) => {
     const name = formData.get('name');
     const tagline = formData.get('tagline');
     const attributeArray = [
-        formData.get('intelligence'), 
+        formData.get('intelligence'),
         formData.get('strength'),
         formData.get('marksmanship'),
         formData.get('charisma'),
         formData.get('luck')
-    ]
+    ];
 
     const user = createUser(name, tagline, attributeArray);
     setUser(user);
-    window.location = './map'
-})
+    window.location = './map';
+});
