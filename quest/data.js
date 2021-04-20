@@ -6,7 +6,7 @@ const user = getUser();
 const fugitive = {
     id: 'fugitive',
     title: 'Catch the Escaped Fugitive',
-    image: '',
+    image: 'mando.jpg',
     description: 'You approach a bulletin board with the photo of a recently escaped convict. You learn that he was in prison for stealing.',
 
     // number required for success
