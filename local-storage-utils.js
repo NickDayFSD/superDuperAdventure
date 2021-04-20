@@ -20,6 +20,7 @@ export function createUser(name, tagline, formArray) {
         credits: 0,
         equipment: [],
         friends: [],
+        completedQuests: [],
         tagline,
         intelligence: formArray[0],
         stength: formArray[1],
@@ -30,5 +31,5 @@ export function createUser(name, tagline, formArray) {
         wisdom: 0,
     };
 
-    return user;
+    return user
 }
