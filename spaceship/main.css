@@ -16,6 +16,11 @@ li {
     margin-top: 1rem;
 }
 
+audio {
+    outline: none;
+    margin-left: 2rem;
+}
+
 
 
 .game-title {

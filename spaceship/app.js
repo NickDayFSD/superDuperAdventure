@@ -1,15 +1,25 @@
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
+const music = document.getElementById('spaceTravelAudio');
+
+music.volume = 0.3;
 canvas.width = 1200;
 canvas.height = 900;
 
 const keys = [];
 
 const planetOne = {
-    x: 900,
-    y: 600,
-    width: 70,
-    height: 48,
+    x: 700,
+    y: 400,
+    width: 700,
+    height: 700,
+};
+
+const planetTwo = {
+    x: 400,
+    y: 200,
+    width: 700,
+    height: 700,
 };
 
 const player = {
@@ -26,7 +36,9 @@ const player = {
 const playerSprite = new Image();
 playerSprite.src = '../assets/spaceship_left.png';
 const planetOneSprite = new Image();
-planetOneSprite.src = '../assets/Terran.png';
+planetOneSprite.src = '../assets/test_planet.png';
+const planetTwoSprite = new Image();
+planetTwoSprite.src = '../assets/Lava.png';
 const background = new Image();
 background.src = '../assets/space.png';
 
@@ -37,6 +49,10 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 function intersectRect() {
     if ((player.x + player.y) === (planetOne.x + planetOne.y)) {
         window.location = '../map/index.html';
+    }
+
+    if ((player.x + player.y) === (planetTwo.x + planetTwo.y)) {
+        alert('Hooray');
     }
 }
 
@@ -65,6 +81,17 @@ function animate() {
         planetOne.width,
         planetOne.height
     );
+    drawSprite(
+        planetTwoSprite,
+        planetTwo.width * player.frameX,
+        planetTwo.height * player.frameY,
+        planetTwo.width,
+        planetTwo.height,
+        planetTwo.x,
+        planetTwo.y,
+        planetTwo.width,
+        planetTwo.height
+    );
     movePlayer();
     requestAnimationFrame(animate);
     intersectRect(planetOne, player);
@@ -87,8 +114,10 @@ function movePlayer() {
         player.y += player.speed;
     } else if (keys['a'] && player.x > 150) {
         player.x -= player.speed;
+        playerSprite.src = '../assets/spaceship_left.png';
     } else if (keys['d'] && player.x < 960) {
         player.x += player.speed;
+        playerSprite.src = '../assets/spaceship_right.png';
     }
 }
 
