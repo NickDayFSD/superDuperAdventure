@@ -33,3 +33,5 @@ export function createUser(name, tagline, formArray) {
 
     return user
 }
+
+export function updateUser(user, )
