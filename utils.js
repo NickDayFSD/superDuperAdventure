@@ -13,10 +13,6 @@ export function userSuccess(quest, questChoice) {
     const user = getUser();
     const userRoll = rollGenerator(user[questChoice.attribute]);
 
-    console.log('this is the user questChoice attribute: ' + user[questChoice.attribute]);
-    console.log('this is the questChoice: ' + questChoice);
-    console.log('this is the user roll: ' + userRoll);
-
     const difficulty = quest.difficulty;
     if (difficulty <= userRoll) {
         return true;

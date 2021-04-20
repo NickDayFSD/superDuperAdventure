@@ -84,7 +84,7 @@ const fugitive = {
                     id: 'fugitive',
                     name: 'Markov',
                 },
-                credits: 500,
+                credits: 1000,
             },
             message: 'You talk him into leaving his life of crime. Markov gives you the key to his deposit box. Gain 1000 credits.'
         },

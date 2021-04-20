@@ -34,4 +34,19 @@ export function createUser(name, tagline, formArray) {
     return user
 }
 
-export function updateUser(user, )
+//export function updateUser(user, )
+// export function updateUserGivenChoice(success, user, choice, quest) {
+//     if (success === true) {
+//         user.credits += choice.positiveResult.reward.credits;
+//         user.equipment.push(choice.positiveResult.reward.equipment);
+//         user.friends.push(choice.positiveResult.reward.friend);
+//         user.credits += quest.credits;
+//         setUser(user);
+//     } else {
+//         user.credits += choice.negativeResult.reward.credits;
+//         user.equipment.push(choice.negativeResult.reward.equipment);
+//         user.friends.push(choice.negativeResult.reward.friend);
+//         user.credits += quest.credits;
+//         setUser(user);
+//     }
+// }
