@@ -40,7 +40,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 function intersectRect() {
     if ((player.x + player.y) === (boss.x + boss.y)) {
-        alert(' big boss man ');
+        window.location = "../quest/?id=fugitive";
     }
 }
 

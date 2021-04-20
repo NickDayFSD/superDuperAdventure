@@ -1,4 +1,5 @@
-import { rollGenerator, findById } from '../utils.js';
+import { rollGenerator, findById, userSuccess } from '../utils.js';
+import { quests } from '../quest/data.js';
 
 const test = QUnit.test;
 
@@ -50,3 +51,25 @@ test('should take in an array and ID, return item', (expect) => {
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
 });
+
+// test('should take in quest and questchoice and return success or failure', (expect) => {
+//     //Arrange
+//     // Set up your arguments and expectations
+//     const user = {
+//         id: 2,
+//         name: 'jamie',
+//         strength: 3,
+//     },
+  
+
+//     const expected = 
+
+//     let actual = findById(object, 8);
+
+//     //Act 
+//     // Call the function you're testing and set the result to a const
+
+//     //Expect
+//     // Make assertions about what is expected versus the actual result
+//     expect.deepEqual(actual, expected);
+// });
