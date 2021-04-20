@@ -37,7 +37,7 @@ const fugitive = {
 
         // add bonus to roll
         marksmanship: '1 to 10',
-        rpositiveResult: {
+        positiveResult: {
             reward: {
                 equipment: '',
                 friend: '',
@@ -52,6 +52,7 @@ const fugitive = {
                 credits: 0,
             },
             message: ''
+
         },
     }, {
         id: 'convince',
