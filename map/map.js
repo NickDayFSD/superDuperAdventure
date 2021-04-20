@@ -16,13 +16,32 @@ const player = {
     movement: false,
 };
 
+const boss = {
+    x: 200,
+    y: 200,
+    width: 100,
+    height: 100,
+    frameX: 0,
+    frameY: 0,
+    speed: 0,
+    movement: false
+};
+
 const playerSprite = new Image();
 playerSprite.src = '../assets/main.png';
+const bossSprite = new Image();
+bossSprite.src = '../assets/bahamut.png';
 const background = new Image();
-background.src = '../assets/Skeld.jpeg';
+background.src = '../assets/map.jpg';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+}
+
+function intersectRect() {
+    if ((player.x + player.y) === (boss.x + boss.y)) {
+        alert(' big boss man ');
+    }
 }
 
 function animate() {
@@ -39,8 +58,20 @@ function animate() {
         player.width,
         player.height
     );
+    drawSprite(
+        bossSprite,
+        boss.width * boss.frameX,
+        boss.height * boss.frameY,
+        boss.width,
+        boss.height,
+        boss.x,
+        boss.y,
+        boss.width,
+        boss.height
+    );
     movePlayer();
     requestAnimationFrame(animate);
+    intersectRect(player, boss);
 }
 
 animate();
@@ -57,13 +88,13 @@ function movePlayer() {
     if (keys['w'] && player.y > 70) {
         player.frameY = 3;
         player.y -= player.speed;
-    } else if (keys['s'] && player.y < 660) {
+    } else if (keys['s'] && player.y < 800) {
         player.frameY = 0;
         player.y += player.speed;
-    } else if (keys['a'] && player.x > 250) {
+    } else if (keys['a'] && player.x > 150) {
         player.frameY = 1;
         player.x -= player.speed;
-    } else if (keys['d'] && player.x < 920) {
+    } else if (keys['d'] && player.x < 960) {
         player.frameY = 2;
         player.x += player.speed;
     }
