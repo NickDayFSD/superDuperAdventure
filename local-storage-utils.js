@@ -34,7 +34,13 @@ export function createUser(name, tagline, formArray) {
     return user
 }
 
-//export function updateUser(user, )
+//export function updateUserCredits(user, success, choice) {
+//     user.credits += choice.positiveResult.reward.credits;
+//     user.credits += quest.credits;
+//     setUser(user);
+// }
+
+// export 
 // export function updateUserGivenChoice(success, user, choice, quest) {
 //     if (success === true) {
 //         user.credits += choice.positiveResult.reward.credits;
