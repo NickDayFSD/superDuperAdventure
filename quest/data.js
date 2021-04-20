@@ -3,7 +3,7 @@ import { rollGenerator } from '../utils.js';
 
 const user = getUser();
 
-export const fugitive = {
+const fugitive = {
     id: 'fugitive',
     title: 'Catch the Escaped Fugitive',
     image: '',
@@ -102,3 +102,5 @@ export const fugitive = {
     }],
     credits: 5000,
 };
+
+export const quests = [fugitive];
