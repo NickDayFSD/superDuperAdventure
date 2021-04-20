@@ -12,21 +12,20 @@ const form = document.querySelector('form');
 const submitButton = document.getElementById('submit-button');
 const descriptionContainer = document.getElementById('description');
 const resultReadout = document.getElementById('results');
+const resultsButton = document.getElementById('results-button');
 
 const questId = params.get('id')
 const quest = findById(quests, questId)
-
-console.log('this is the quest' + questId, quest)
 
 h2.textContent = quest.title;
 descriptionContainer.textContent = quest.description;
 
 
-image.src = `../assets/${quest.image}` 
+image.src = `../assets/${quest.image}`
 
 
 for (let choice of quest.choices) {
-    
+
     const label = document.createElement('label');
     const radio = document.createElement('input');
 
@@ -44,16 +43,43 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     const choiceId = formData.get('choice');
     const choice = findById(quest.choices, choiceId);
-    
+
     // roll to see if positive or negative result
     const success = userSuccess(quest, choice);
     // display correct result
     if (success === true) {
-        pTagResults.textContent = choice.positiveResult.message;
+        pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
+        user.credits += choice.positiveResult.reward.credits;
+        if (choice.positiveResult.reward.equipment) {
+            user.equipment.push(choice.positiveResult.reward.equipment);
+        }
+        if (choice.positiveResult.reward.friend) {
+            user.friends.push(choice.positiveResult.reward.friend);
+        }
+        user.credits += quest.credits;
+        setUser(user);
     } else {
         pTagResults.textContent = choice.negativeResult.message;
+        user.credits += choice.negativeResult.reward.credits;
+        if (choice.negativeResult.reward.equipment) {
+            user.equipment.push(choice.negativeResult.reward.equipment);
+        }
+        if (choice.negativeResult.reward.friend) {
+            user.friends.push(choice.negativeResult.reward.friend);
+        }
+        user.credits += quest.credits;
+        setUser(user);
     }
 
+    user.completedQuests.push(quest);
+    setUser(user);
+
     resultReadout.classList.add('display');
-    console.log(success);
+
+    submitButton.style.display = 'none';
 });
+
+resultsButton.addEventListener('click', () => {
+    window.location = '../map';
+
+})

@@ -18,7 +18,7 @@ form.addEventListener('change', (e) => {
     let totalPoints = 8 - attributeTotal;
 
     for (let attribute of attributeInputs) {
-        attribute.max = totalPoints + attribute.value;
+        attribute.max = Number(totalPoints) + Number(attribute.value);
     }
 
     totalAttributePoints.textContent = totalPoints;
