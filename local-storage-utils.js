@@ -30,5 +30,5 @@ export function createUser(name, tagline, formArray) {
         wisdom: 0,
     }
 
-    return user;
+    return user
 }
