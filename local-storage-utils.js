@@ -15,11 +15,12 @@ export function createUser(name, tagline, formArray) {
     const user = {
         name,
         age: 18,
-        hp: 30 + 3*formArray[1],
+        hp: 30 + 3 * formArray[1],
         xp: 0,
         credits: 0,
         equipment: [],
         friends: [],
+        completedQuests: [],
         tagline,
         intelligence: formArray[0],
         stength: formArray[1],
@@ -28,7 +29,7 @@ export function createUser(name, tagline, formArray) {
         luck: formArray[4],
         morality: 0,
         wisdom: 0,
-    }
+    };
 
     return user
 }
