@@ -1,3 +1,9 @@
-import { fugitive } from './data.js';
+const params = new URLSearchParams(window.location.search);
+import { quests } from './data.js';
+import { setUser, getUser } from '../local-storage-utils.js';
+import { findById } from '../utils.js';
 
-console.log(fugitive.choices[0].successChance);
+const section = document.querySelector('section');
+const user = getUser();
+
+
