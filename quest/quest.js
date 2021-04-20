@@ -13,11 +13,21 @@ const fugitive = {
 
         // add bonus to roll
         strength: '1 to 10',
-        result: '',
-        reward: {
-            equipment: '',
-            friend: '',
-            credits: 0,
+        positiveResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
+        },
+        negativeResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
         },
     }, {
         id: 'dead',
@@ -27,10 +37,21 @@ const fugitive = {
 
         // add bonus to roll
         marksmanship: '1 to 10',
-        reward: {
-            equipment: '',
-            friend: '',
-            credits: 0,
+        rpositiveResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
+        },
+        negativeResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
         },
     }, {
         id: 'convince',
@@ -40,10 +61,21 @@ const fugitive = {
 
         // add bonus to roll
         charisma: '1 to 10',
-        reward: {
-            equipment: '',
-            friend: '',
-            credits: 0,
+        positiveResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
+        },
+        negativeResult: {
+            reward: {
+                equipment: '',
+                friend: '',
+                credits: 0,
+            },
+            message: ''
         },
     }],
     credits: 50000,
