@@ -40,5 +40,5 @@ form.addEventListener('submit', (e) => {
 
     const user = createUser(name, tagline, attributeArray);
     setUser(user);
-    window.location = './spaceship';
+    window.location = './map';
 });
