@@ -1,4 +1,135 @@
 
+const intro = {
+    id: 'intro',
+    title: 'You are a Bounty Hunter',
+    image: 'intro-1.jpg',
+    audio: 'The Mandalorian.mp3',
+    description: `So, ${user.name}. Are you ready? You are a bounty hunter trekking across the galaxy ready to bring justice to those who need it. Throughout your journey, you will face a plethora of twisted foes and your occasional helping hand. Make wise choices, because everything you do affects future outcomes. Prepare yourself. Oh, and remember: If ever you find yourself doubting, know that This Is The Way.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'begin',
+        description: 'Let\'s do this!',
+        required: {},
+
+        // add bonus to roll
+        attribute: null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null,
+        },
+    }],
+    credits: 0,
+};
+const wigmolesia = {
+    id: 'wigmolesia',
+    title: 'Town of Wigmolesia',
+    image: 'wigmolesia-2.webp',
+    audio: 'The good the bad and the ugly - Theme.mp3',
+    description: `You've begin your adventure at the town of Wigmolesia. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'saloon',
+        description: 'Visit the saloon',
+        required: {},
+
+        // add bonus to roll
+        attribute: null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null,
+        },
+    }, {
+        id: 'sheriff',
+        description: 'Visit the Sheriff\'s',
+        required: {},
+
+        // add bonus to roll
+        attribute:  null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: null
+
+        },
+    }, {
+        id: 'strength',
+        description: 'Punch the beast in it\'s stupid head',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'strength',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'tooth',
+                    name: 'Monster Tooth',
+                    strength: 1,
+                    value: 1000,
+                },
+                friend: {
+                    id: 'Sally',
+                    name: 'Sally'
+                },
+                credits: 1000,
+            },
+            message: 'You deliver a whopping blow to the monster\'s ugly face and knock out it\'s tooth. A bystander by the name of Sally Wiggins is so impressed by your feat of strength and courageousness that she decides to befiredn you forever. You pick up the tooth of the beast and stow it away, and the sheriff rewards you 1500 credits.'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -1500,
+            },
+            message: 'You wind up a heckin\' good blow but the beast beats you to the punch. You\'re dragged around the town in embarrassment. Bystanders escort you to the nearest hospital and your fees come out to 1500 credits. You walk away in shame.'
+        },
+    }],
+    credits: 3000,
+};
+
+
 const beast = {
     id: 'beast',
     title: 'Save the Town from the Beast',
@@ -283,4 +414,10 @@ const fugitive = {
 //     credits: 10000,
 // };
 
-export const quests = [fugitive, beast];
+export const quests = 
+[   
+    intro,
+    fugitive, 
+    beast,
+    wigmolesia,
+];

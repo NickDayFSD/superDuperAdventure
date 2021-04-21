@@ -1,6 +1,5 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
 
-
 const user = getUser();
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
@@ -25,7 +24,9 @@ const player = {
     movement: false,
 };
 
+
 // show the reward over the top
+
 const fugitive = {
     x: 200,
     y: 200,
@@ -38,6 +39,7 @@ const fugitive = {
 };
 
 // show reward over the top
+
 const beast = {
     x: 500,
     y: 500,
@@ -52,7 +54,9 @@ const beast = {
 const playerSprite = new Image();
 playerSprite.src = '../assets/main.png';
 const fugitiveSprite = new Image();
+
 fugitiveSprite.src = '../assets/darkknight.png';
+
 const beastSprite = new Image();
 beastSprite.src = '../assets/bahamut.png';
 const background = new Image();
@@ -64,22 +68,20 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 function intersectRect() {
 
-    const fugitiveQuest = user.completedQuests.fugitive;
-
-    const beastQuest = user.completedQuests.beast;
-
+    const fugitiveQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
+    const beastQuest = user.completedQuests.find(quest => quest.id === 'beast');
     if (!fugitiveQuest) {
-        if (player.x > fugitive.x && player.x < (fugitive.x + fugitive.width) && player.y > fugitive.y && player.y < (fugitive.y + fugitive.height)) {
-            window.location = `../quest/?id=fugitive`;
-        }
-    }
+        if ((player.x >= fugitive.x && player.x <= (fugitive.x + 50)) && (player.y >= fugitive.y && player.y <= (fugitive.y + 50))) {
+            window.location = `../quest/?id=wigmolesia`;
+        } 
+    } 
     if (!beastQuest) {
-        if (player.x > beast.x && player.x < (beast.x + beast.width) && player.y > beast.y && player.y < (beast.y + beast.height)) {
+        if ((player.x >= beast.x && player.x <= (beast.x + 50)) && (player.y >= beast.y && (player.y <= beast.y + 50))) {
             window.location = `../quest/?id=beast`;
-        }
+        } 
     }
-
 }
+    
 
 
 function animate() {

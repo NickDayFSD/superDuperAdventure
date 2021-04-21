@@ -5,6 +5,7 @@ import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js'
 
 const user = getUser();
 
+const section = document.querySelector('section');
 const h2 = document.querySelector('h2');
 const pTagResults = document.querySelector('p');
 const image = document.querySelector('img');
@@ -14,13 +15,25 @@ const descriptionContainer = document.getElementById('description');
 const resultReadout = document.getElementById('results');
 const resultsButton = document.getElementById('results-button');
 
+const audio = document.createElement('audio');
+audio.autoplay = true;
+audio.volume = 0.5;
+const sourceTag = document.createElement('source');
+
 const questId = params.get('id');
 const quest = findById(quests, questId);
 
 h2.textContent = quest.title;
 descriptionContainer.textContent = quest.description;
 
+
+sourceTag.src = `../assets/${quest.audio}`;
 image.src = `../assets/${quest.image}`;
+
+section.append(audio);
+
+audio.append(sourceTag);
+audio.controls = true;
 
 for (let choice of quest.choices) {
 
@@ -59,6 +72,10 @@ form.addEventListener('submit', (e) => {
     resultReadout.classList.add('display');
 
     submitButton.style.display = 'none';
+
+    if (choice.id === 'begin') {
+        window.location = `../quest/?id=wigmolesia`;
+    }
 });
 
 resultsButton.addEventListener('click', () => {
