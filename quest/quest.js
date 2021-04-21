@@ -24,8 +24,7 @@ image.src = `../assets/${quest.image}`
 
 for (let choice of quest.choices) {
 
-    if (doesUserSatisfyRequirements(choice.id, user)) {
-
+    if (doesUserSatisfyRequirements(choice.required.id, user)) {
         const label = document.createElement('label');
         const radio = document.createElement('input');
 

@@ -55,20 +55,23 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 }
 
 function intersectRect() {
+
     const fugitiveQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
+
     const beastQuest = user.completedQuests.find(quest => quest.id === 'beast');
     if (!fugitiveQuest) {
-        if ((player.x === fugitive.x) && (player.y === fugitive.y)) {
+        if (player.x > fugitive.x && player.x < (fugitive.x + fugitive.width) && player.y > fugitive.y && player.y < (fugitive.y + fugitive.height)) {
             window.location = `../quest/?id=fugitive`;
-        } 
-    } 
-    if (!beastQuest) {
-        if ((player.x === beast.x) && (player.y === beast.y)) {
-            window.location = `../quest/?id=beast`;
-        } 
+        }
     }
+    if (!beastQuest) {
+        if (player.x > beast.x && player.x < (beast.x + beast.width) && player.y > beast.y && player.y < (beast.y + beast.height)) {
+            window.location = `../quest/?id=beast`;
+        }
+    }
+
 }
-    
+
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
