@@ -14,13 +14,18 @@ const descriptionContainer = document.getElementById('description');
 const resultReadout = document.getElementById('results');
 const resultsButton = document.getElementById('results-button');
 
-const questId = params.get('id')
-const quest = findById(quests, questId)
+const questId = params.get('id');
+const quest = findById(quests, questId);
 
 h2.textContent = quest.title;
 descriptionContainer.textContent = quest.description;
 
+<<<<<<< HEAD
 image.src = `../assets/${quest.image}`
+=======
+
+image.src = `../assets/${quest.image}`;
+>>>>>>> 2ba8702fe02f5ab273df6dd0c1ee61d50b8a0c48
 
 for (let choice of quest.choices) {
 
@@ -84,4 +89,9 @@ form.addEventListener('submit', (e) => {
 
 resultsButton.addEventListener('click', () => {
     window.location = '../map';
+<<<<<<< HEAD
 })
+=======
+
+});
+>>>>>>> 2ba8702fe02f5ab273df6dd0c1ee61d50b8a0c48
