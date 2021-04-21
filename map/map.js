@@ -1,10 +1,16 @@
-import { getUser } from '../local-storage-utils.js';
+import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
 import { quests } from '../quest/data.js';
+
 const user = getUser();
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
+
+console.log(areQuestsCompleted())
+if (areQuestsCompleted()) {
+    window.location = '../results';
+};
 
 const keys = [];
 
@@ -56,9 +62,10 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 function intersectRect() {
 
-    const fugitiveQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
+    const fugitiveQuest = user.completedQuests.fugitive;
 
-    const beastQuest = user.completedQuests.find(quest => quest.id === 'beast');
+    const beastQuest = user.completedQuests.beast;
+
     if (!fugitiveQuest) {
         if (player.x > fugitive.x && player.x < (fugitive.x + fugitive.width) && player.y > fugitive.y && player.y < (fugitive.y + fugitive.height)) {
             window.location = `../quest/?id=fugitive`;

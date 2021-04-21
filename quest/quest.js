@@ -73,7 +73,8 @@ form.addEventListener('submit', (e) => {
         setUser(user);
     }
 
-    user.completedQuests.push(quest);
+    user.completedQuests[questId] = true
+
     setUser(user);
 
     resultReadout.classList.add('display');

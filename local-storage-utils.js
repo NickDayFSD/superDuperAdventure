@@ -1,4 +1,4 @@
-import { quests } from "./quest/data.js";
+import { quests } from './quest/data.js';
 
 const USER = 'USER';
 
@@ -21,7 +21,7 @@ export function createUser(name, tagline, formArray) {
         credits: 0,
         equipment: [],
         friends: [],
-        completedQuests: [],
+        completedQuests: {},
         tagline,
         intelligence: Number(formArray[0]),
         strength: Number(formArray[1]),
@@ -35,14 +35,15 @@ export function createUser(name, tagline, formArray) {
     return user
 }
 
-export function areAllQuestsComplete() {
+export function areQuestsCompleted() {
     const user = getUser();
 
-    quests.forEach(quest => {
-        if (!user.completedQuests[quest.id]) {
+    for (let object of quests) {
+
+        if (!user.completedQuests[object.id]) {
             return false;
         }
-    })
+    }
     return true;
 }
 
