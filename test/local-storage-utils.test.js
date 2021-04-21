@@ -1,4 +1,4 @@
-import { setUser, getUser, areQuestsCompleted, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
+import { setUser, getUser, areQuestsCompleted } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
@@ -49,7 +49,7 @@ test('Test to see if all user quests are completed', (expect) => {
             beast: true,
             fugitive: false,
         }
-    }
+    };
 
     const actual = areQuestsCompleted(user);
 

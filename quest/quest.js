@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 import { quests } from './data.js';
-import { setUser, getUser, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
+import { getUser, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
 import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js';
 
 const user = getUser();
@@ -20,7 +20,7 @@ const quest = findById(quests, questId);
 h2.textContent = quest.title;
 descriptionContainer.textContent = quest.description;
 
-image.src = `../assets/${quest.image}`
+image.src = `../assets/${quest.image}`;
 
 for (let choice of quest.choices) {
 
@@ -63,4 +63,4 @@ form.addEventListener('submit', (e) => {
 
 resultsButton.addEventListener('click', () => {
     window.location = '../map';
-})
+});

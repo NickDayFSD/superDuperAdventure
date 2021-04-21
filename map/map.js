@@ -1,5 +1,5 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
-import { quests } from '../quest/data.js';
+
 
 const user = getUser();
 const canvas = document.querySelector('#main-canvas');
@@ -10,7 +10,7 @@ canvas.height = 900;
 
 if (areQuestsCompleted(user)) {
     window.location = '../results';
-};
+}
 
 const keys = [];
 
