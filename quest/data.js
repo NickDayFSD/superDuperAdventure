@@ -10,7 +10,8 @@ const beast = {
     choices: [{
         id: 'shoot',
         description: 'Aim for the head',
-        required: {},
+        required: {
+        },
 
         // add bonus to roll
         attribute: 'marksmanship',
