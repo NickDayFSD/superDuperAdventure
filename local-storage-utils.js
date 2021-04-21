@@ -46,6 +46,46 @@ export function areQuestsCompleted(user) {
     return true;
 }
 
+export function poistiveUserUpdate(choice, quest) {
+    const user = getUser();
+
+    user.credits += choice.positiveResult.reward.credits;
+    user.credits += quest.credits;
+
+    if (choice.positiveResult.reward.equipment) {
+        user.equipment.push(choice.positiveResult.reward.equipment);
+    }
+    if (choice.positiveResult.reward.friend) {
+        user.friends.push(choice.positiveResult.reward.friend);
+    }
+
+    user.morality += choice.morality;
+
+    user.completedQuests[quest.id] = true;
+
+    setUser(user);
+}
+
+export function negativeUserUpdate(choice, quest) {
+    const user = getUser();
+
+    user.credits += choice.negativeResult.reward.credits;
+    user.credits += quest.credits;
+
+    if (choice.negativeResult.reward.equipment) {
+        user.equipment.push(choice.negativeResult.reward.equipment);
+    }
+    if (choice.negativeResult.reward.friend) {
+        user.friends.push(choice.negativeResult.reward.friend);
+    }
+
+    user.morality += choice.morality;
+
+    user.completedQuests[quest.id] = true;
+
+    setUser(user);
+}
+
 //export function updateUserCredits(user, success, choice) {
 //     user.credits += choice.positiveResult.reward.credits;
 //     user.credits += quest.credits;

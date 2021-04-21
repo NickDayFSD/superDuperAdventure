@@ -9,6 +9,7 @@ export function findById(array, id) {
     return array.find(item => item.id === id);
 }
 
+// problem if luck = 0, always fails maybe change i
 export function luckRoll(luck, stat) {
     const rolls = [];
     let i;
@@ -32,6 +33,7 @@ export function userSuccess(quest, questChoice) {
 }
 
 export function doesUserSatisfyRequirements(requiredParamId, user) {
+
     const matchingItem = findById(user.equipment, requiredParamId);
     const matchingFriend = findById(user.friends, requiredParamId);
 

@@ -25,6 +25,7 @@ const player = {
     movement: false,
 };
 
+// show the reward over the top
 const fugitive = {
     x: 200,
     y: 200,
@@ -36,6 +37,7 @@ const fugitive = {
     movement: false
 };
 
+// show reward over the top
 const beast = {
     x: 500,
     y: 500,

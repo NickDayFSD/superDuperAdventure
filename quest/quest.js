@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 import { quests } from './data.js';
-import { setUser, getUser } from '../local-storage-utils.js';
+import { setUser, getUser, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
 import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js';
 
 const user = getUser();
@@ -47,35 +47,14 @@ form.addEventListener('submit', (e) => {
     // roll to see if positive or negative result
     const success = userSuccess(quest, choice);
     // display correct result
+
     if (success === true) {
         pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
-        user.credits += choice.positiveResult.reward.credits;
-        user.morality += choice.morality;
-        if (choice.positiveResult.reward.equipment) {
-            user.equipment.push(choice.positiveResult.reward.equipment);
-        }
-        if (choice.positiveResult.reward.friend) {
-            user.friends.push(choice.positiveResult.reward.friend);
-        }
-        user.credits += quest.credits;
-        setUser(user);
+        poistiveUserUpdate(choice, quest);
     } else {
         pTagResults.textContent = choice.negativeResult.message;
-        user.credits += choice.negativeResult.reward.credits;
-        user.morality += choice.morality;
-        if (choice.negativeResult.reward.equipment) {
-            user.equipment.push(choice.negativeResult.reward.equipment);
-        }
-        if (choice.negativeResult.reward.friend) {
-            user.friends.push(choice.negativeResult.reward.friend);
-        }
-        user.credits += quest.credits;
-        setUser(user);
+        negativeUserUpdate(choice, quest);
     }
-
-    user.completedQuests[questId] = true
-
-    setUser(user);
 
     resultReadout.classList.add('display');
 
