@@ -30,12 +30,12 @@ export function renderHeader(user) {
 
         equipmentUl.addEventListener('pointerenter', () => {
             li.style.display = 'block';
-        })
+        });
 
         equipmentUl.addEventListener('pointerleave', () => {
             li.style.display = 'none';
-        })
-    })
+        });
+    });
 
     friendsUl.textContent = 'Friends:';
     friendsUl.classList.add('dropdown');
@@ -50,13 +50,13 @@ export function renderHeader(user) {
 
             friendsUl.addEventListener('pointerenter', () => {
                 li.style.display = 'block';
-            })
+            });
             friendsUl.addEventListener('pointerleave', () => {
                 li.style.display = 'none';
-            })
-        })
+            });
+        });
 
-    })
+    });
 
     image.src = `../assets/main-display.png`;
 
