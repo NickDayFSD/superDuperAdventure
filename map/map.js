@@ -1,10 +1,15 @@
-import { getUser } from '../local-storage-utils.js';
-import { quests } from '../quest/data.js';
+import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
+
 const user = getUser();
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
+
+
+if (areQuestsCompleted(user)) {
+    window.location = '../results';
+}
 
 const keys = [];
 
@@ -19,6 +24,9 @@ const player = {
     movement: false,
 };
 
+
+// show the reward over the top
+
 const fugitive = {
     x: 200,
     y: 200,
@@ -29,6 +37,8 @@ const fugitive = {
     speed: 0,
     movement: false
 };
+
+// show reward over the top
 
 const beast = {
     x: 500,
@@ -44,7 +54,9 @@ const beast = {
 const playerSprite = new Image();
 playerSprite.src = '../assets/main.png';
 const fugitiveSprite = new Image();
-fugitiveSprite.src = '../assets/Ice.png';
+
+fugitiveSprite.src = '../assets/darkknight.png';
+
 const beastSprite = new Image();
 beastSprite.src = '../assets/bahamut.png';
 const background = new Image();
@@ -55,6 +67,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 }
 
 function intersectRect() {
+
     const fugitiveQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
     const beastQuest = user.completedQuests.find(quest => quest.id === 'beast');
     if (!fugitiveQuest) {
@@ -69,6 +82,7 @@ function intersectRect() {
     }
 }
     
+
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
