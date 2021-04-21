@@ -1,3 +1,7 @@
+import { getUser } from '../local-storage-utils.js';
+
+const user = getUser();
+
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
@@ -39,10 +43,16 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 }
 
 function intersectRect() {
-    if ((player.x + player.y) === (boss.x + boss.y)) {
-        alert(' big boss man ');
+    for (let object of quests) {
+        const matchingQuest = user.completedQuests.find(quest => quest.id === object.id);
+        if (!matchingQuest) {
+            if ((player.x + player.y) === (boss.x + boss.y)) {
+                window.location = `../quest/?id=${object.id}`;
+            }
+        }
     }
 }
+
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
