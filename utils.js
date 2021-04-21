@@ -13,7 +13,7 @@ export function findById(array, id) {
 export function luckRoll(luck, stat) {
     const rolls = [];
     let i;
-    for (i = 0; i < luck; i++) {
+    for (i = -1; i < luck; i++) {
         const roll = rollGenerator(stat);
         rolls.push(roll);
     }

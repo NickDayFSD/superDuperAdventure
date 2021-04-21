@@ -4,7 +4,7 @@ const intro = {
     title: 'You are a Bounty Hunter',
     image: 'intro-1.jpg',
     audio: 'The Mandalorian.mp3',
-    description: `So, ${user.name}. Are you ready? You are a bounty hunter trekking across the galaxy ready to bring justice to those who need it. Throughout your journey, you will face a plethora of twisted foes and your occasional helping hand. Make wise choices, because everything you do affects future outcomes. Prepare yourself. Oh, and remember: If ever you find yourself doubting, know that This Is The Way.`,
+    description: `Are you ready? You are a bounty hunter trekking across the galaxy ready to bring justice to those who need it. Throughout your journey, you will face a plethora of twisted foes and your occasional helping hand. Make wise choices, because everything you do affects future outcomes. Prepare yourself. Oh, and remember: If ever you find yourself doubting, know that This Is The Way.`,
 
     // number required for success
     difficulty: 0,
@@ -35,6 +35,7 @@ const intro = {
     }],
     credits: 0,
 };
+
 const wigmolesia = {
     id: 'wigmolesia',
     title: 'Town of Wigmolesia',

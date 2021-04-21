@@ -68,11 +68,11 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 
 function intersectRect() {
 
-    const fugitiveQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
-    const beastQuest = user.completedQuests.find(quest => quest.id === 'beast');
+    const fugitiveQuest = user.completedQuests.fugitive;
+    const beastQuest = user.completedQuests.beast;
     if (!fugitiveQuest) {
         if ((player.x >= fugitive.x && player.x <= (fugitive.x + 50)) && (player.y >= fugitive.y && player.y <= (fugitive.y + 50))) {
-            window.location = `../quest/?id=wigmolesia`;
+            window.location = `../quest/?id=fugitive`;
         } 
     } 
     if (!beastQuest) {
