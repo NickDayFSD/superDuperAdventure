@@ -17,7 +17,6 @@ export function createUser(name, tagline, formArray) {
         name,
         age: 18,
         hp: 30 + 3 * formArray[1],
-        xp: 0,
         credits: 0,
         equipment: [],
         friends: [],
@@ -29,7 +28,6 @@ export function createUser(name, tagline, formArray) {
         charisma: Number(formArray[3]),
         luck: Number(formArray[4]),
         morality: 0,
-        wisdom: 0,
     };
 
     return user;
