@@ -1,4 +1,4 @@
-import { getUser } from "./local-storage-utils.js";
+import { getUser } from './local-storage-utils.js';
 
 export function rollGenerator(stat) {
     const roll = Math.ceil(Math.random() * 10);
@@ -14,10 +14,10 @@ export function luckRoll(luck, stat) {
     const rolls = [];
     let i;
     for (i = 0; i < luck; i++) {
-        const roll = rollGenerator(stat)
-        rolls.push(roll)
+        const roll = rollGenerator(stat);
+        rolls.push(roll);
     }
-    console.log(rolls)
+    console.log(rolls);
     return Math.max(...rolls);
 }
 

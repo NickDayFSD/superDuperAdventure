@@ -1,6 +1,4 @@
-import { rollGenerator, findById, userSuccess, luckRoll, doesUserSatisfyRequirements } from '../utils.js';
-import { quests } from '../quest/data.js';
-import { setUser } from '../local-storage-utils.js';
+import { rollGenerator, findById, luckRoll, doesUserSatisfyRequirements } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -88,10 +86,11 @@ test('test to determine if the user has the required items to unlock a choice', 
                 id: 'Sally',
             }
         ],
-    }
+    };
 
     const weapon = {
-    }
+    };
+
     const expected = true;
 
     const actual = doesUserSatisfyRequirements(weapon.id, user);
