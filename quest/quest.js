@@ -76,6 +76,21 @@ form.addEventListener('submit', (e) => {
     if (choice.id === 'begin') {
         window.location = `../quest/?id=wigmolesia`;
     }
+    else if (choice.id === 'saloon') {
+        window.location = `../quest/?id=saloon`;
+    }
+    else if (choice.id === 'sheriff') {
+        window.location = `../quest/?id=sheriff`;
+    }
+    else if (choice.id === 'steal') {
+        window.location = `../quest/?id=wigmolesia`;
+    }
+    else if (choice.id === 'talkWithConvict') {
+        window.location = `../quest/?id=wigmolesia`;
+    }
+    else if (choice.id === 'talkWithSheriff') {
+        window.location = `../quest/?id=wigmolesia`;
+    }
 });
 
 resultsButton.addEventListener('click', () => {

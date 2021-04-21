@@ -95,40 +95,170 @@ const wigmolesia = {
 
         },
     }, {
-        id: 'strength',
-        description: 'Punch the beast in it\'s stupid head',
+        id: 'hotel',
+        description: 'Visit the Hotel',
         required: {},
 
         // add bonus to roll
-        attribute: 'strength',
+        attribute: null,
         morality: 0,
         positiveResult: {
             reward: {
-                equipment: {
-                    id: 'tooth',
-                    name: 'Monster Tooth',
-                    strength: 1,
-                    value: 1000,
-                },
-                friend: {
-                    id: 'Sally',
-                    name: 'Sally'
-                },
-                credits: 1000,
+                equipment: null,
+                friend: null,
+                credits: null,
             },
-            message: 'You deliver a whopping blow to the monster\'s ugly face and knock out it\'s tooth. A bystander by the name of Sally Wiggins is so impressed by your feat of strength and courageousness that she decides to befiredn you forever. You pick up the tooth of the beast and stow it away, and the sheriff rewards you 1500 credits.'
+            message: null
+        },
+        negativeResult: {
+            reward: null,
+            message: null
+        },
+    }],
+    credits: null,
+};
+const sheriff = {
+    id: 'sheriff',
+    title: 'Sheriff of Wigmolesia',
+    image: 'sheriffJail.jpg',
+    audio: '',
+    description: `The sheriff's sitting at his desk and a single convict in the cell behind him. You notice the case of rifles on the wall.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'steal',
+        description: 'Take a rifle when sheriff isn\'t looking',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'luck',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'laser rifle'
+                },
+                friend: null,
+                credits: null,
+            },
+            message: 'You succed in taking the rifle. You\'ve seen better but this\'ll do.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
                 friend: null,
-                credits: -1500,
+                credits: null,
             },
-            message: 'You wind up a heckin\' good blow but the beast beats you to the punch. You\'re dragged around the town in embarrassment. Bystanders escort you to the nearest hospital and your fees come out to 1500 credits. You walk away in shame.'
+            message: null,
+        },
+    }, {
+        id: 'talkWithConvict',
+        description: 'Talk with the jailed convict',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive'
+                },
+                credits: null,
+            },
+            message: `All they're saying is how innocent they are. You sympathize with the convict and make friends.`
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: null
+
+        },
+    }, {
+        id: 'talkWithSheriff',
+        description: 'Talk with the sheriff',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'sheriff',
+                    name: 'Sheriff Tucker'
+                },
+                credits: null,
+            },
+            message: `Sheriff tells you things have been rough around town. He could use a hand every now and then. You agree to do what you can. You form a friendship with Sheriff Tucker.`
+        },
+        negativeResult: {
+            reward: null,
+            message: null
         },
     }],
-    credits: 3000,
+    credits: null,
 };
+
+const saloon = {
+    id: 'saloon',
+    title: 'Wigmolesia Saloon',
+    image: 'space_saloon.jpg',
+    audio: '',
+    description: `The smell of Ragnook, the planetary drink of Terran, fills the air. Scowls from across the room darken the mood. You approach the bar and ask for a glass of Ragnook. Someone approaches from behind. "You've come to wrong place, stranger." What do you do?`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'punch',
+        description: 'Knock him out',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'strength',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'blaster',
+                    name: 'blaster',
+                    value: 1000
+                },
+                friend: null,
+                credits: null,
+            },
+            message: 'You whollop this guy and he falls to the floor with a thud. His buddies in the corner stare in disbelief before vacating the bar. You reach into the sorry fellow\'s waistband and take his blaster for the trouble he caused you.'
+        },
+    }, {
+        id: 'talk',
+        description: 'Talk your way out',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'barDude',
+                    name: 'Glork'
+                },
+                credits: 0,
+            },
+            message: `"I'm not here to cause trouble and I advise you step away if you don't want any either." Glork pauses and lets out a chuckle. "You're alright, cowboy. How 'bout a Ragnook on me." Glork becomes your friend.`
+        },
+    }],
+    credits: 100,
+};
+
+
 
 
 const beast = {
@@ -421,4 +551,6 @@ export const quests =
     fugitive, 
     beast,
     wigmolesia,
+    saloon,
+    sheriff
 ];
