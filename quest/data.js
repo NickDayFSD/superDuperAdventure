@@ -103,4 +103,88 @@ const fugitive = {
     credits: 5000,
 };
 
+// const murderMystery = {
+//     id: 'murder-mystery',
+//     title: 'Find the Mayor\'s murderer',
+//     image: '',
+//     description: 'You come upon a small town called Pancake. The mayor, Annie Syrup, has been slain! The bounty board has a posting for identifying the murderer with a bonus for bringing them in alive.',
+
+//     // number required for success
+//     difficulty: 5,
+//     choices: [{
+//         id: 'crimescene',
+//         description: 'Go back to the scene of the crime and collect evidence to deduce the events.',
+//         required: {},
+
+//         // add bonus to roll
+//         attribute: 'intelligence',
+//         positiveResult: {
+//             reward: {
+//                 equipment: 'murder weapon',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: 'You find the murder weapon! It is an ornate dagger with a bejeweled hilt and enscription that says "Orcut". Whoever did this is part of the Orcut clan.'
+//         },
+//         negativeResult: {
+//             reward: {
+//                 equipment: 'tax writ',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: 'At the scene of the crime, you find a writ awaiting the mayor\'s signature declaring a new tax on spacecraft fuel cells. Whoever did this, could have been trying to prevent this cost.'
+//         },
+//     }, {
+//         id: 'tavern',
+//         description: 'Go to the tavern called Zebra and gather information.',
+
+//         required: {},
+
+//         // add bonus to roll
+//         attribute: '',
+//         positiveResult: {
+//             reward: {
+//                 equipment: '',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: ''
+//         },
+//         negativeResult: {
+//             reward: {
+//                 equipment: '',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: ''
+
+//         },
+//     }, {
+//         id: 'convince',
+//         description: 'Talk Him out of it',
+//         result: '',
+//         required: {},
+
+//         // add bonus to roll
+//         attribute: '',
+//         positiveResult: {
+//             reward: {
+//                 equipment: '',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: ''
+//         },
+//         negativeResult: {
+//             reward: {
+//                 equipment: '',
+//                 friend: '',
+//                 credits: 0,
+//             },
+//             message: ''
+//         },
+//     }],
+//     credits: 10000,
+// };
+
 export const quests = [fugitive];
