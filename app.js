@@ -2,8 +2,11 @@ import { createUser, setUser } from './local-storage-utils.js';
 
 const attributeInputs = document.querySelectorAll('.attribute-inputs');
 const totalAttributePoints = document.querySelector('#available-attribute-points');
+const audio = document.querySelector('audio');
 
 const form = document.querySelector('form');
+
+audio.volume = .5;
 
 
 form.addEventListener('change', (e) => {
