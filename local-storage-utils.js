@@ -22,14 +22,37 @@ export function createUser(name, tagline, formArray) {
         friends: [],
         completedQuests: [],
         tagline,
-        intelligence: formArray[0],
-        stength: formArray[1],
-        marksmanship: formArray[2],
-        charisma: formArray[3],
-        luck: formArray[4],
+        intelligence: Number(formArray[0]),
+        strength: Number(formArray[1]),
+        marksmanship: Number(formArray[2]),
+        charisma: Number(formArray[3]),
+        luck: Number(formArray[4]),
         morality: 0,
         wisdom: 0,
     };
 
     return user
 }
+
+//export function updateUserCredits(user, success, choice) {
+//     user.credits += choice.positiveResult.reward.credits;
+//     user.credits += quest.credits;
+//     setUser(user);
+// }
+
+// export 
+// export function updateUserGivenChoice(success, user, choice, quest) {
+//     if (success === true) {
+//         user.credits += choice.positiveResult.reward.credits;
+//         user.equipment.push(choice.positiveResult.reward.equipment);
+//         user.friends.push(choice.positiveResult.reward.friend);
+//         user.credits += quest.credits;
+//         setUser(user);
+//     } else {
+//         user.credits += choice.negativeResult.reward.credits;
+//         user.equipment.push(choice.negativeResult.reward.equipment);
+//         user.friends.push(choice.negativeResult.reward.friend);
+//         user.credits += quest.credits;
+//         setUser(user);
+//     }
+// }

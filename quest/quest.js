@@ -1,83 +1,85 @@
-const fugitive = {
-    id: 'fugitive',
-    title: 'Catch the Escaped Fugitive',
-    image: '',
-    description: '',
+const params = new URLSearchParams(window.location.search);
+import { quests } from './data.js';
+import { setUser, getUser } from '../local-storage-utils.js';
+import { findById, userSuccess } from '../utils.js';
 
-    // number required for success
-    difficulty: '1 to 10',
-    choices: [{
-        id: 'alive',
-        description: 'Take him alive',
-        required: {},
+const user = getUser();
 
-        // add bonus to roll
-        strength: '1 to 10',
-        positiveResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
-        },
-        negativeResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
-        },
-    }, {
-        id: 'dead',
-        description: 'Take him dead',
-        result: '',
-        required: {},
+const h2 = document.querySelector('h2');
+const pTagResults = document.querySelector('p');
+const image = document.querySelector('img');
+const form = document.querySelector('form');
+const submitButton = document.getElementById('submit-button');
+const descriptionContainer = document.getElementById('description');
+const resultReadout = document.getElementById('results');
+const resultsButton = document.getElementById('results-button');
 
-        // add bonus to roll
-        marksmanship: '1 to 10',
-        positiveResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
-        },
-        negativeResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
+const questId = params.get('id');
+const quest = findById(quests, questId);
 
-        },
-    }, {
-        id: 'convince',
-        description: 'Talk Him out of it',
-        result: '',
-        required: {},
+h2.textContent = quest.title;
+descriptionContainer.textContent = quest.description;
 
-        // add bonus to roll
-        charisma: '1 to 10',
-        positiveResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
-        },
-        negativeResult: {
-            reward: {
-                equipment: '',
-                friend: '',
-                credits: 0,
-            },
-            message: ''
-        },
-    }],
-    credits: 50000,
-};
+
+image.src = `../assets/${quest.image}`;
+
+
+for (let choice of quest.choices) {
+
+    const label = document.createElement('label');
+    const radio = document.createElement('input');
+
+    radio.type = 'radio';
+    radio.name = 'choice';
+    radio.value = choice.id;
+
+    label.append(radio, choice.description);
+    form.prepend(label);
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const choiceId = formData.get('choice');
+    const choice = findById(quest.choices, choiceId);
+
+    // roll to see if positive or negative result
+    const success = userSuccess(quest, choice);
+    // display correct result
+    if (success === true) {
+        pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
+        user.credits += choice.positiveResult.reward.credits;
+        if (choice.positiveResult.reward.equipment) {
+            user.equipment.push(choice.positiveResult.reward.equipment);
+        }
+        if (choice.positiveResult.reward.friend) {
+            user.friends.push(choice.positiveResult.reward.friend);
+        }
+        user.credits += quest.credits;
+        setUser(user);
+    } else {
+        pTagResults.textContent = choice.negativeResult.message;
+        user.credits += choice.negativeResult.reward.credits;
+        if (choice.negativeResult.reward.equipment) {
+            user.equipment.push(choice.negativeResult.reward.equipment);
+        }
+        if (choice.negativeResult.reward.friend) {
+            user.friends.push(choice.negativeResult.reward.friend);
+        }
+        user.credits += quest.credits;
+        setUser(user);
+    }
+
+    user.completedQuests.push(quest);
+    setUser(user);
+
+    resultReadout.classList.add('display');
+
+    submitButton.style.display = 'none';
+});
+
+resultsButton.addEventListener('click', () => {
+    window.location = '../map';
+
+});
