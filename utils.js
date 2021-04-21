@@ -1,4 +1,4 @@
-import { getUser } from "./local-storage-utils.js";
+import { getUser } from './local-storage-utils.js';
 
 export function rollGenerator(stat) {
     const roll = Math.ceil(Math.random() * 10);
@@ -9,14 +9,15 @@ export function findById(array, id) {
     return array.find(item => item.id === id);
 }
 
+// problem if luck = 0, always fails maybe change i
 export function luckRoll(luck, stat) {
     const rolls = [];
     let i;
-    for (i = 0; i < luck; i++) {
-        const roll = rollGenerator(stat)
-        rolls.push(roll)
+    for (i = -1; i < luck; i++) {
+        const roll = rollGenerator(stat);
+        rolls.push(roll);
     }
-    console.log(rolls)
+    console.log(rolls);
     return Math.max(...rolls);
 }
 
@@ -30,3 +31,17 @@ export function userSuccess(quest, questChoice) {
     }
     return false;
 }
+
+export function doesUserSatisfyRequirements(requiredParamId, user) {
+
+    const matchingItem = findById(user.equipment, requiredParamId);
+    const matchingFriend = findById(user.friends, requiredParamId);
+
+
+    if (matchingItem || matchingFriend || !requiredParamId) return true;
+
+    return false;
+
+
+}
+

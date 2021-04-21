@@ -1,5 +1,4 @@
-import { rollGenerator, findById, userSuccess, luckRoll } from '../utils.js';
-import { quests } from '../quest/data.js';
+import { rollGenerator, findById, luckRoll, doesUserSatisfyRequirements } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -7,7 +6,7 @@ test('test the roller to pick a number between 1 and 10 and add the attribute st
     //Arrange
     // Set up your arguments and expectations
     const expected = true;
-    
+
     const result = rollGenerator(2);
 
     let actual;
@@ -56,7 +55,7 @@ test('test luck number of rolls and select the highest roll', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = true;
-    
+
     const result = luckRoll(3, 2);
     let actual;
 
@@ -70,5 +69,30 @@ test('test luck number of rolls and select the highest roll', (expect) => {
 
     //Expect
     // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
+});
+
+test('test to determine if the user has the required items to unlock a choice', (expect) => {
+
+    const user = {
+        id: 'Chase',
+        equipment: [
+            {
+                id: 'sword',
+            }
+        ],
+        friends: [
+            {
+                id: 'Sally',
+            }
+        ],
+    };
+
+    const weapon = {
+    };
+
+    const expected = true;
+
+    const actual = doesUserSatisfyRequirements(weapon.id, user);
     expect.equal(actual, expected);
 });

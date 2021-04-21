@@ -1,7 +1,313 @@
-import { getUser } from '../local-storage-utils.js';
-import { rollGenerator } from '../utils.js';
 
-const user = getUser();
+const intro = {
+    id: 'intro',
+    title: 'You are a Bounty Hunter',
+    image: 'intro-1.jpg',
+    audio: 'The Mandalorian.mp3',
+    description: `Are you ready? You are a bounty hunter trekking across the galaxy ready to bring justice to those who need it. Throughout your journey, you will face a plethora of twisted foes and your occasional helping hand. Make wise choices, because everything you do affects future outcomes. Prepare yourself. Oh, and remember: If ever you find yourself doubting, know that This Is The Way.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'begin',
+        description: 'Let\'s do this!',
+        required: {},
+
+        // add bonus to roll
+        attribute: null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null,
+        },
+    }],
+    credits: 0,
+};
+
+const wigmolesia = {
+    id: 'wigmolesia',
+    title: 'Town of Wigmolesia',
+    image: 'wigmolesia-2.webp',
+    audio: 'The good the bad and the ugly - Theme.mp3',
+    description: `You've begin your adventure at the town of Wigmolesia. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'saloon',
+        description: 'Visit the saloon',
+        required: {},
+
+        // add bonus to roll
+        attribute: null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null,
+        },
+    }, {
+        id: 'sheriff',
+        description: 'Visit the Sheriff\'s',
+        required: {},
+
+        // add bonus to roll
+        attribute:  null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: null
+
+        },
+    }, {
+        id: 'hotel',
+        description: 'Visit the Hotel',
+        required: {},
+
+        // add bonus to roll
+        attribute: null,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null
+        },
+        negativeResult: {
+            reward: null,
+            message: null
+        },
+    }],
+    credits: null,
+};
+
+const sheriff = {
+    id: 'sheriff',
+    title: 'Sheriff of Wigmolesia',
+    image: 'sheriffJail.jpg',
+    audio: '',
+    description: `The sheriff's sitting at his desk and a single convict in the cell behind him. You notice the case of rifles on the wall.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'steal',
+        description: 'Take a rifle when sheriff isn\'t looking',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'luck',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'laser rifle'
+                },
+                friend: null,
+                credits: null,
+            },
+            message: 'You succed in taking the rifle. You\'ve seen better but this\'ll do.'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: null,
+        },
+    }, {
+        id: 'talkWithConvict',
+        description: 'Talk with the jailed convict',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive'
+                },
+                credits: null,
+            },
+            message: `All they're saying is how innocent they are. You sympathize with the convict and make friends.`
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: null
+
+        },
+    }, {
+        id: 'talkWithSheriff',
+        description: 'Talk with the sheriff',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'sheriff',
+                    name: 'Sheriff Tucker'
+                },
+                credits: null,
+            },
+            message: `Sheriff tells you things have been rough around town. He could use a hand every now and then. You agree to do what you can. You form a friendship with Sheriff Tucker.`
+        },
+        negativeResult: {
+            reward: null,
+            message: null
+        },
+    }],
+    credits: null,
+};
+
+const saloon = {
+    id: 'saloon',
+    title: 'Wigmolesia Saloon',
+    image: 'space_saloon.jpg',
+    audio: '',
+    description: `The smell of Ragnook, the planetary drink of Terran, fills the air. Scowls from across the room darken the mood. You approach the bar and ask for a glass of Ragnook. Someone approaches from behind. "You've come to wrong place, stranger." What do you do?`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'punch',
+        description: 'Knock him out',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'strength',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'blaster',
+                    name: 'blaster',
+                    value: 1000
+                },
+                friend: null,
+                credits: null,
+            },
+            message: 'You whollop this guy and he falls to the floor with a thud. His buddies in the corner stare in disbelief before vacating the bar. You reach into the sorry fellow\'s waistband and take his blaster for the trouble he caused you.'
+        },
+    }, {
+        id: 'talk',
+        description: 'Talk your way out',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'barDude',
+                    name: 'Glork'
+                },
+                credits: 0,
+            },
+            message: `"I'm not here to cause trouble and I advise you step away if you don't want any either." Glork pauses and lets out a chuckle. "You're alright, cowboy. How 'bout a Ragnook on me." Glork becomes your friend.`
+        },
+    }],
+    credits: 100,
+};
+
+// needs to be written
+const hotel = {
+    id: 'hotel',
+    title: 'Wigmolesia Hotel',
+    image: '',
+    audio: '',
+    description: `This is the Hotel description. Change Thursday.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'replace1',
+        description: 'Do stuff?',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'strength',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: 'Things happened. Change me Thursday.'
+        },
+    }, {
+        id: 'replace2',
+        description: 'Do other stuff',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: `Other things happened. Change me Thursday.`
+        },
+    }],
+    credits: 100,
+};
+
+
+
+
 
 const beast = {
     id: 'beast',
@@ -14,7 +320,8 @@ const beast = {
     choices: [{
         id: 'shoot',
         description: 'Aim for the head',
-        required: {},
+        required: {
+        },
 
         // add bonus to roll
         attribute: 'marksmanship',
@@ -128,7 +435,7 @@ const fugitive = {
                 friend: null,
                 credits: 500,
             },
-            message: 'You whooped his ass and tied him up. Take his weapon and the cash he had on him.'
+            message: 'You whooped his ass and tied him up. Take his weapon and the 500 credits he had on him'
         },
         negativeResult: {
             reward: {
@@ -140,7 +447,7 @@ const fugitive = {
         },
     }, {
         id: 'dead',
-        description: 'Take him dead',
+        description: 'Take him out with your laser rifle.',
         required: {},
 
         // add bonus to roll
@@ -157,7 +464,7 @@ const fugitive = {
                 friend: null,
                 credits: 0,
             },
-            message: 'You manage to catch him offguard and gun him down. You pick up his laser blaster and 500 credits.'
+            message: 'You manage to catch him offguard and gun him down. You pick up his laser blaster and 1000 credits.'
         },
         negativeResult: {
             reward: {
@@ -165,11 +472,11 @@ const fugitive = {
                 friend: null,
                 credits: -3000,
             },
-            message: 'You shoot erratically and hit a nearby pedestrian but manage to slay your target. Pay for the passerby\'s hospital bills',
+            message: 'You shoot erratically and hit a nearby pedestrian but manage to slay your target. Pay for the passerby\'s hospital bills totaling 3000 credits.',
         },
     }, {
         id: 'convince',
-        description: 'Talk Him out of it',
+        description: 'Talk to the fugitive to calm him down.',
         required: {},
 
         // add bonus to roll
@@ -195,95 +502,121 @@ const fugitive = {
                 },
                 credits: -2000,
             },
-            message: 'You are mistaken as a friend of the fugitive. Get arrested alongside him.'
+            message: 'You are mistaken as a friend of the fugitive. Get arrested alongside him. Pay 2000 credits to get out of jail.'
         },
     }],
     credits: 5000,
 };
 
+// needs to be written
+const gangbusters = {
+    id: 'gangbusters',
+    title: 'Help the Old Man',
+    image: 'mando.jpg',
+    description: 'There\'s an old man that needs help. A gang took his cane. Do the right thing and help.',
 
-// const murderMystery = {
-//     id: 'murder-mystery',
-//     title: 'Find the Mayor\'s murderer',
-//     image: '',
-//     description: 'You come upon a small town called Pancake. The mayor, Annie Syrup, has been slain! The bounty board has a posting for identifying the murderer with a bonus for bringing them in alive.',
+    // number required for success
+    difficulty: 5,
+    choices: [{
+        id: 'alive',
+        description: 'Fight the gang in a good ol 1v5 brawl',
+        required: {},
 
-//     // number required for success
-//     difficulty: 5,
-//     choices: [{
-//         id: 'crimescene',
-//         description: 'Go back to the scene of the crime and collect evidence to deduce the events.',
-//         required: {},
+        // add bonus to roll
+        attribute: 'strength',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'baton',
+                    name: "The fugitive's baton",
+                    strength: 1,
+                    value: 500,
+                },
+                friend: null,
+                credits: 500,
+            },
+            message: 'TBD'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -1000,
+            },
+            message: 'TBD'
+        },
+    }, {
+        id: 'dead',
+        description: 'Take the high ground and murder everyone.',
+        required: {},
 
-//         // add bonus to roll
-//         attribute: 'intelligence',
-//         positiveResult: {
-//             reward: {
-//                 equipment: 'murder weapon',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: 'You find the murder weapon! It is an ornate dagger with a bejeweled hilt and enscription that says "Orcut". Whoever did this is part of the Orcut clan.'
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: 'tax writ',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: 'At the scene of the crime, you find a writ awaiting the mayor\'s signature declaring a new tax on spacecraft fuel cells. Whoever did this, could have been trying to prevent this cost.'
-//         },
-//     }, {
-//         id: 'tavern',
-//         description: 'Go to the tavern called Zebra and gather information.',
+        // add bonus to roll
+        attribute: 'marksmanship',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'pistol',
+                    name: 'laser blaster',
+                    marksmanship: 1,
+                    value: 1000,
+                },
+                friend: null,
+                credits: 0,
+            },
+            message: 'TBD'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -3000,
+            },
+            message: 'TBD',
+        },
+    }, {
+        id: 'convince',
+        description: 'Observe them and make a plan.',
+        required: {},
 
-//         required: {},
+        // add bonus to roll
+        attribute: 'intelligence',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive',
+                    name: 'Markov',
+                },
+                credits: 1000,
+            },
+            message: 'TBD.'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive',
+                    name: 'Markov',
+                },
+                credits: -2000,
+            },
+            message: 'TBD.'
+        },
+    }],
+    credits: 5000,
+};
 
-//         // add bonus to roll
-//         attribute: '',
-//         positiveResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-
-//         },
-//     }, {
-//         id: 'convince',
-//         description: 'Talk Him out of it',
-//         result: '',
-//         required: {},
-
-//         // add bonus to roll
-//         attribute: '',
-//         positiveResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//     }],
-//     credits: 10000,
-// };
-
-export const quests = [fugitive, beast];
+export const quests = 
+[   
+    intro,
+    fugitive, 
+    beast,
+    wigmolesia,
+    saloon,
+    sheriff,
+    hotel,
+    gangbusters
+];
