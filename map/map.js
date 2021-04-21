@@ -1,6 +1,7 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
 
 const user = getUser();
+
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
@@ -91,12 +92,17 @@ function intersectRect() {
     if (!fugitiveQuest) {
         if ((player.x >= fugitive.x && player.x <= (fugitive.x + 50)) && (player.y >= fugitive.y && player.y <= (fugitive.y + 50))) {
             window.location = `../quest/?id=fugitive`;
-        } 
-    } 
+        }
+    }
     if (!beastQuest) {
         if ((player.x >= beast.x && player.x <= (beast.x + 50)) && (player.y >= beast.y && (player.y <= beast.y + 50))) {
             window.location = `../quest/?id=beast`;
-        } 
+        }
+    }
+    if (!gangbustersQuest) {
+        if ((player.x >= gangbusters.x && player.x <= (gangbusters.x + 50)) && (player.y >= gangbusters.y && (player.y <= gangbusters.y + 50))) {
+            window.location = `../quest/?id=gangbusters`;
+        }
     }
     if (!gangbustersQuest) {
         if ((player.x >= gangbusters.x && player.x <= (gangbusters.x + 50)) && (player.y >= gangbusters.y && (player.y <= gangbusters.y + 50))) {
@@ -104,7 +110,9 @@ function intersectRect() {
         } 
     }
 }
-    
+
+
+
 
 
 function animate() {
