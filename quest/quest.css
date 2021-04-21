@@ -4,20 +4,24 @@
     box-sizing: 0;
 }
 
+
+
 body {
     background: rgb(49, 91, 119);
     /* background: linear-gradient(0deg, rgba(105,105,105,1) 56%, rgba(112,163,231,1) 100%); */
     color: white;
     font-family: 'Zen Dots', cursive;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
     font-size: 2.5rem;
-    margin: 1rem;
+    margin: 5rem 0 2rem 0;
     text-shadow: 0px 4px 1px black;
 }
 
-img {
+.quest-image {
     width: 700px;
     border: 15px solid black;
 }

@@ -2,40 +2,25 @@
 font-family: 'Press Start 2P', cursive;
 font-family: 'Zen Dots', cursive; */
 
-body {
-    height: 100%;
-    background-image: url(../assets/space.png);
-    font-family: 'Press Start 2P', cursive;
+/* Header CSS */
+
+header {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(18, 39, 58);
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    padding: 0.6rem;
+}
+
+h2 {
+    margin-top: 4rem;
 }
 
 li {
     list-style: none;
     color: white;
     margin-top: 1rem;
-}
-
-.game-title {
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.2rem;
-    width: 20%;
-    color: yellow;
-    text-align: center;
-}
-
-#main-canvas {
-    width: 1200px;
-    height: 900px;
-    border-radius: 5%;
-    background: transparent;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.start-quest-area {
-    border: 1px solid blue;
-    width: 40px;
-    height: 40px;
 }

@@ -2,13 +2,21 @@ const params = new URLSearchParams(window.location.search);
 import { quests } from './data.js';
 import { getUser, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
 import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js';
+import { renderHeader } from '../render-user-stats.js';
 
 const user = getUser();
+
+const body = document.querySelector('body');
+
+const header = renderHeader(user);
+
+body.prepend(header);
+
 
 const section = document.querySelector('section');
 const h2 = document.querySelector('h2');
 const pTagResults = document.querySelector('p');
-const image = document.querySelector('img');
+const image = document.querySelector('.quest-image');
 const form = document.querySelector('form');
 const submitButton = document.getElementById('submit-button');
 const descriptionContainer = document.getElementById('description');

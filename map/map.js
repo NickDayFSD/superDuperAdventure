@@ -1,6 +1,12 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
+import { renderHeader } from '../render-user-stats.js';
 
 const user = getUser();
+const body = document.querySelector('body');
+
+const header = renderHeader(user);
+
+body.prepend(header);
 
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');

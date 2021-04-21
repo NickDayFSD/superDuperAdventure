@@ -1,7 +1,5 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
 
-import { renderHeader } from '../render-user-stats.js';
-
 const body = document.querySelector('body');
 
 const user = getUser();
@@ -10,9 +8,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
 
-const header = renderHeader(user);
 
-body.append(header);
 
 
 
