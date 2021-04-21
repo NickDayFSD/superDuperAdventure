@@ -51,14 +51,31 @@ const beast = {
     movement: false
 };
 
+// show reward over the top
+
+const gangbusters = {
+    x: 700,
+    y: 200,
+    width: 30,
+    height: 48,
+    frameX: 0,
+    frameY: 0,
+    speed: 0,
+    movement: false
+};
+
 const playerSprite = new Image();
 playerSprite.src = '../assets/main.png';
-const fugitiveSprite = new Image();
 
+const fugitiveSprite = new Image();
 fugitiveSprite.src = '../assets/darkknight.png';
 
 const beastSprite = new Image();
 beastSprite.src = '../assets/bahamut.png';
+
+const gangbustersSprite = new Image();
+gangbustersSprite.src = '../assets/ramuh.png';
+
 const background = new Image();
 background.src = '../assets/map.jpg';
 
@@ -70,6 +87,7 @@ function intersectRect() {
 
     const fugitiveQuest = user.completedQuests.fugitive;
     const beastQuest = user.completedQuests.beast;
+    const gangbustersQuest = user.completedQuests.gangbusters;
     if (!fugitiveQuest) {
         if ((player.x >= fugitive.x && player.x <= (fugitive.x + 50)) && (player.y >= fugitive.y && player.y <= (fugitive.y + 50))) {
             window.location = `../quest/?id=fugitive`;
@@ -78,6 +96,11 @@ function intersectRect() {
     if (!beastQuest) {
         if ((player.x >= beast.x && player.x <= (beast.x + 50)) && (player.y >= beast.y && (player.y <= beast.y + 50))) {
             window.location = `../quest/?id=beast`;
+        } 
+    }
+    if (!gangbustersQuest) {
+        if ((player.x >= gangbusters.x && player.x <= (gangbusters.x + 50)) && (player.y >= gangbusters.y && (player.y <= gangbusters.y + 50))) {
+            window.location = `../quest/?id=gangbusters`;
         } 
     }
 }
@@ -120,6 +143,18 @@ function animate() {
         beast.y,
         beast.width,
         beast.height
+    );
+
+    drawSprite(
+        gangbustersSprite,
+        gangbusters.width * gangbusters.frameX,
+        gangbusters.height * gangbusters.frameY,
+        gangbusters.width,
+        gangbusters.height,
+        gangbusters.x,
+        gangbusters.y,
+        gangbusters.width,
+        gangbusters.height
     );
     movePlayer();
     requestAnimationFrame(animate);

@@ -117,6 +117,7 @@ const wigmolesia = {
     }],
     credits: null,
 };
+
 const sheriff = {
     id: 'sheriff',
     title: 'Sheriff of Wigmolesia',
@@ -257,6 +258,53 @@ const saloon = {
     }],
     credits: 100,
 };
+
+// needs to be written
+const hotel = {
+    id: 'hotel',
+    title: 'Wigmolesia Hotel',
+    image: '',
+    audio: '',
+    description: `This is the Hotel description. Change Thursday.`,
+
+    // number required for success
+    difficulty: 0,
+    choices: [{
+        id: 'replace1',
+        description: 'Do stuff?',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'strength',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+            },
+            message: 'Things happened. Change me Thursday.'
+        },
+    }, {
+        id: 'replace2',
+        description: 'Do other stuff',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 0,
+            },
+            message: `Other things happened. Change me Thursday.`
+        },
+    }],
+    credits: 100,
+};
+
 
 
 
@@ -460,90 +508,106 @@ const fugitive = {
     credits: 5000,
 };
 
+// needs to be written
+const gangbusters = {
+    id: 'gangbusters',
+    title: 'Help the Old Man',
+    image: 'mando.jpg',
+    description: 'There\'s an old man that needs help. A gang took his cane. Do the right thing and help.',
 
-// const murderMystery = {
-//     id: 'murder-mystery',
-//     title: 'Find the Mayor\'s murderer',
-//     image: '',
-//     description: 'You come upon a small town called Pancake. The mayor, Annie Syrup, has been slain! The bounty board has a posting for identifying the murderer with a bonus for bringing them in alive.',
+    // number required for success
+    difficulty: 5,
+    choices: [{
+        id: 'alive',
+        description: 'Fight the gang in a good ol 1v5 brawl',
+        required: {},
 
-//     // number required for success
-//     difficulty: 5,
-//     choices: [{
-//         id: 'crimescene',
-//         description: 'Go back to the scene of the crime and collect evidence to deduce the events.',
-//         required: {},
+        // add bonus to roll
+        attribute: 'strength',
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'baton',
+                    name: "The fugitive's baton",
+                    strength: 1,
+                    value: 500,
+                },
+                friend: null,
+                credits: 500,
+            },
+            message: 'TBD'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -1000,
+            },
+            message: 'TBD'
+        },
+    }, {
+        id: 'dead',
+        description: 'Take the high ground and murder everyone.',
+        required: {},
 
-//         // add bonus to roll
-//         attribute: 'intelligence',
-//         positiveResult: {
-//             reward: {
-//                 equipment: 'murder weapon',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: 'You find the murder weapon! It is an ornate dagger with a bejeweled hilt and enscription that says "Orcut". Whoever did this is part of the Orcut clan.'
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: 'tax writ',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: 'At the scene of the crime, you find a writ awaiting the mayor\'s signature declaring a new tax on spacecraft fuel cells. Whoever did this, could have been trying to prevent this cost.'
-//         },
-//     }, {
-//         id: 'tavern',
-//         description: 'Go to the tavern called Zebra and gather information.',
+        // add bonus to roll
+        attribute: 'marksmanship',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'pistol',
+                    name: 'laser blaster',
+                    marksmanship: 1,
+                    value: 1000,
+                },
+                friend: null,
+                credits: 0,
+            },
+            message: 'TBD'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -3000,
+            },
+            message: 'TBD',
+        },
+    }, {
+        id: 'convince',
+        description: 'Observe them and make a plan.',
+        required: {},
 
-//         required: {},
-
-//         // add bonus to roll
-//         attribute: '',
-//         positiveResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-
-//         },
-//     }, {
-//         id: 'convince',
-//         description: 'Talk Him out of it',
-//         result: '',
-//         required: {},
-
-//         // add bonus to roll
-//         attribute: '',
-//         positiveResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//         negativeResult: {
-//             reward: {
-//                 equipment: '',
-//                 friend: '',
-//                 credits: 0,
-//             },
-//             message: ''
-//         },
-//     }],
-//     credits: 10000,
-// };
+        // add bonus to roll
+        attribute: 'intelligence',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive',
+                    name: 'Markov',
+                },
+                credits: 1000,
+            },
+            message: 'TBD.'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'fugitive',
+                    name: 'Markov',
+                },
+                credits: -2000,
+            },
+            message: 'TBD.'
+        },
+    }],
+    credits: 5000,
+};
 
 export const quests = 
 [   
@@ -552,5 +616,7 @@ export const quests =
     beast,
     wigmolesia,
     saloon,
-    sheriff
+    sheriff,
+    hotel,
+    gangbusters
 ];
