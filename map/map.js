@@ -1,20 +1,7 @@
-import { getUser } from '../local-storage-utils.js';
-
-const user = getUser();
-
-
-
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
-
-const playerSprite = new Image();
-playerSprite.src = '../assets/main.png';
-const bossSprite = new Image();
-bossSprite.src = '../assets/bahamut.png';
-const background = new Image();
-background.src = '../assets/map.jpg';
 
 const keys = [];
 
@@ -40,16 +27,20 @@ const boss = {
     movement: false
 };
 
+const playerSprite = new Image();
+playerSprite.src = '../assets/main.png';
+const bossSprite = new Image();
+bossSprite.src = '../assets/bahamut.png';
+const background = new Image();
+background.src = '../assets/map.jpg';
+
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
 function intersectRect() {
-    const matchingQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
-    if (!matchingQuest) {
-        if ((player.x + player.y) === (boss.x + boss.y)) {
-            window.location = "../quest/?id=fugitive";
-        }
+    if ((player.x + player.y) === (boss.x + boss.y)) {
+        alert(' big boss man ');
     }
 }
 
