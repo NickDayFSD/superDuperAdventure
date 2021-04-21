@@ -5,17 +5,21 @@
 }
 
 body {
-    background-color: gray;
+    background: rgb(105,105,105);
+    background: linear-gradient(0deg, rgba(105,105,105,1) 56%, rgba(112,163,231,1) 100%);
     color: white;
+    font-family: 'Zen Dots', cursive;
+    text-shadow: 0px 0px 3px black;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 1rem;
+    text-shadow: 0px 4px 1px black;
 }
 
 img {
-    width: 900px;
+    width: 700px;
     border: 15px solid black;
 }
 
@@ -29,21 +33,28 @@ section {
 .description {
     text-align: center;
     width: 60%;
-    font-size: 1.5rem;
-    margin-bottom: 1rem
+    font-size: 1.2rem;
+    margin: 1rem;
+    line-height: 1.3;
+    background-color: rgb(20, 37, 43);
+    padding: 1rem;
+    
 }
 
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 label {
     font-size: 1.3rem;
+    margin-top: 0.6rem;
 }
 
+
 button {
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 1rem 0;
     padding: 0.6rem;
 }
 
