@@ -104,7 +104,13 @@ function intersectRect() {
             window.location = `../quest/?id=gangbusters`;
         }
     }
+    if (!gangbustersQuest) {
+        if ((player.x >= gangbusters.x && player.x <= (gangbusters.x + 50)) && (player.y >= gangbusters.y && (player.y <= gangbusters.y + 50))) {
+            window.location = `../quest/?id=gangbusters`;
+        } 
+    }
 }
+
 
 
 
