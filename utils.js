@@ -37,10 +37,8 @@ export function doesUserSatisfyRequirements(requiredParamId, user) {
     const matchingItem = findById(user.equipment, requiredParamId);
     const matchingFriend = findById(user.friends, requiredParamId);
 
-    const matchingQuest = user.completedQuests[requiredParamId];
 
-
-    if (matchingItem || matchingFriend || matchingQuest || !requiredParamId) return true;
+    if (matchingItem || matchingFriend || !requiredParamId) return true;
 
     return false;
 
