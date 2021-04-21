@@ -22,12 +22,16 @@ export function renderHeader(user) {
 
     user.equipment.forEach(item => {
         const li = document.createElement('li');
+
         li.textContent = item.name;
         li.style.display = 'none';
+
         equipmentUl.append(li);
+
         equipmentUl.addEventListener('pointerenter', () => {
             li.style.display = 'block';
         })
+
         equipmentUl.addEventListener('pointerleave', () => {
             li.style.display = 'none';
         })
@@ -39,8 +43,11 @@ export function renderHeader(user) {
 
         user.friends.forEach(item => {
             const li = document.createElement('li');
+
             li.textContent = item.name;
+
             friendsUl.append(li);
+
             friendsUl.addEventListener('pointerenter', () => {
                 li.style.display = 'block';
             })
