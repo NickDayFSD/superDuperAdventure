@@ -7,8 +7,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
 
-console.log(areQuestsCompleted())
-if (areQuestsCompleted()) {
+
+if (areQuestsCompleted(user)) {
     window.location = '../results';
 };
 

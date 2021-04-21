@@ -35,8 +35,7 @@ export function createUser(name, tagline, formArray) {
     return user
 }
 
-export function areQuestsCompleted() {
-    const user = getUser();
+export function areQuestsCompleted(user) {
 
     for (let object of quests) {
 
