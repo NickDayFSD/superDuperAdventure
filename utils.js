@@ -19,3 +19,13 @@ export function userSuccess(quest, questChoice) {
     }
     return false;
 }
+
+export function doesUserSatisfyRequirements(requiredParamId, user) {
+    const matchingItem = findById(user.equipment, requiredParamId);
+    const matchingFriend = findById(user.friends, requiredParamId);
+
+    if (matchingItem || matchingFriend) return true;
+
+    return false;
+}
+

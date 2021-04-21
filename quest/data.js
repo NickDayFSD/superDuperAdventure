@@ -1,7 +1,3 @@
-import { getUser } from '../local-storage-utils.js';
-import { rollGenerator } from '../utils.js';
-
-const user = getUser();
 
 const fugitive = {
     id: 'fugitive',

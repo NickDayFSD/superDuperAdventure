@@ -1,3 +1,4 @@
+import { quests } from "./quest/data.js";
 
 const USER = 'USER';
 
@@ -32,6 +33,17 @@ export function createUser(name, tagline, formArray) {
     };
 
     return user
+}
+
+export function areAllQuestsComplete() {
+    const user = getUser();
+
+    quests.forEach(quest => {
+        if (!user.completedQuests[quest.id]) {
+            return false;
+        }
+    })
+    return true;
 }
 
 //export function updateUserCredits(user, success, choice) {

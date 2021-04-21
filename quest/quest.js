@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 import { quests } from './data.js';
 import { setUser, getUser } from '../local-storage-utils.js';
-import { findById, userSuccess } from '../utils.js';
+import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js';
 
 const user = getUser();
 
@@ -20,21 +20,22 @@ const quest = findById(quests, questId)
 h2.textContent = quest.title;
 descriptionContainer.textContent = quest.description;
 
-
 image.src = `../assets/${quest.image}`
-
 
 for (let choice of quest.choices) {
 
-    const label = document.createElement('label');
-    const radio = document.createElement('input');
+    if (doesUserSatisfyRequirements(choice.id, user)) {
 
-    radio.type = 'radio';
-    radio.name = 'choice';
-    radio.value = choice.id;
+        const label = document.createElement('label');
+        const radio = document.createElement('input');
 
-    label.append(radio, choice.description);
-    form.prepend(label);
+        radio.type = 'radio';
+        radio.name = 'choice';
+        radio.value = choice.id;
+
+        label.append(radio, choice.description);
+        form.prepend(label);
+    }
 }
 
 form.addEventListener('submit', (e) => {
@@ -50,6 +51,7 @@ form.addEventListener('submit', (e) => {
     if (success === true) {
         pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
         user.credits += choice.positiveResult.reward.credits;
+        user.morality += choice.morality;
         if (choice.positiveResult.reward.equipment) {
             user.equipment.push(choice.positiveResult.reward.equipment);
         }
@@ -61,6 +63,7 @@ form.addEventListener('submit', (e) => {
     } else {
         pTagResults.textContent = choice.negativeResult.message;
         user.credits += choice.negativeResult.reward.credits;
+        user.morality += choice.morality;
         if (choice.negativeResult.reward.equipment) {
             user.equipment.push(choice.negativeResult.reward.equipment);
         }
@@ -81,5 +84,4 @@ form.addEventListener('submit', (e) => {
 
 resultsButton.addEventListener('click', () => {
     window.location = '../map';
-
 })
