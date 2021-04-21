@@ -1,22 +1,7 @@
-import { getUser } from '../local-storage-utils.js';
-
-const user = getUser();
-
-
-
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
-
-const playerSprite = new Image();
-playerSprite.src = '../assets/main.png';
-const fugitiveSprite = new Image();
-fugitiveSprite.src = '../assets/fugitive.png';
-const beastSprite = new Image();
-beastSprite.src = '../assets/bahamut.png';
-const background = new Image();
-background.src = '../assets/map.jpg';
 
 const keys = [];
 
@@ -31,7 +16,7 @@ const player = {
     movement: false,
 };
 
-const fugitive = {
+const boss = {
     x: 200,
     y: 200,
     width: 100,
@@ -42,30 +27,22 @@ const fugitive = {
     movement: false
 };
 
-const beast = {
-    x: 200,
-    y: 200,
-    width: 100,
-    height: 100,
-    frameX: 0,
-    frameY: 0,
-    speed: 0,
-    movement: false
-};
+const playerSprite = new Image();
+playerSprite.src = '../assets/main.png';
+const bossSprite = new Image();
+bossSprite.src = '../assets/bahamut.png';
+const background = new Image();
+background.src = '../assets/map.jpg';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
 function intersectRect() {
-    const matchingQuest = user.completedQuests.find(quest => quest.id === 'fugitive');
-    if (!matchingQuest) {
-        if ((player.x + player.y) === (fugitive.x + fugitive.y)) {
-            window.location = '../quest/?id=fugitive';
-        }
-    }}
-
-  
+    if ((player.x + player.y) === (boss.x + boss.y)) {
+        alert(' big boss man ');
+    }
+}
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -82,30 +59,19 @@ function animate() {
         player.height
     );
     drawSprite(
-        fugitiveSprite,
-        fugitive.width * fugitive.frameX,
-        fugitive.height * fugitive.frameY,
-        fugitive.width,
-        fugitive.height,
-        fugitive.x,
-        fugitive.y,
-        fugitive.width,
-        fugitive.height
-    );
-    drawSprite(
-        beastSprite,
-        beast.width * beast.frameX,
-        beast.height * beast.frameY,
-        beast.width,
-        beast.height,
-        beast.x,
-        beast.y,
-        beast.width,
-        beast.height
+        bossSprite,
+        boss.width * boss.frameX,
+        boss.height * boss.frameY,
+        boss.width,
+        boss.height,
+        boss.x,
+        boss.y,
+        boss.width,
+        boss.height
     );
     movePlayer();
     requestAnimationFrame(animate);
-    intersectRect(player, fugitive); 
+    intersectRect(player, boss);
 }
 
 animate();
