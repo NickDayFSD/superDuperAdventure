@@ -1,7 +1,3 @@
-import { getUser } from '../local-storage-utils.js';
-import { rollGenerator } from '../utils.js';
-
-const user = getUser();
 
 const beast = {
     id: 'beast',
@@ -14,7 +10,8 @@ const beast = {
     choices: [{
         id: 'shoot',
         description: 'Aim for the head',
-        required: {},
+        required: {
+        },
 
         // add bonus to roll
         attribute: 'marksmanship',
@@ -128,7 +125,7 @@ const fugitive = {
                 friend: null,
                 credits: 500,
             },
-            message: 'You whooped his ass and tied him up. Take his weapon and the cash he had on him.'
+            message: 'You whooped his ass and tied him up. Take his weapon and the 500 credits he had on him'
         },
         negativeResult: {
             reward: {
@@ -140,7 +137,7 @@ const fugitive = {
         },
     }, {
         id: 'dead',
-        description: 'Take him dead',
+        description: 'Take him out with your laser rifle.',
         required: {},
 
         // add bonus to roll
@@ -157,7 +154,7 @@ const fugitive = {
                 friend: null,
                 credits: 0,
             },
-            message: 'You manage to catch him offguard and gun him down. You pick up his laser blaster and 500 credits.'
+            message: 'You manage to catch him offguard and gun him down. You pick up his laser blaster and 1000 credits.'
         },
         negativeResult: {
             reward: {
@@ -165,11 +162,11 @@ const fugitive = {
                 friend: null,
                 credits: -3000,
             },
-            message: 'You shoot erratically and hit a nearby pedestrian but manage to slay your target. Pay for the passerby\'s hospital bills',
+            message: 'You shoot erratically and hit a nearby pedestrian but manage to slay your target. Pay for the passerby\'s hospital bills totaling 3000 credits.',
         },
     }, {
         id: 'convince',
-        description: 'Talk Him out of it',
+        description: 'Talk to the fugitive to calm him down.',
         required: {},
 
         // add bonus to roll
@@ -195,7 +192,7 @@ const fugitive = {
                 },
                 credits: -2000,
             },
-            message: 'You are mistaken as a friend of the fugitive. Get arrested alongside him.'
+            message: 'You are mistaken as a friend of the fugitive. Get arrested alongside him. Pay 2000 credits to get out of jail.'
         },
     }],
     credits: 5000,
