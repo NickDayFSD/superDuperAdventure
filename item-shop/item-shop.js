@@ -1,4 +1,4 @@
-import { getUser } from '../local-storage-utils.js';
+import { buyItem, getUser, sellItem } from '../local-storage-utils.js';
 import { items } from './item-data.js';
 import { renderHeader } from '../render-user-stats.js';
 
@@ -14,7 +14,7 @@ body.prepend(header);
 items.forEach(item => {
     const itemDiv = document.createElement('div');
     const h2 = document.createElement('h2');
-    const image = document.createElement('image');
+    //const image = document.createElement('image');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -28,21 +28,21 @@ items.forEach(item => {
 
     button.innerText = 'Buy';
 
-    // button.addEventListener('click', () => {
-    //     // buyItem(item);
+    button.addEventListener('click', () => {
+        buyItem(item);
     //remove item from view;
 
-    // })
+    });
 
     itemDiv.append(h2, p, button);
-    itemShopSection.append(itemDiv)
-})
+    itemShopSection.append(itemDiv);
+});
 
-user.equipment.array.forEach(element => {
+user.equipment.array.forEach(item => {
     const itemDiv = document.createElement('div');
 
     const h2 = document.createElement('h2');
-    const image = document.createElement('image');
+    //const image = document.createElement('image');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -56,14 +56,14 @@ user.equipment.array.forEach(element => {
 
     button.innerText = 'Buy';
 
-    // button.addEventListener('click', () => {
-    //     // sellItem(item);
+    button.addEventListener('click', () => {
+        sellItem(item);
     //remove item from view;
 
-    // })
+    });
 
     itemDiv.append(h2, p, button);
 
-    userSection.append(itemDiv)
+    userSection.append(itemDiv);
 });
 

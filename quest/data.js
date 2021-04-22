@@ -22,7 +22,7 @@ const intro = {
                 friend: null,
                 credits: null,
             },
-            message: null
+            message: 'Let\'s Go!'
         },
         negativeResult: {
             reward: {

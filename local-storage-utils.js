@@ -86,20 +86,6 @@ export function negativeUserUpdate(choice, quest) {
     setUser(user);
 }
 
-export function findHighestStat(user) {
-    const skillsArray = [
-        user.intelligence,
-        user.strength,
-        user.charisma,
-        user.marksmanship,
-        user.luck,
-    ]
-    skillsArray.forEach(skill => {
-        console.log(skill)
-    })
-    return matchingSkill;
-}
-
 export function sellItem(item) {
     const user = getUser();
 
@@ -117,7 +103,7 @@ export function sellItem(item) {
 }
 
 export function buyItem(item) {
-    const user = getUser()
+    const user = getUser();
 
     if (user.credits <= 0) {
         return false;
