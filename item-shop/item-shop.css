@@ -1,0 +1,8 @@
+header{
+    margin: 0;
+    position: unset;
+}
+
+.item {
+    width: 10%;
+}

@@ -99,3 +99,17 @@ export function findHighestStat(user) {
     })
     return matchingSkill;
 }
+
+export function sellItem(itemId) {
+    const user = getUser();
+
+    const matchingItem = user.equipment.find(object => object.id === itemId);
+
+    const index = user.equipment.indexOf(matchingItem);
+
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+
+    setUser(user);
+}
