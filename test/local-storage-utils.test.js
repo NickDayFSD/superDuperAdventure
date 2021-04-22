@@ -1,4 +1,4 @@
-import { setUser, getUser, areQuestsCompleted } from '../local-storage-utils.js';
+import { setUser, getUser, areQuestsCompleted, findHighestStat } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
@@ -56,4 +56,25 @@ test('Test to see if all user quests are completed', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
+test('This test should find the key name with the highest value in an object', (expect) => {
+    const expected = 'strength';
 
+    const user = {
+        age: 18,
+        hp: 30,
+        credits: 0,
+        equipment: [],
+        friends: [],
+        completedQuests: {},
+        intelligence: 2,
+        strength: 3,
+        marksmanship: 2,
+        charisma: 1,
+        luck: 2,
+    };
+
+
+    const actual = findHighestStat(user);
+
+    expect.deepEqual(actual, expected);
+});
