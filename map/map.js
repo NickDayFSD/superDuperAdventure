@@ -14,7 +14,7 @@ canvas.width = 1200;
 canvas.height = 900;
 
 
-if (areQuestsCompleted(user)) {
+if (areQuestsCompleted(user) || user.hp <= 0) {
     window.location = '../results';
 }
 
