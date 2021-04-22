@@ -1,14 +1,40 @@
 import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
 
 const user = getUser();
+const resultsP = document.querySelector('#results-p');
+const resultsButton = document.querySelector('#retry-button');
+
+
+let userMorality;
+
+if (user.morality < -1) {
+    userMorality = 'an Evil';
+} else if (user.morality > 1) {
+    userMorality = 'a Good';
+} else {
+    userMorality = 'an Average';
+}
+
+let userFriends;
+
+if (user.friends.length === 1) {
+    userFriends = `${user.friends.length} friend`;
+} else {
+    userFriends = `${user.friends.length} friends`;
+}
+
+const userCredits = user.credits;
+
+resultsP.textContent = `Congradulations! You bested all of the space baddies on Terran. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`
+resultsButton.addEventListener('click', () => {
+    localStorage.clear();
+    window.location = '../';
+})
+
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 1200;
 canvas.height = 900;
-
-if (areQuestsCompleted(user)) {
-    window.location = '../results';
-}
 
 const keys = [];
 

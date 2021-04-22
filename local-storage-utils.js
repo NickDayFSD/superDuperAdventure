@@ -86,25 +86,16 @@ export function negativeUserUpdate(choice, quest) {
     setUser(user);
 }
 
-//export function updateUserCredits(user, success, choice) {
-//     user.credits += choice.positiveResult.reward.credits;
-//     user.credits += quest.credits;
-//     setUser(user);
-// }
-
-// export 
-// export function updateUserGivenChoice(success, user, choice, quest) {
-//     if (success === true) {
-//         user.credits += choice.positiveResult.reward.credits;
-//         user.equipment.push(choice.positiveResult.reward.equipment);
-//         user.friends.push(choice.positiveResult.reward.friend);
-//         user.credits += quest.credits;
-//         setUser(user);
-//     } else {
-//         user.credits += choice.negativeResult.reward.credits;
-//         user.equipment.push(choice.negativeResult.reward.equipment);
-//         user.friends.push(choice.negativeResult.reward.friend);
-//         user.credits += quest.credits;
-//         setUser(user);
-//     }
-// }
+export function findHighestStat(user) {
+    const skillsArray = [
+        user.intelligence,
+        user.strength,
+        user.charisma,
+        user.marksmanship,
+        user.luck,
+    ]
+    skillsArray.forEach(skill => {
+        console.log(skill)
+    })
+    return matchingSkill;
+}

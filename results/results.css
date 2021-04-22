@@ -53,3 +53,13 @@ header {
     justify-content: space-evenly;
 }
 
+#results-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+p {
+    color: white;
+}
+

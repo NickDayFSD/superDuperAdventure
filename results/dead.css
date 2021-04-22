@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(27, 26, 26);
+}
+ 
+h1 {
+    color: red;
+}
+
+p {
+    color: white;
+}
