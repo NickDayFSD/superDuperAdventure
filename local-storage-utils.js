@@ -35,14 +35,15 @@ export function createUser(name, tagline, formArray) {
 }
 
 export function areQuestsCompleted(user) {
+    const gangbusters = 'gangbusters';
+    const fugitive = 'fugitive';
+    const beast = 'beast';
 
-    for (let object of quests) {
-
-        if (!user.completedQuests[object.id]) {
-            return false;
-        }
+    if (!user.completedQuests[fugitive, beast, gangbusters]) {
+        return false;
+    } else {
+        return true;
     }
-    return true;
 }
 
 export function positiveUserUpdate(choice, quest) {
@@ -87,15 +88,6 @@ export function negativeUserUpdate(choice, quest) {
 }
 
 export function findHighestStat(user) {
-    const skillsArray = [
-        user.intelligence,
-        user.strength,
-        user.charisma,
-        user.marksmanship,
-        user.luck,
-    ]
-    skillsArray.forEach(skill => {
-        console.log(skill)
-    })
-    return matchingSkill;
+    // voodoo magic
+    return (Object.entries(user).sort((a, b) => a[1] - b[1])[Object.entries(user).length - 1][0]);
 }

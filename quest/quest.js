@@ -66,9 +66,8 @@ form.addEventListener('submit', (e) => {
     const choice = findById(quest.choices, choiceId);
 
     // roll to see if positive or negative result
-    const success = false;
-    // userSuccess(quest, choice);
-    
+    const success = userSuccess(quest, choice);
+
     // display correct result
 
     if (success === true) {
