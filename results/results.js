@@ -25,7 +25,7 @@ if (user.friends.length === 1) {
 
 const userCredits = user.credits;
 
-resultsP.textContent = `Congradulations! You bested all of the space baddies on Terran. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`
+resultsP.textContent = `Congratulations! You bested all of the space baddies on Terran. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`
 resultsButton.addEventListener('click', () => {
     localStorage.clear();
     window.location = '../';
@@ -41,7 +41,7 @@ const keys = [];
 const player = {
     x: 400,
     y: 400,
-    width: 35,
+    width: 65,
     height: 48,
     frameX: 0,
     frameY: 0,
@@ -50,10 +50,10 @@ const player = {
 };
 
 const playerSprite = new Image();
-playerSprite.src = '../assets/main.png';
+playerSprite.src = '../assets/spaceship_right.png';
 
 const background = new Image();
-background.src = '../assets/ship.png';
+// background.src = '../assets/ship.png';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -103,17 +103,19 @@ window.addEventListener('keyup', (e) => {
 });
 
 function movePlayer() {
-    if (keys['w'] && player.y > 320) {
-        player.frameY = 3;
+    if (keys['w'] && player.y > 20) {
+        player.frameY = 0;
         player.y -= player.speed;
-    } else if (keys['s'] && player.y < 525) {
+    } else if (keys['s'] && player.y < 400) {
         player.frameY = 0;
         player.y += player.speed;
-    } else if (keys['a'] && player.x > 210) {
-        player.frameY = 1;
+    } else if (keys['a'] && player.x > 10) {
+        player.frameY = 0;
         player.x -= player.speed;
+        playerSprite.src = '../assets/spaceship_left.png';
     } else if (keys['d'] && player.x < 1040) {
-        player.frameY = 2;
+        player.frameY = 0;
         player.x += player.speed;
+        playerSprite.src = '../assets/spaceship_right.png';
     }
 }
