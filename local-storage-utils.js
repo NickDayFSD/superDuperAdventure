@@ -25,10 +25,6 @@ export function createUser(name, tagline, formArray) {
         charisma: Number(formArray[3]),
         luck: Number(formArray[4]),
         morality: 0,
-<<<<<<< HEAD
-
-=======
->>>>>>> 55cf427a8c394c1ed6e9967f09e1b3c897ee9689
     };
 
     return user;
@@ -115,6 +111,8 @@ export function buyItem(item) {
     user.credits -= (item.value * 1.2);
 
     setUser(user);
+}
+
 export function findHighestStat(user) {
     const userStats = {
         intelligence: user.intelligence,
