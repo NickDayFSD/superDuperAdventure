@@ -29,6 +29,7 @@ const intro = {
                 equipment: null,
                 friend: null,
                 credits: null,
+                hp: 0
             },
             message: null,
         },
@@ -66,6 +67,7 @@ const wigmolesia = {
                 equipment: null,
                 friend: null,
                 credits: null,
+                hp: 0
             },
             message: null,
         },
@@ -90,6 +92,7 @@ const wigmolesia = {
                 equipment: null,
                 friend: null,
                 credits: 0,
+                hp: 0
             },
             message: null
 
@@ -112,7 +115,8 @@ const wigmolesia = {
         },
         negativeResult: {
             reward: null,
-            message: null
+            message: null,
+            hp: 0
         },
     }],
     credits: null,
@@ -143,13 +147,14 @@ const sheriff = {
                 friend: null,
                 credits: null,
             },
-            message: 'You succed in taking the rifle. You\'ve seen better but this\'ll do.'
+            message: 'You succeed in taking the rifle. You\'ve seen better but this\'ll do.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
                 friend: null,
                 credits: null,
+                hp: 0
             },
             message: null,
         },
@@ -176,6 +181,7 @@ const sheriff = {
                 equipment: null,
                 friend: null,
                 credits: 0,
+                hp: 0
             },
             message: null
 
@@ -201,7 +207,8 @@ const sheriff = {
         },
         negativeResult: {
             reward: null,
-            message: null
+            message: null,
+            hp: 0
         },
     }],
     credits: null,
@@ -343,9 +350,10 @@ const beast = {
             reward: {
                 equipment: null,
                 friend: null,
-                credits: -1500,
+                credits: -2000,
+                hp: 0
             },
-            message: 'You subdued the beast, however the beast caused secer damage to the town. '
+            message: 'You subdued the beast, however the beast caused severe damage to the town. '
         },
     }, {
         id: 'trap',
@@ -368,8 +376,9 @@ const beast = {
                 equipment: null,
                 friend: null,
                 credits: -500,
+                hp: -5
             },
-            message: 'An innocent bystander was caught in your trap and ruined your plan. You have to pay for more equipment to devise another trap. You lose 500 credits.'
+            message: 'An innocent bystander was caught in your trap and ruined your plan. You have to pay for more equipment to devise another trap. You lose 500 credits and 5 health while getting the bystander unstuck.'
 
         },
     }, {
@@ -401,6 +410,7 @@ const beast = {
                 equipment: null,
                 friend: null,
                 credits: -1500,
+                hp: -15
             },
             message: 'You wind up a heckin\' good blow but the beast beats you to the punch. You\'re dragged around the town in embarrassment. Bystanders escort you to the nearest hospital and your fees come out to 1500 credits. You walk away in shame.'
         },
@@ -442,8 +452,9 @@ const fugitive = {
                 equipment: null,
                 friend: null,
                 credits: -1000,
+                hp: -15
             },
-            message: 'You wrestle around the street causing damage to a nearby bar, pay 1000 credits to fix their tables.'
+            message: 'You wrestle around the street causing damage to a nearby bar, pay 1000 credits to fix their tables and lose 15 health.'
         },
     }, {
         id: 'dead',
@@ -471,6 +482,7 @@ const fugitive = {
                 equipment: null,
                 friend: null,
                 credits: -3000,
+                hp: -20
             },
             message: 'You shoot erratically and hit a nearby pedestrian but manage to slay your target. Pay for the passerby\'s hospital bills totaling 3000 credits.',
         },
@@ -499,6 +511,7 @@ const fugitive = {
                 friend: {
                     id: 'fugitive',
                     name: 'Markov',
+                    hp: -10
                 },
                 credits: -2000,
             },
@@ -543,6 +556,7 @@ const gangbusters = {
                 equipment: null,
                 friend: null,
                 credits: -1000,
+                hp: 0
             },
             message: 'TBD'
         },
@@ -572,6 +586,7 @@ const gangbusters = {
                 equipment: null,
                 friend: null,
                 credits: -3000,
+                hp: 0
             },
             message: 'TBD',
         },
@@ -602,6 +617,7 @@ const gangbusters = {
                     name: 'Markov',
                 },
                 credits: -2000,
+                hp: 0
             },
             message: 'TBD.'
         },

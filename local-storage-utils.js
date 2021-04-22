@@ -70,6 +70,7 @@ export function negativeUserUpdate(choice, quest) {
 
     user.credits += choice.negativeResult.reward.credits;
     user.credits += quest.credits;
+    user.hp += choice.negativeResult.reward.hp;
 
     if (choice.negativeResult.reward.equipment) {
         user.equipment.push(choice.negativeResult.reward.equipment);
