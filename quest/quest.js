@@ -76,11 +76,6 @@ form.addEventListener('submit', (e) => {
         positiveUserUpdate(choice, quest);
     } else {
         negativeUserUpdate(choice, quest);
-        const user2 = getUser();
-
-        if (user2.hp <= 0) {
-            pTagResults.textContent = 'YOU DIED HAHAHAHA';
-        }
         pTagResults.textContent = choice.negativeResult.message;
     }
 
