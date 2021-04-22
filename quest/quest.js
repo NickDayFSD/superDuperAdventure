@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 import { quests } from './data.js';
-import { getUser, poistiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
+import { getUser, positiveUserUpdate, negativeUserUpdate } from '../local-storage-utils.js';
 import { findById, userSuccess, doesUserSatisfyRequirements } from '../utils.js';
 import { renderHeader } from '../render-user-stats.js';
 
@@ -15,7 +15,7 @@ body.prepend(header);
 
 const section = document.querySelector('section');
 const h2 = document.querySelector('h2');
-const pTagResults = document.querySelector('p');
+const pTagResults = document.querySelector('#results-text');
 const image = document.querySelector('.quest-image');
 const form = document.querySelector('form');
 const submitButton = document.getElementById('submit-button');
@@ -71,7 +71,7 @@ form.addEventListener('submit', (e) => {
 
     if (success === true) {
         pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
-        poistiveUserUpdate(choice, quest);
+        positiveUserUpdate(choice, quest);
     } else {
         pTagResults.textContent = choice.negativeResult.message;
         negativeUserUpdate(choice, quest);
@@ -81,26 +81,30 @@ form.addEventListener('submit', (e) => {
 
     submitButton.style.display = 'none';
 
-    if (choice.id === 'begin') {
-        window.location = `../quest/?id=wigmolesia`;
-    }
-    else if (choice.id === 'saloon') {
-        window.location = `../quest/?id=saloon`;
-    }
-    else if (choice.id === 'sheriff') {
-        window.location = `../quest/?id=sheriff`;
-    }
-    else if (choice.id === 'steal') {
-        window.location = `../quest/?id=wigmolesia`;
-    }
-    else if (choice.id === 'talkWithConvict') {
-        window.location = `../quest/?id=wigmolesia`;
-    }
-    else if (choice.id === 'talkWithSheriff') {
-        window.location = `../quest/?id=wigmolesia`;
-    }
+    resultsButton.addEventListener('click', () => {
+        switch (choice.id) {
+            case 'begin':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'saloon':
+                window.location = `../quest/?id=saloon`;
+                break;
+            case 'sheriff':
+                window.location = `../quest/?id=sheriff`;
+                break;
+            case 'steal':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'talkWithConvict':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'talkWithSheriff':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            default:
+                window.location = '../map';
+        }
+    });
 });
 
-resultsButton.addEventListener('click', () => {
-    window.location = '../map';
-});
+
