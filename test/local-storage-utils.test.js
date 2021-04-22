@@ -56,8 +56,7 @@ test('Test to see if all user quests are completed', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-test('Test to see if all user quests are completed', (expect) => {
-    const expected = false;
+test('Test to see if user sells an item', (expect) => {
 
     const user = {
         equipment: [{
@@ -70,8 +69,25 @@ test('Test to see if all user quests are completed', (expect) => {
         credits: 0,
     }
 
+    setUser(user);
 
-    const actual = areQuestsCompleted(user);
+    const expected = {
+        equipment: [
+            {
+                id: 'nunchucks',
+                value: 50,
+            }],
+        credits: 80,
+    }
+
+    const weapon = {
+        id: 'weapon',
+        value: 100,
+    }
+
+    sellItem(weapon);
+
+    const actual = getUser();
 
     expect.deepEqual(actual, expected);
 });

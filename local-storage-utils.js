@@ -28,7 +28,7 @@ export function createUser(name, tagline, formArray) {
         charisma: Number(formArray[3]),
         luck: Number(formArray[4]),
         morality: 0,
-        choices: []
+
     };
 
     return user;
@@ -108,7 +108,7 @@ export function sellItem(item) {
     const index = user.equipment.indexOf(matchingItem);
 
     if (index > -1) {
-        array.splice(index, 1);
+        user.equipment.splice(index, 1);
     }
 
     user.credits += (item.value * .8);
