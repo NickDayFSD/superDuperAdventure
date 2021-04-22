@@ -66,9 +66,10 @@ form.addEventListener('submit', (e) => {
     const choice = findById(quest.choices, choiceId);
 
     // roll to see if positive or negative result
-    const success = false;
-    // userSuccess(quest, choice);
+
+    const success = userSuccess(quest, choice);
     
+    console.log(success);
     // display correct result
 
     if (success === true) {
@@ -101,6 +102,18 @@ form.addEventListener('submit', (e) => {
                 window.location = `../quest/?id=wigmolesia`;
                 break;
             case 'talkWithSheriff':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'hotel':
+                window.location = `../quest/?id=hotel`;
+                break;
+            case 'stay':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'turn around':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'stay' || 'turn around' || 'register':
                 window.location = `../quest/?id=wigmolesia`;
                 break;
             default:

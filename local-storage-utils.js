@@ -86,16 +86,3 @@ export function negativeUserUpdate(choice, quest) {
     setUser(user);
 }
 
-export function findHighestStat(user) {
-    const skillsArray = [
-        user.intelligence,
-        user.strength,
-        user.charisma,
-        user.marksmanship,
-        user.luck,
-    ]
-    skillsArray.forEach(skill => {
-        console.log(skill)
-    })
-    return matchingSkill;
-}
