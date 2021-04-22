@@ -1,4 +1,4 @@
-import { getUser, areQuestsCompleted } from '../local-storage-utils.js';
+import { getUser, findHighestStat } from '../local-storage-utils.js';
 
 const user = getUser();
 const resultsP = document.querySelector('#results-p');
@@ -25,11 +25,11 @@ if (user.friends.length === 1) {
 
 const userCredits = user.credits;
 
-resultsP.textContent = `Congratulations! You bested all of the space baddies on Terran. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`
+resultsP.textContent = `Congratulations! You bested all of the space baddies on Terran with your magnificent ${findHighestStat(user)}. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`;
 resultsButton.addEventListener('click', () => {
     localStorage.clear();
     window.location = '../';
-})
+});
 
 const canvas = document.querySelector('#main-canvas');
 const ctx = canvas.getContext('2d');
@@ -53,24 +53,10 @@ const playerSprite = new Image();
 playerSprite.src = '../assets/spaceship_right.png';
 
 const background = new Image();
-// background.src = '../assets/ship.png';
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
-
-// function intersectRect() {
-
-//     const gangbustersQuest = user.completedQuests.gangbusters;
-
-//     if (!gangbustersQuest) {
-//         if ((player.x >= gangbusters.x && player.x <= (gangbusters.x + 50)) && (player.y >= gangbusters.y && (player.y <= gangbusters.y + 50))) {
-//             window.location = `../quest/?id=gangbusters`;
-//         } 
-//     }
-// }
-
-
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -89,13 +75,12 @@ function animate() {
 
     movePlayer();
     requestAnimationFrame(animate);
-    // intersectRect();
 }
 
 animate();
 
 window.addEventListener('keydown', (e) => {
-    keys[e.key] = true; // Another way to add key presses into the keys array
+    keys[e.key] = true;
 });
 
 window.addEventListener('keyup', (e) => {

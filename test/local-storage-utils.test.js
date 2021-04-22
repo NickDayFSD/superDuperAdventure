@@ -66,7 +66,6 @@ test('This test should find the key name with the highest value in an object', (
         equipment: [],
         friends: [],
         completedQuests: {},
-        tagline,
         intelligence: 2,
         strength: 3,
         marksmanship: 2,

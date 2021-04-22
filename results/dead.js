@@ -30,8 +30,7 @@ if (user.friends.length === 1) {
 const userCredits = user.credits;
 
 // console.log(findHighestStat(user))
-// const highestSkill = findHighestStat(user);
+const highestSkill = findHighestStat(user);
 
 
-pResults.textContent = `You died ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}. `;
-//Your ${highestSkill} couldn't save you this time
+pResults.textContent = `You died ${userMorality} person. Not even your ${highestSkill} could save you this time. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}. `;
