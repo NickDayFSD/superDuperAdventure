@@ -82,8 +82,8 @@ export function negativeUserUpdate(choice, quest) {
 
     setUser(user);
 }
-
 export function findHighestStat(user) {
+
     const userStats = {
         intelligence: user.intelligence,
         strength: user.strength,

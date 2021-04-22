@@ -39,24 +39,26 @@ export function renderHeader(user) {
 
     friendsUl.textContent = 'Friends:';
     friendsUl.classList.add('dropdown');
-    friendsUl.addEventListener('', () => {
+    
+   
+    user.friends.forEach(item => {
+        const li = document.createElement('li');
+   
+        li.textContent = item.name;
+        li.style.display = 'none';
 
-        user.friends.forEach(item => {
-            const li = document.createElement('li');
+        friendsUl.append(li);
 
-            li.textContent = item.name;
-
-            friendsUl.append(li);
-
-            friendsUl.addEventListener('pointerenter', () => {
-                li.style.display = 'block';
-            });
-            friendsUl.addEventListener('pointerleave', () => {
-                li.style.display = 'none';
-            });
+        friendsUl.addEventListener('pointerenter', () => {
+            li.style.display = 'block';
         });
 
+        friendsUl.addEventListener('pointerleave', () => {
+            li.style.display = 'none';
+        });
     });
+
+
 
     image.src = `../assets/main-display.png`;
 
