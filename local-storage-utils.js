@@ -115,3 +115,17 @@ export function sellItem(item) {
 
     setUser(user);
 }
+
+export function buyItem(item) {
+    const user = getUser()
+
+    if (user.credits <= 0) {
+        return false;
+    }
+
+    user.equipment.push(item);
+
+    user.credits -= (item.value * 1.2);
+
+    setUser(user);
+}

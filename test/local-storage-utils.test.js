@@ -1,4 +1,4 @@
-import { setUser, getUser, areQuestsCompleted, sellItem } from '../local-storage-utils.js';
+import { setUser, getUser, areQuestsCompleted, sellItem, buyItem } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
@@ -86,6 +86,42 @@ test('Test to see if user sells an item', (expect) => {
     }
 
     sellItem(weapon);
+
+    const actual = getUser();
+
+    expect.deepEqual(actual, expected);
+});
+
+test('Test to see if a user buys an item', (expect) => {
+
+    const user = {
+        equipment: [{
+            id: 'nunchucks',
+            value: 50,
+        }],
+        credits: 120,
+    }
+
+    setUser(user);
+
+    const expected = {
+        equipment: [
+            {
+                id: 'nunchucks',
+                value: 50,
+            }, {
+                id: 'weapon',
+                value: 100,
+            }],
+        credits: 0,
+    }
+
+    const weapon = {
+        id: 'weapon',
+        value: 100,
+    }
+
+    buyItem(weapon);
 
     const actual = getUser();
 
