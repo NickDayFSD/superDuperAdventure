@@ -66,15 +66,17 @@ form.addEventListener('submit', (e) => {
     const choice = findById(quest.choices, choiceId);
 
     // roll to see if positive or negative result
-    const success = userSuccess(quest, choice);
+    const success = false;
+    // userSuccess(quest, choice);
+    
     // display correct result
 
     if (success === true) {
         pTagResults.textContent = choice.positiveResult.message + ` ${user.tagline}!!!`;
         positiveUserUpdate(choice, quest);
     } else {
-        pTagResults.textContent = choice.negativeResult.message;
         negativeUserUpdate(choice, quest);
+        pTagResults.textContent = choice.negativeResult.message;
     }
 
     resultReadout.classList.add('display');
