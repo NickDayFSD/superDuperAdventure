@@ -75,7 +75,7 @@ const wigmolesia = {
         required: {},
 
         // add bonus to roll
-        attribute:  null,
+        attribute: null,
         morality: 0,
         positiveResult: {
             reward: {
@@ -513,13 +513,13 @@ const gangbusters = {
     id: 'gangbusters',
     title: 'Help the Old Man',
     image: 'mando.jpg',
-    description: 'There\'s an old man that needs help. A gang took his cane. Do the right thing and help.',
+    description: 'You come across an old man that looks distressed. Upon noticing you, he waves you over. "Greetings young fellow. My name is Rando. My satchel was taken from me by some hooligans, and I wonder if you might help me get it back." You consider his request for a moment and remember that elders have accumulated wealth. After agreeing to help, he points you in the direction of the thugs. You see five gangsters laughing in an alley and spot the satchel. What do you do?',
 
     // number required for success
-    difficulty: 5,
+    difficulty: 6,
     choices: [{
-        id: 'alive',
-        description: 'Fight the gang in a good ol 1v5 brawl',
+        id: 'muscle',
+        description: 'Try to get the jump on them and fight the gang in a good ol 1v5 brawl',
         required: {},
 
         // add bonus to roll
@@ -528,56 +528,56 @@ const gangbusters = {
         positiveResult: {
             reward: {
                 equipment: {
-                    id: 'baton',
-                    name: "The fugitive's baton",
-                    strength: 1,
-                    value: 500,
+                    id: 'spaceship',
+                    name: 'Vigilance',
+                    value: 50000,
                 },
                 friend: null,
                 credits: 500,
             },
-            message: 'TBD'
+            message: 'You pick out the leader and get a jump on them. After knocking the leader out, the others decide to appease you by handing over the briefcase and 500 credits. When you return the briefcase to the elder, they are so grateful that they hand you a set of keys. "Here, you look like you\'ve grown too big for this pond. I\'m too old for space travel; Vigilance would be lucky to have you." You gain the keys to a spaceship and leave this rock behind.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
                 friend: null,
-                credits: -1000,
+                credits: -5000,
+                hp: -30
             },
-            message: 'TBD'
+            message: 'You pick out the leader and charge in. When you grab your target, the others surround you. As it turns out, they are much stronger than you realized. You manage to defeat two of them before they knock you down and keep kicking. So much for helping the elderly.'
         },
     }, {
-        id: 'dead',
-        description: 'Take the high ground and murder everyone.',
+        id: 'murder',
+        description: 'Take the high ground and murder everyone. The dead don\'t care about their posessions.',
         required: {},
 
         // add bonus to roll
         attribute: 'marksmanship',
-        morality: -1,
+        morality: -2,
         positiveResult: {
             reward: {
                 equipment: {
-                    id: 'pistol',
-                    name: 'laser blaster',
-                    marksmanship: 1,
-                    value: 1000,
+                    id: 'spaceship',
+                    name: 'Vigilance',
+                    value: 50000,
                 },
                 friend: null,
-                credits: 0,
+                credits: 2500,
             },
-            message: 'TBD'
+            message: 'You find a good spot with cover to shoot from and open fire. With a few well aimed shots, you slay the gangster holding the satchel and two others before the last of them flees. You pick up 2500 credits and the briefcase from the corpses. When you return the briefcase to the elder, they are so grateful that they hand you a set of keys. "Here, you look like you\'ve grown too big for this pond. I\'m too old for space travel; Vigilance would be lucky to have you." You gain the keys to a spaceship and leave this rock behind.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
                 friend: null,
-                credits: -3000,
+                credits: -5000,
+                hp: -30
             },
-            message: 'TBD',
+            message: 'You find a good spot with cover to shoot from and open fire. You open fire and miss your shot. They draw their weapons and return fire. You manage to hit two of them before they gun you down. So much for helping the elderly.'
         },
     }, {
-        id: 'convince',
-        description: 'Observe them and make a plan.',
+        id: 'observe',
+        description: 'Observe them and make a plan. Opportunity comes to those with patience.',
         required: {},
 
         // add bonus to roll
@@ -585,38 +585,37 @@ const gangbusters = {
         morality: 1,
         positiveResult: {
             reward: {
-                equipment: null,
-                friend: {
-                    id: 'fugitive',
-                    name: 'Markov',
+                equipment: {
+                    id: 'spaceship',
+                    name: 'Vigilance',
+                    value: 50000,
                 },
-                credits: 1000,
+                friend: null,
+                credits: 500,
             },
-            message: 'TBD.'
+            message: 'You pick out the leader and get a jump on them. After knocking the leader out, the others decide to appease you by handing over the briefcase and 500 credits. When you return the briefcase to the elder, they are so grateful that they hand you a set of keys. "Here, you look like you\'ve grown too big for this pond. I\'m too old for space travel; Vigilance would be lucky to have you." You gain the keys to a spaceship and leave this rock behind.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
-                friend: {
-                    id: 'fugitive',
-                    name: 'Markov',
-                },
-                credits: -2000,
+                friend: null,
+                credits: -5000,
+                hp: -30
             },
-            message: 'TBD.'
+            message: 'You pick out the leader and charge in. When you grab your target, the others surround you. As it turns out, they are much stronger than you realized. You manage to defeat two of them before they knock you down and keep kicking. So much for helping the elderly.'
         },
     }],
-    credits: 5000,
+    credits: 0,
 };
 
-export const quests = 
-[   
-    intro,
-    fugitive, 
-    beast,
-    wigmolesia,
-    saloon,
-    sheriff,
-    hotel,
-    gangbusters
-];
+export const quests =
+    [
+        intro,
+        fugitive,
+        beast,
+        wigmolesia,
+        saloon,
+        sheriff,
+        hotel,
+        gangbusters
+    ];
