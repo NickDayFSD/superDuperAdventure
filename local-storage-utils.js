@@ -100,16 +100,18 @@ export function findHighestStat(user) {
     return matchingSkill;
 }
 
-export function sellItem(itemId) {
+export function sellItem(item) {
     const user = getUser();
 
-    const matchingItem = user.equipment.find(object => object.id === itemId);
+    const matchingItem = user.equipment.find(object => object.id === item.id);
 
     const index = user.equipment.indexOf(matchingItem);
 
     if (index > -1) {
         array.splice(index, 1);
     }
+
+    user.credits += (item.value * .8);
 
     setUser(user);
 }
