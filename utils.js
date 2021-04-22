@@ -17,7 +17,6 @@ export function luckRoll(luck, stat) {
         const roll = rollGenerator(stat);
         rolls.push(roll);
     }
-    console.log(rolls);
     return Math.max(...rolls);
 }
 
@@ -41,7 +40,5 @@ export function doesUserSatisfyRequirements(requiredParamId, user) {
     if (matchingItem || matchingFriend || !requiredParamId) return true;
 
     return false;
-
-
 }
 
