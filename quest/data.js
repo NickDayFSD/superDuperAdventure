@@ -591,18 +591,18 @@ const gangbusters = {
                     value: 50000,
                 },
                 friend: null,
-                credits: 500,
+                credits: 3000,
             },
-            message: 'You pick out the leader and get a jump on them. After knocking the leader out, the others decide to appease you by handing over the briefcase and 500 credits. When you return the briefcase to the elder, they are so grateful that they hand you a set of keys. "Here, you look like you\'ve grown too big for this pond. I\'m too old for space travel; Vigilance would be lucky to have you." You gain the keys to a spaceship and leave this rock behind.'
+            message: 'You wait and observe the gangsters to see what they do next. After a few minutes, one of them opens the satchel and looks inside. When they see the contents, they freeze. The other gangsters catch on quickly and look. Tensions rise as they realize the value of what they stole. It becomes obvious that greed takes hold as they eyeball each other. Your patience and pays off as they draw their weapons and turn on each other. You walk over and grab the satchel and their collective 3000 credits once they are all disabled. When you return the briefcase to the elder, they are so grateful that they hand you a set of keys. "Here, you look like you\'ve grown too big for this pond. I\'m too old for space travel; Vigilance would be lucky to have you." You gain the keys to a spaceship and leave this rock behind.'
         },
         negativeResult: {
             reward: {
                 equipment: null,
                 friend: null,
-                credits: -5000,
+                credits: 0,
                 hp: -30
             },
-            message: 'You pick out the leader and charge in. When you grab your target, the others surround you. As it turns out, they are much stronger than you realized. You manage to defeat two of them before they knock you down and keep kicking. So much for helping the elderly.'
+            message: 'You wait and observe the gangsters to see what they do next. After a few minutes, one of them opens the satchel and looks inside. When they see the contents, they freeze. The other gangsters catch on quickly and look. Tensions rise as they realize the value of what they stole. It becomes obvious that greed takes hold as they eyeball each other. They seem like they are about to steal the contents, so you charge in and try to grab the satchel. They draw their weapons on each other and then notice you running in. They all turn and shoot you at once. So much for helping the elderly.'
         },
     }],
     credits: 0,
