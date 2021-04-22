@@ -2,12 +2,32 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgb(27, 26, 26);
+    font-family: 'Press Start 2P', cursive;
+}
+
+main {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
  
 h1 {
     color: red;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 0px 5px 0px orange;
 }
 
 p {
     color: white;
+    line-height: 1.5;
+    
+}
+
+#retry-button {
+    font-family: 'Press Start 2P', cursive;
+    color: red;
+    font-size: 1.3rem;
+    margin-top: 1rem;
 }

@@ -43,5 +43,5 @@ form.addEventListener('submit', (e) => {
 
     const user = createUser(name, tagline, attributeArray);
     setUser(user);
-    window.location = `../quest/?id=intro`;
+    window.location = './quest/?id=intro';
 });

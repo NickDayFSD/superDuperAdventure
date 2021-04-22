@@ -1,5 +1,3 @@
-import { quests } from './quest/data.js';
-
 const USER = 'USER';
 
 export function setUser(user) {
@@ -15,7 +13,6 @@ export function getUser() {
 export function createUser(name, tagline, formArray) {
     const user = {
         name,
-        age: 18,
         hp: 30 + 3 * formArray[1],
         credits: 0,
         equipment: [],
@@ -28,21 +25,25 @@ export function createUser(name, tagline, formArray) {
         charisma: Number(formArray[3]),
         luck: Number(formArray[4]),
         morality: 0,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55cf427a8c394c1ed6e9967f09e1b3c897ee9689
     };
 
     return user;
 }
 
 export function areQuestsCompleted(user) {
+    const gangbusters = 'gangbusters';
+    const fugitive = 'fugitive';
+    const beast = 'beast';
 
-    for (let object of quests) {
-
-        if (!user.completedQuests[object.id]) {
-            return false;
-        }
+    if (!user.completedQuests[fugitive, beast, gangbusters]) {
+        return false;
+    } else {
+        return true;
     }
-    return true;
 }
 
 export function positiveUserUpdate(choice, quest) {
@@ -114,4 +115,15 @@ export function buyItem(item) {
     user.credits -= (item.value * 1.2);
 
     setUser(user);
+export function findHighestStat(user) {
+    const userStats = {
+        intelligence: user.intelligence,
+        strength: user.strength,
+        marksmanship: user.marksmanship,
+        charisma: user.charisma,
+        luck: user.luck
+    };
+
+    // voodoo magic
+    return (Object.entries(userStats).sort((a, b) => a[1] - b[1])[Object.entries(userStats).length - 1][0]);
 }
