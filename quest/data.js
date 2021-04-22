@@ -582,7 +582,7 @@ const gangbusters = {
 
         // add bonus to roll
         attribute: 'intelligence',
-        morality: 1,
+        morality: 2,
         positiveResult: {
             reward: {
                 equipment: {
