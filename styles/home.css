@@ -66,5 +66,8 @@ button:hover {
 
 #available-attribute-points {
     font-size: 1.7rem;
-    color: magenta;
+    color: rgb(255, 81, 0);
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
 }

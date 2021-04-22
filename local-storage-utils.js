@@ -28,6 +28,7 @@ export function createUser(name, tagline, formArray) {
         charisma: Number(formArray[3]),
         luck: Number(formArray[4]),
         morality: 0,
+        choices: []
     };
 
     return user;
@@ -44,7 +45,7 @@ export function areQuestsCompleted(user) {
     return true;
 }
 
-export function poistiveUserUpdate(choice, quest) {
+export function positiveUserUpdate(choice, quest) {
     const user = getUser();
 
     user.credits += choice.positiveResult.reward.credits;
