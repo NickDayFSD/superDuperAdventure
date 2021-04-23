@@ -33,7 +33,6 @@ const player = {
     movement: false,
 };
 
-
 // show the reward over the top
 
 const fugitive = {

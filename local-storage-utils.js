@@ -82,6 +82,40 @@ export function negativeUserUpdate(choice, quest) {
 
     setUser(user);
 }
+
+export function sellItem(item) {
+    const user = getUser();
+
+    const matchingItem = user.equipment.find(object => object.id === item.id);
+
+    const index = user.equipment.indexOf(matchingItem);
+
+    if (index > -1) {
+        user.equipment.splice(index, 1);
+    }
+
+    user.credits += (item.value * .8);
+
+    setUser(user);
+
+}
+
+export function buyItem(item) {
+    const user = getUser();
+
+    if (user.credits < ((item.value) * 1.2)) {
+        return false;
+    }
+
+    user.equipment.push(item);
+
+    user.credits -= (item.value * 1.2);
+
+    setUser(user);
+
+    return true;
+}
+
 export function findHighestStat(user) {
 
     const userStats = {

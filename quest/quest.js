@@ -111,7 +111,7 @@ form.addEventListener('submit', (e) => {
             case 'turn around':
                 window.location = `../quest/?id=panapolis`;
                 break;
-            case 'stay' || 'turn around' || 'register':
+            case 'register':
                 window.location = `../quest/?id=panapolis`;
                 break;
             default:

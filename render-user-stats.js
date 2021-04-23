@@ -1,3 +1,5 @@
+import { getUser } from './local-storage-utils.js';
+
 export function renderHeader(user) {
 
     const header = document.createElement('header');
@@ -8,6 +10,8 @@ export function renderHeader(user) {
     const equipmentUl = document.createElement('ul');
     const friendsUl = document.createElement('ul');
 
+    header.id = 'user-header';
+
     pName.textContent = `Name: ${user.name}`;
     pName.id = 'name';
 
@@ -15,16 +19,19 @@ export function renderHeader(user) {
     pHp.id = 'hp';
 
     pCredits.textContent = `Credits: ${user.credits}`;
-    pCredits.id = 'gold';
+    pCredits.id = 'credits';
 
     equipmentUl.textContent = 'Equipment:';
     equipmentUl.classList.add('dropdown');
+    equipmentUl.id = 'equipment';
 
     user.equipment.forEach(item => {
         const li = document.createElement('li');
-
+    
         li.textContent = item.name;
         li.style.display = 'none';
+        li.classList.add('equipment-li');
+        li.id = `${item.id}-li`;
 
         equipmentUl.append(li);
 
@@ -39,6 +46,7 @@ export function renderHeader(user) {
 
     friendsUl.textContent = 'Friends:';
     friendsUl.classList.add('dropdown');
+    friendsUl.id = 'friends';
     
    
     user.friends.forEach(item => {
@@ -46,6 +54,7 @@ export function renderHeader(user) {
    
         li.textContent = item.name;
         li.style.display = 'none';
+        li.id = `${item.id}-li`;
 
         friendsUl.append(li);
 
@@ -58,10 +67,36 @@ export function renderHeader(user) {
         });
     });
 
-
-
-    image.src = `../assets/main-display.png`;
+    image.src = `./assets/main-display.png`;
 
     header.append(image, pName, pHp, pCredits, equipmentUl, friendsUl);
     return header;
+}
+
+export function updateHeader() {
+    
+    const user = getUser();
+    const health = document.querySelector('#hp');
+    const credits = document.querySelector('#credits');
+    const equipmentUl = document.querySelector('#equipment');
+    const friendsUl = document.querySelector('#friends');
+    const friendsLi = document.querySelectorAll('.friends');
+    const equipmentLi = document.querySelectorAll('.friends');
+    
+    
+    health.textContent = `Hp: ${user.hp}`;
+    credits.textContent = `Credits: ${user.credits}`;
+    
+    friendsLi.forEach(item => {
+        friendsUl.append(item);
+    
+    });
+
+    equipmentLi.forEach(item => {
+        equipmentUl.append(item);  
+    });
+
+
+    return [health, credits];
+
 }
