@@ -85,7 +85,7 @@ form.addEventListener('submit', (e) => {
     resultsButton.addEventListener('click', () => {
         switch (choice.id) {
             case 'begin':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
             case 'saloon':
                 window.location = `../quest/?id=saloon`;
@@ -94,13 +94,13 @@ form.addEventListener('submit', (e) => {
                 window.location = `../quest/?id=sheriff`;
                 break;
             case 'steal':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
             case 'talkWithConvict':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
             case 'talkWithSheriff':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
             default:
                 window.location = '../map';

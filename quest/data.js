@@ -37,12 +37,12 @@ const intro = {
     credits: 0,
 };
 
-const wigmolesia = {
-    id: 'wigmolesia',
-    title: 'Town of Wigmolesia',
-    image: 'wigmolesia-2.webp',
+const panapolis = {
+    id: 'panapolis',
+    title: 'Town of panapolis',
+    image: 'panapolis-2.webp',
     audio: 'The good the bad and the ugly - Theme.mp3',
-    description: `You've begin your adventure at the town of Wigmolesia. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
+    description: `You've begin your adventure at the town of panapolis. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
 
     // number required for success
     difficulty: 0,
@@ -124,7 +124,7 @@ const wigmolesia = {
 
 const sheriff = {
     id: 'sheriff',
-    title: 'Sheriff of Wigmolesia',
+    title: 'Sheriff of panapolis',
     image: 'sheriffJail.jpg',
     audio: '',
     description: `The sheriff's sitting at his desk and a single convict in the cell behind him. You notice the case of rifles on the wall.`,
@@ -216,7 +216,7 @@ const sheriff = {
 
 const saloon = {
     id: 'saloon',
-    title: 'Wigmolesia Saloon',
+    title: 'panapolis Saloon',
     image: 'space_saloon.jpg',
     audio: '',
     description: `The smell of Ragnook, the planetary drink of Terran, fills the air. Scowls from across the room darken the mood. You approach the bar and ask for a glass of Ragnook. Someone approaches from behind. "You've come to wrong place, stranger." What do you do?`,
@@ -269,7 +269,7 @@ const saloon = {
 // needs to be written
 const hotel = {
     id: 'hotel',
-    title: 'Wigmolesia Hotel',
+    title: 'panapolis Hotel',
     image: '',
     audio: '',
     description: `This is the Hotel description. Change Thursday.`,
@@ -626,7 +626,7 @@ export const quests =
         intro,
         fugitive,
         beast,
-        wigmolesia,
+        panapolis,
         saloon,
         sheriff,
         hotel,
