@@ -143,7 +143,10 @@ const sheriff = {
         positiveResult: {
             reward: {
                 equipment: {
-                    id: 'laser rifle'
+                    id: 'laser rifle',
+                    name: 'Laser Rifle',
+                    img: '',
+                    value: 2000,
                 },
                 friend: null,
                 credits: null,
@@ -475,7 +478,8 @@ const fugitive = {
     choices: [{
         id: 'alive',
         description: 'Take him alive',
-        required: {},
+        required: {
+        },
 
         // add bonus to roll
         attribute: 'strength',

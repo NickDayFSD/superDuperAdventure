@@ -97,6 +97,7 @@ export function sellItem(item) {
     user.credits += (item.value * .8);
 
     setUser(user);
+
 }
 
 export function buyItem(item) {

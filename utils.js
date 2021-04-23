@@ -36,6 +36,13 @@ export function doesUserSatisfyRequirements(requiredParamId, user) {
     const matchingItem = findById(user.equipment, requiredParamId);
     const matchingFriend = findById(user.friends, requiredParamId);
 
+    // this allows quests to govern whether stuff is unlocked or not but not block things off if they've already done it
+    for (let quest in user.completedQuests) {
+        if (requiredParamId === quest) {
+            return false;
+        }
+    }
+
 
     if (matchingItem || matchingFriend || !requiredParamId) return true;
 

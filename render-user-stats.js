@@ -10,6 +10,8 @@ export function renderHeader(user) {
     const equipmentUl = document.createElement('ul');
     const friendsUl = document.createElement('ul');
 
+    header.id = 'user-header';
+
     pName.textContent = `Name: ${user.name}`;
     pName.id = 'name';
 
@@ -25,10 +27,11 @@ export function renderHeader(user) {
 
     user.equipment.forEach(item => {
         const li = document.createElement('li');
-
+        console.log(item);
         li.textContent = item.name;
         li.style.display = 'none';
-        li.classList.add('friends');
+        li.classList.add('equipment-li');
+        li.id = `${item.id}-li`;
 
         equipmentUl.append(li);
 
@@ -51,6 +54,7 @@ export function renderHeader(user) {
    
         li.textContent = item.name;
         li.style.display = 'none';
+        li.id = `${item.id}-li`;
 
         friendsUl.append(li);
 
@@ -62,8 +66,6 @@ export function renderHeader(user) {
             li.style.display = 'none';
         });
     });
-
-
 
     image.src = `../assets/main-display.png`;
 
@@ -87,6 +89,7 @@ export function updateHeader() {
     
     friendsLi.forEach(item => {
         friendsUl.append(item);
+    
     });
 
     equipmentLi.forEach(item => {
