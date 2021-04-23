@@ -13,6 +13,8 @@ header {
     position: fixed;
     width: 100%;
     padding: 0.6rem;
+    font-family: 'Zen Dots', cursive;
+    z-index: 1100;
 }
 
 h2 {
