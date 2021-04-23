@@ -145,7 +145,7 @@ const sheriff = {
                 equipment: {
                     id: 'laser rifle',
                     name: 'Laser Rifle',
-                    img: '',
+                    img: 'laser-rifle.png',
                     value: 2000,
                 },
                 friend: null,
@@ -238,9 +238,10 @@ const saloon = {
         positiveResult: {
             reward: {
                 equipment: {
-                    id: 'blaster',
-                    name: 'blaster',
-                    value: 1000
+                    id: 'blaser',
+                    name: 'Laser Blaster',
+                    image: 'laser-gun.png',
+                    value: 1000,
                 },
                 friend: null,
                 credits: null,
@@ -551,8 +552,8 @@ const fugitive = {
             reward: {
                 equipment: {
                     id: 'pistol',
-                    name: 'laser blaster',
-                    marksmanship: 1,
+                    name: 'Laser Blaster',
+                    image: 'laser-gun.png',
                     value: 1000,
                 },
                 friend: null,
@@ -627,6 +628,7 @@ const gangbusters = {
                     id: 'spaceship',
                     name: 'Vigilance',
                     value: 50000,
+                    image: 'spaceship_right.png'
                 },
                 friend: null,
                 credits: 500,
