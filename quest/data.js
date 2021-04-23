@@ -145,7 +145,7 @@ const sheriff = {
                 equipment: {
                     id: 'laser rifle',
                     name: 'Laser Rifle',
-                    img: '',
+                    img: 'laser-rifle.png',
                     value: 2000,
                 },
                 friend: null,
@@ -552,8 +552,8 @@ const fugitive = {
             reward: {
                 equipment: {
                     id: 'pistol',
-                    name: 'laser blaster',
-                    marksmanship: 1,
+                    name: 'Laser Blaster',
+                    image: 'laser-gun.png',
                     value: 1000,
                 },
                 friend: null,
