@@ -66,7 +66,7 @@ user.equipment.forEach(item => {
     const itemDiv = document.createElement('div');
 
     const h2 = document.createElement('h2');
-    //const image = document.createElement('image');
+    const image = document.createElement('img');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -74,7 +74,8 @@ user.equipment.forEach(item => {
 
     h2.textContent = item.name;
 
-    //image.src = item.image;
+    image.src = `../assets/${item.image}`;
+    image.classList.add('item-images');
 
     p.textContent = `${(item.value) * .8}c`;
 
@@ -97,7 +98,7 @@ user.equipment.forEach(item => {
 
     });
 
-    itemDiv.append(h2, p, button);
+    itemDiv.append(h2, image, p, button);
 
     userSection.append(itemDiv);
 });
@@ -107,7 +108,7 @@ function renderItem(item) {
     const itemDiv = document.createElement('div');
 
     const h2 = document.createElement('h2');
-    //const image = document.createElement('image');
+    const image = document.createElement('img');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -115,7 +116,8 @@ function renderItem(item) {
 
     h2.textContent = item.name;
 
-    //image.src = item.image;
+    image.src = `../assets/${item.image}`;
+    image.classList.add('item-images');
 
     p.textContent = `${(item.value) * .8}c`;
 
@@ -138,7 +140,7 @@ function renderItem(item) {
 
     });
 
-    itemDiv.append(h2, p, button);
+    itemDiv.append(h2, image, p, button);
 
     return itemDiv;
 }
