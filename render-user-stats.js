@@ -1,4 +1,4 @@
-import { getUser } from '../local-storage-utils.js';
+import { getUser } from './local-storage-utils.js';
 
 export function renderHeader(user) {
 
@@ -67,7 +67,7 @@ export function renderHeader(user) {
         });
     });
 
-    image.src = `../assets/main-display.png`;
+    image.src = `./assets/main-display.png`;
 
     header.append(image, pName, pHp, pCredits, equipmentUl, friendsUl);
     return header;
