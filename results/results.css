@@ -59,7 +59,7 @@ li {
     border-radius: 5%;
     background: transparent;
     position: absolute;
-    top: 100%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
