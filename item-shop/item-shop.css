@@ -9,9 +9,14 @@ header{
 
 #item-shop-section {
     display: flex;
+    justify-content: space-evenly;
 }
 
 #user-section {
     display: flex;
     justify-content: space-evenly;
+}
+
+.item-images {
+    height: 50px;
 }
