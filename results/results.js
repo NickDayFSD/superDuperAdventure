@@ -124,8 +124,7 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 }
 function intersectRect() {
     if ((player.x >= terran.x && player.x <= (terran.x + 50)) && (player.y >= terran.y && player.y <= (terran.y + 50))) {
-        localStorage.clear();
-        window.location = '../';
+        window.location = '../item-shop';
     } }
 
 function animate() {
