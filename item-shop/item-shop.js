@@ -39,7 +39,7 @@ items.forEach(item => {
         if (boughtItem) {
             itemDiv.style.display = 'none';
         } else if (!boughtItem) {
-            alert('You dont have enough money for that, partner!');
+            alert('You dont have enough credits for that, partner!');
         }
 
         const user2 = getUser();
