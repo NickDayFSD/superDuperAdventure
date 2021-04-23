@@ -1,4 +1,4 @@
-import { setUser, getUser, areQuestsCompleted, findHighestStat } from '../local-storage-utils.js';
+import { setUser, getUser, areQuestsCompleted, findHighestStat, sellItem, buyItem } from '../local-storage-utils.js';
 
 const test = QUnit.test;
 
