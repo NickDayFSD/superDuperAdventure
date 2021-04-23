@@ -1,3 +1,5 @@
+
+
 export function renderHeader(user) {
 
     const header = document.createElement('header');

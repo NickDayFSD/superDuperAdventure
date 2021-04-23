@@ -111,6 +111,8 @@ export function buyItem(item) {
     user.credits -= (item.value * 1.2);
 
     setUser(user);
+
+    return user;
 }
 
 export function findHighestStat(user) {

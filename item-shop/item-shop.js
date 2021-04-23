@@ -24,12 +24,16 @@ items.forEach(item => {
 
     //image.src = item.image;
 
-    p.textContent = `${item.value}c`;
+    p.textContent = `${(item.value) * 1.2}c`;
 
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
-        buyItem(item);
+        const buy = buyItem(item);
+        
+        itemDiv.style.display = 'none';
+        p.textContent = buy.hp;
+        document.querySelector('equipment').textContent = buy.equipment;
     //remove item from view;
 
     });
@@ -38,7 +42,7 @@ items.forEach(item => {
     itemShopSection.append(itemDiv);
 });
 
-user.equipment.array.forEach(item => {
+user.equipment.forEach(item => {
     const itemDiv = document.createElement('div');
 
     const h2 = document.createElement('h2');
@@ -52,13 +56,14 @@ user.equipment.array.forEach(item => {
 
     //image.src = item.image;
 
-    p.textContent = `${item.value}c`;
+    p.textContent = `${(item.value) * .8}c`;
 
-    button.innerText = 'Buy';
+    button.innerText = 'Sell';
 
     button.addEventListener('click', () => {
         sellItem(item);
     //remove item from view;
+        itemDiv.style.display = 'none';
 
     });
 

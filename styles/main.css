@@ -53,3 +53,7 @@ button:active {
     position:relative;
 	top:1px;
 }
+
+.dropdown {
+    cursor: pointer;
+}

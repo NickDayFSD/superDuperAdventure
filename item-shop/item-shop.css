@@ -6,3 +6,12 @@ header{
 .item {
     width: 10%;
 }
+
+#item-shop-section {
+    display: flex;
+}
+
+#user-section {
+    display: flex;
+    justify-content: space-evenly;
+}
