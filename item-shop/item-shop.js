@@ -7,6 +7,7 @@ const itemShopSection = document.querySelector('#item-shop-section');
 const userSection = document.querySelector('#user-section');
 const user = getUser();
 
+
 const header = renderHeader(user);
 
 body.prepend(header);
@@ -31,7 +32,9 @@ items.forEach(item => {
     button.addEventListener('click', () => {
         buyItem(item);
         updateHeader();
-        itemDiv.style.display = 'none';
+        // if (buyItem) {
+        //     itemDiv.style.display = 'none';
+        // }
     //remove item from view;
 
     });
@@ -39,6 +42,7 @@ items.forEach(item => {
     itemDiv.append(h2, p, button);
     itemShopSection.append(itemDiv);
 });
+
 
 user.equipment.forEach(item => {
     const itemDiv = document.createElement('div');
@@ -62,7 +66,8 @@ user.equipment.forEach(item => {
         sellItem(item);
     //remove item from view;
         updateHeader();
-        itemDiv.style.display = 'none';
+
+      
 
     });
 

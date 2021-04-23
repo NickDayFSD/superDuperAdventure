@@ -81,12 +81,17 @@ export function updateHeader() {
     const friendsLi = document.querySelectorAll('.friends');
     const equipmentLi = document.querySelectorAll('.friends');
     
-    console.log(friendsLi);
+    
     health.textContent = `Hp: ${user.hp}`;
     credits.textContent = `Credits: ${user.credits}`;
     
-    friendsLi.forEach(item => equipmentUl.append(item));
-    equipmentLi.forEach(item => friendsUl.append(item));
+    friendsLi.forEach(item => {
+        friendsUl.append(item);
+    });
+
+    equipmentLi.forEach(item => {
+        equipmentUl.append(item);  
+    });
 
 
     return [health, credits];

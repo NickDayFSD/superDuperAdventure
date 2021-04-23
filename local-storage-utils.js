@@ -102,7 +102,7 @@ export function sellItem(item) {
 export function buyItem(item) {
     const user = getUser();
 
-    if (user.credits <= 0) {
+    if (user.credits < ((item.value) * 1.2)) {
         return false;
     }
 
