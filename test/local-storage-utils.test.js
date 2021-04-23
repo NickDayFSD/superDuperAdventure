@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { setUser, getUser, areQuestsCompleted, sellItem, buyItem } from '../local-storage-utils.js';
+=======
 import { setUser, getUser, areQuestsCompleted, findHighestStat } from '../local-storage-utils.js';
+>>>>>>> 55cf427a8c394c1ed6e9967f09e1b3c897ee9689
 
 const test = QUnit.test;
 
@@ -56,8 +60,83 @@ test('Test to see if all user quests are completed', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
+<<<<<<< HEAD
+test('Test to see if user sells an item', (expect) => {
+
+    const user = {
+        equipment: [{
+            id: 'weapon',
+            value: 100,
+        }, {
+            id: 'nunchucks',
+            value: 50,
+        }],
+        credits: 0,
+    }
+
+    setUser(user);
+
+    const expected = {
+        equipment: [
+            {
+                id: 'nunchucks',
+                value: 50,
+            }],
+        credits: 80,
+    }
+
+    const weapon = {
+        id: 'weapon',
+        value: 100,
+    }
+
+    sellItem(weapon);
+
+    const actual = getUser();
+
+    expect.deepEqual(actual, expected);
+});
+
+test('Test to see if a user buys an item', (expect) => {
+
+    const user = {
+        equipment: [{
+            id: 'nunchucks',
+            value: 50,
+        }],
+        credits: 120,
+    }
+
+    setUser(user);
+
+    const expected = {
+        equipment: [
+            {
+                id: 'nunchucks',
+                value: 50,
+            }, {
+                id: 'weapon',
+                value: 100,
+            }],
+        credits: 0,
+    }
+
+    const weapon = {
+        id: 'weapon',
+        value: 100,
+    }
+
+    buyItem(weapon);
+
+    const actual = getUser();
+
+    expect.deepEqual(actual, expected);
+});
+
+=======
 test('This test should find the key name with the highest value in an object', (expect) => {
     const expected = 'strength';
+>>>>>>> 55cf427a8c394c1ed6e9967f09e1b3c897ee9689
 
     const user = {
         age: 18,
