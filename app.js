@@ -22,6 +22,9 @@ form.addEventListener('change', (e) => {
 
     for (let attribute of attributeInputs) {
         attribute.max = Number(totalPoints) + Number(attribute.value);
+        if (attribute.max > 3) {
+            attribute.max = 3;
+        }
     }
 
     totalAttributePoints.textContent = totalPoints;
