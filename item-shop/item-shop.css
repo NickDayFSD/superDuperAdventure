@@ -3,6 +3,14 @@ header{
     position: unset;
 }
 
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url(../assets/skyline.jpg);
+    background-size: cover;
+    color: red;
+
+}
+
 .item {
     width: 10%;
 }

@@ -18,6 +18,7 @@ h1 {
     text-shadow: 0px 5px 0px red;
     line-height: 1.1;
     width: 60%;
+    -webkit-text-stroke: 1px black;
 }
 
 form {
