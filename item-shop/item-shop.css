@@ -18,13 +18,20 @@ body {
 #item-shop-section {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 5rem;
 }
 
 #user-section {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 5rem;
 }
 
 .item-images {
     height: 50px;
+  
+}
+
+div > h2 {
+    margin: 1rem;
 }

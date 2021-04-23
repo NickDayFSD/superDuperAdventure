@@ -52,8 +52,6 @@ for (let choice of quest.choices) {
         radio.type = 'radio';
         radio.name = 'choice';
         radio.value = choice.id;
-        radio.id = 'choices';
-        label.htmlFor = 'choices';
         label.append(radio, choice.description);
         form.prepend(label);
     }
