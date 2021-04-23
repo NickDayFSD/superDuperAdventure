@@ -116,6 +116,7 @@ export function buyItem(item) {
 }
 
 export function findHighestStat(user) {
+
     const userStats = {
         intelligence: user.intelligence,
         strength: user.strength,

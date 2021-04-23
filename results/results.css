@@ -5,9 +5,7 @@ font-family: 'Zen Dots', cursive; */
 body {
     height: 100%;
     font-family: 'Zen Dots', cursive;
-
     background-image: url(../assets/results-background.jpg);
-   
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -69,8 +67,6 @@ li {
 .container {
     border: 2px solid blue;
     height: 100%;
-    
-
 }
 
 header {
