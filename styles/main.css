@@ -15,6 +15,7 @@ header {
     padding: 0.6rem;
     font-family: 'Zen Dots', cursive;
     z-index: 1100;
+    box-shadow: 0px 7px 10px 0px black;
 }
 
 h2 {
