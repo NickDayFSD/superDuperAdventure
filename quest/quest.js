@@ -106,13 +106,13 @@ form.addEventListener('submit', (e) => {
                 window.location = `../quest/?id=hotel`;
                 break;
             case 'stay':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
             case 'turn around':
-                window.location = `../quest/?id=wigmolesia`;
+                window.location = `../quest/?id=panapolis`;
                 break;
-            case 'stay' || 'turn around' || 'register':
-                window.location = `../quest/?id=wigmolesia`;
+            case 'register':
+                window.location = `../quest/?id=panapolis`;
                 break;
             default:
                 window.location = '../map';

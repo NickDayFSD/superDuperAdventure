@@ -21,6 +21,7 @@ export function renderHeader(user) {
 
     equipmentUl.textContent = 'Equipment:';
     equipmentUl.classList.add('dropdown');
+    equipmentUl.id = 'equipment';
 
     user.equipment.forEach(item => {
         const li = document.createElement('li');
@@ -42,6 +43,7 @@ export function renderHeader(user) {
 
     friendsUl.textContent = 'Friends:';
     friendsUl.classList.add('dropdown');
+    friendsUl.id = 'friends';
     
    
     user.friends.forEach(item => {
@@ -79,6 +81,7 @@ export function updateHeader() {
     const friendsLi = document.querySelectorAll('.friends');
     const equipmentLi = document.querySelectorAll('.friends');
     
+    console.log(friendsLi);
     health.textContent = `Hp: ${user.hp}`;
     credits.textContent = `Credits: ${user.credits}`;
     
