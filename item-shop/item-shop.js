@@ -1,6 +1,6 @@
 import { buyItem, getUser, sellItem } from '../local-storage-utils.js';
 import { items } from './item-data.js';
-import { renderHeader } from '../render-user-stats.js';
+import { renderHeader, updateHeader } from '../render-user-stats.js';
 
 const body = document.querySelector('body');
 const itemShopSection = document.querySelector('#item-shop-section');
@@ -29,11 +29,9 @@ items.forEach(item => {
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
-        const buy = buyItem(item);
-        
+        buyItem(item);
+        updateHeader();
         itemDiv.style.display = 'none';
-        p.textContent = buy.hp;
-        document.querySelector('equipment').textContent = buy.equipment;
     //remove item from view;
 
     });
@@ -63,6 +61,7 @@ user.equipment.forEach(item => {
     button.addEventListener('click', () => {
         sellItem(item);
     //remove item from view;
+        updateHeader();
         itemDiv.style.display = 'none';
 
     });

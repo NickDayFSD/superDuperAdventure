@@ -1,4 +1,4 @@
-
+import { getUser } from '../local-storage-utils.js';
 
 export function renderHeader(user) {
 
@@ -17,7 +17,7 @@ export function renderHeader(user) {
     pHp.id = 'hp';
 
     pCredits.textContent = `Credits: ${user.credits}`;
-    pCredits.id = 'gold';
+    pCredits.id = 'credits';
 
     equipmentUl.textContent = 'Equipment:';
     equipmentUl.classList.add('dropdown');
@@ -27,6 +27,7 @@ export function renderHeader(user) {
 
         li.textContent = item.name;
         li.style.display = 'none';
+        li.classList.add('friends');
 
         equipmentUl.append(li);
 
@@ -64,4 +65,25 @@ export function renderHeader(user) {
 
     header.append(image, pName, pHp, pCredits, equipmentUl, friendsUl);
     return header;
+}
+
+export function updateHeader() {
+    
+    const user = getUser();
+    const health = document.querySelector('#hp');
+    const credits = document.querySelector('#credits');
+    const equipmentUl = document.querySelector('#equipment');
+    const friendsUl = document.querySelector('#friends');
+    const friendsLi = document.querySelectorAll('.friends');
+    const equipmentLi = document.querySelectorAll('.friends');
+    
+    health.textContent = `Hp: ${user.hp}`;
+    credits.textContent = `Credits: ${user.credits}`;
+    
+    friendsLi.forEach(item => equipmentUl.append(item));
+    equipmentLi.forEach(item => friendsUl.append(item));
+
+
+    return [health, credits];
+
 }
