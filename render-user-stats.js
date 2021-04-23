@@ -27,7 +27,7 @@ export function renderHeader(user) {
 
     user.equipment.forEach(item => {
         const li = document.createElement('li');
-        console.log(item);
+    
         li.textContent = item.name;
         li.style.display = 'none';
         li.classList.add('equipment-li');
