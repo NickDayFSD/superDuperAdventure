@@ -4,7 +4,7 @@ import { renderHeader } from '../render-user-stats.js';
 const user = getUser();
 const body = document.querySelector('body');
 const audio = document.querySelector('audio');
-audio.volume = 0.4;
+audio.volume = 0.2;
 
 const header = renderHeader(user);
 
