@@ -34,13 +34,14 @@ audio {
 
 #main-canvas {
     width: 1000px;
-    height: 700px;
+    height: 1000px;
     border-radius: 5%;
     background: transparent;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 2px solid red;
 }
 
 .container {
