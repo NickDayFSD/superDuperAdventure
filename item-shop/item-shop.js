@@ -1,6 +1,6 @@
 import { buyItem, getUser, sellItem } from '../local-storage-utils.js';
 import { items } from './item-data.js';
-import { renderHeader, updateHeader } from '../render-user-stats.js';
+import { renderHeader } from '../render-user-stats.js';
 
 const body = document.querySelector('body');
 const itemShopSection = document.querySelector('#item-shop-section');
@@ -30,11 +30,24 @@ items.forEach(item => {
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
-        buyItem(item);
-        updateHeader();
-        // if (buyItem) {
-        //     itemDiv.style.display = 'none';
-        // }
+        const header2 = document.querySelector('#user-header');
+
+        header2.remove();
+
+        const boughtItem = buyItem(item);
+        
+        if (boughtItem) {
+            itemDiv.style.display = 'none';
+        } else if (!boughtItem) {
+            alert('You dont have enough credits for that, partner!');
+        }
+
+        const user2 = getUser();
+        
+        const buyItemHeader = renderHeader(user2);
+
+        body.prepend(buyItemHeader);
+        
     //remove item from view;
 
     });
@@ -63,11 +76,19 @@ user.equipment.forEach(item => {
     button.innerText = 'Sell';
 
     button.addEventListener('click', () => {
-        sellItem(item);
-    //remove item from view;
-        updateHeader();
+        const header2 = document.querySelector('#user-header');
 
-      
+        header2.remove();
+
+        sellItem(item);
+
+        itemDiv.style.display = 'none';
+        
+        const newUser = getUser();
+
+        const sellItemHeader = renderHeader(newUser);
+
+        body.prepend(sellItemHeader);
 
     });
 
