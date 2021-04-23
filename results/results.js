@@ -25,7 +25,8 @@ if (user.friends.length === 1) {
 
 const userCredits = user.credits;
 
-resultsP.textContent = `Congratulations! You bested all of the space baddies on Terran with your magnificent ${findHighestStat(user)}. You were ${userMorality} person. You left ${userCredits} credits behind for whoever finds your body and died with ${userFriends}.`;
+resultsP.textContent = `Congratulations! You bested all of the space baddies on Terran with your magnificent ${findHighestStat(user)}. You proved to be ${userMorality} hunter who amassed ${userCredits} credits and ${userFriends}. You continue traveling the galaxy, practicing your trade until someone tries to stop you.`;
+
 resultsButton.addEventListener('click', () => {
     localStorage.clear();
     window.location = '../';
@@ -126,7 +127,8 @@ function intersectRect() {
     if ((player.x >= terran.x && player.x <= (terran.x + 50)) && (player.y >= terran.y && player.y <= (terran.y + 50))) {
         localStorage.clear();
         window.location = '../';
-    } }
+    }
+}
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -142,7 +144,7 @@ function animate() {
         player.width,
         player.height
     );
-    
+
     drawSprite(
         bluePlanetSprite,
         bluePlanet.width * bluePlanet.frameX,
