@@ -18,9 +18,9 @@ export const items = [
         value: 1200,
     },
     {
-        id: 'knife',
-        name: 'Laser Knife',
-        image: 'laser-knife.gif',
-        value: 600,
+        id: 'rifle',
+        name: 'Laser Rifle',
+        image: 'laser-rifle.png',
+        value: 1600,
     }
 ];
