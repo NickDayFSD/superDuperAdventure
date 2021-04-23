@@ -102,6 +102,18 @@ form.addEventListener('submit', (e) => {
             case 'talkWithSheriff':
                 window.location = `../quest/?id=panapolis`;
                 break;
+            case 'hotel':
+                window.location = `../quest/?id=hotel`;
+                break;
+            case 'stay':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'turn around':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
+            case 'stay' || 'turn around' || 'register':
+                window.location = `../quest/?id=wigmolesia`;
+                break;
             default:
                 window.location = '../map';
         }

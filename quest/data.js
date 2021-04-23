@@ -14,7 +14,7 @@ const intro = {
         required: {},
 
         // add bonus to roll
-        attribute: null,
+        attribute: 'charisma',
         morality: 0,
         positiveResult: {
             reward: {
@@ -22,7 +22,7 @@ const intro = {
                 friend: null,
                 credits: null,
             },
-            message: null
+            message: 'Let\'s Go!'
         },
         negativeResult: {
             reward: {
@@ -52,7 +52,7 @@ const panapolis = {
         required: {},
 
         // add bonus to roll
-        attribute: null,
+        attribute: 'strength',
         morality: 0,
         positiveResult: {
             reward: {
@@ -60,7 +60,7 @@ const panapolis = {
                 friend: null,
                 credits: null,
             },
-            message: null
+            message: 'Outside of the saloon are a rowdy bunch looking for trouble. You pay them no mind as you walk by them. One of the drunks hurls a bottle at you and hits your shoulder, this place is already getting on your nerves.',
         },
         negativeResult: {
             reward: {
@@ -77,7 +77,7 @@ const panapolis = {
         required: {},
 
         // add bonus to roll
-        attribute: null,
+        attribute: 'charisma',
         morality: 0,
         positiveResult: {
             reward: {
@@ -85,7 +85,7 @@ const panapolis = {
                 friend: null,
                 credits: null,
             },
-            message: null
+            message: 'You walk down the dusty road to the town\'s jail. The townsfolk know your new in town and yell at you to dissuade you from continiuing. They don\'t stop you though, you\'re a bounty hunter on a mission and no one has ever stopped you before. '
         },
         negativeResult: {
             reward: {
@@ -103,7 +103,7 @@ const panapolis = {
         required: {},
 
         // add bonus to roll
-        attribute: null,
+        attribute: 'intelligence',
         morality: 0,
         positiveResult: {
             reward: {
@@ -111,12 +111,13 @@ const panapolis = {
                 friend: null,
                 credits: null,
             },
-            message: null
+            message: 'The town\'s hotel looks like it\'s been a few eons since it\'s gotten any love. The windows are broken out and looks like a rough stay.',
         },
         negativeResult: {
             reward: null,
             message: null,
-            hp: 0
+            credits: null,
+            hp: 0,
         },
     }],
     credits: null,
@@ -269,51 +270,96 @@ const saloon = {
 // needs to be written
 const hotel = {
     id: 'hotel',
+
     title: 'panapolis Hotel',
-    image: '',
+    image: 'hotel.jpg',
+
     audio: '',
-    description: `This is the Hotel description. Change Thursday.`,
+    description: `You walk into the Monsoon Hotel and are greated by a cheery face behind the counter. 'Howdy!' she says 'Can I interest you in a night's stay?`,
 
     // number required for success
     difficulty: 0,
     choices: [{
-        id: 'replace1',
-        description: 'Do stuff?',
-        required: {},
-
-        // add bonus to roll
-        attribute: 'strength',
-        morality: -1,
-        positiveResult: {
-            reward: {
-                equipment: null,
-                friend: null,
-                credits: null,
-            },
-            message: 'Things happened. Change me Thursday.'
-        },
-    }, {
-        id: 'replace2',
-        description: 'Do other stuff',
+        id: 'stay',
+        description: 'Stay the Night',
         required: {},
 
         // add bonus to roll
         attribute: 'charisma',
-        morality: 1,
+        morality: 0,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: {
+                    id: 'sheila',
+                    name: 'Sheila Merrill'
+                },
+                credits: null,
+            },
+            message: `'Really?!' she exclaims, 'Come on over here!' You spend the night shivering and constantly awakened by the noise outside, but you get a new friend, Sheila, out of it. `
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+                hp: 0
+            },
+            message: null,
+        },
+    }, {
+        id: 'turn around',
+        description: 'You have no interest in staying, turn around',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'charisma',
+        morality: 0,
         positiveResult: {
             reward: {
                 equipment: null,
                 friend: null,
                 credits: 0,
             },
-            message: `Other things happened. Change me Thursday.`
+            message: `A dejected looks come accross Sheila's face. 'Okay' she says. 'You'll come back right?' You give her a nod and proceed out of the door. `
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+                hp: 0
+            },
+            message: null,
+        },
+    }, {
+        id: 'register',
+        description: 'Take from the cash register while Sheila isn\'t looking',
+        required: {},
+
+        // add bonus to roll
+        attribute: 'luck',
+        morality: -1,
+        positiveResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: 500,
+            },
+            message: `You make small talk with Sheila and wait until she leaves the room. You check to make sure that no one is around to see you and take 500 credits from the register.`
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: null,
+                hp: 0
+            },
+            message: null,
         },
     }],
     credits: 100,
 };
-
-
-
 
 
 const beast = {
@@ -455,6 +501,38 @@ const fugitive = {
                 hp: -15
             },
             message: 'You wrestle around the street causing damage to a nearby bar, pay 1000 credits to fix their tables and lose 15 health.'
+        },
+    }, {
+        id: 'sheila',
+        description: 'Call sheila over',
+        required: {
+            id: 'sheila'
+        },
+    
+            // add bonus to roll
+        attribute: 'charisma',
+        morality: 1,
+        positiveResult: {
+            reward: {
+                equipment: {
+                    id: 'baton',
+                    name: "The fugitive's baton",
+                    strength: 1,
+                    value: 500,
+                },
+                friend: null,
+                credits: 2000,
+            },
+            message: 'Sheila comes out of nowhere and gives the runaway a round house kick to the face. Gain the fugitive\'s baton and gain 2000 credits.'
+        },
+        negativeResult: {
+            reward: {
+                equipment: null,
+                friend: null,
+                credits: -500,
+                hp: -20
+            },
+            message: 'You call out for Sheila and she\'s nowhere to be found. The runaway fires back at you and hits you in the shoulder. Lose 20 health and 500 credits. '
         },
     }, {
         id: 'dead',
