@@ -30,6 +30,9 @@ items.forEach(item => {
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
+        const newItem = renderItem(item);
+        userSection.append(newItem);
+
         const header2 = document.querySelector('#user-header');
 
         header2.remove();
@@ -97,3 +100,43 @@ user.equipment.forEach(item => {
     userSection.append(itemDiv);
 });
 
+
+function renderItem(item) {
+    const itemDiv = document.createElement('div');
+
+    const h2 = document.createElement('h2');
+    //const image = document.createElement('image');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
+
+    itemDiv.classList.add('item');
+
+    h2.textContent = item.name;
+
+    //image.src = item.image;
+
+    p.textContent = `${(item.value) * .8}c`;
+
+    button.innerText = 'Sell';
+
+    button.addEventListener('click', () => {
+        const header2 = document.querySelector('#user-header');
+
+        header2.remove();
+
+        sellItem(item);
+
+        itemDiv.style.display = 'none';
+        
+        const newUser = getUser();
+
+        const sellItemHeader = renderHeader(newUser);
+
+        body.prepend(sellItemHeader);
+
+    });
+
+    itemDiv.append(h2, p, button);
+
+    return itemDiv;
+}
