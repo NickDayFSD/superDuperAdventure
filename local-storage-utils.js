@@ -112,7 +112,7 @@ export function buyItem(item) {
 
     setUser(user);
 
-    return user;
+    return true;
 }
 
 export function findHighestStat(user) {

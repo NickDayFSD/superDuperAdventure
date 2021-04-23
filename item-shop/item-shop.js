@@ -30,11 +30,13 @@ items.forEach(item => {
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
-        buyItem(item);
+        const boughtItem = buyItem(item);
         updateHeader();
-        // if (buyItem) {
-        //     itemDiv.style.display = 'none';
-        // }
+        if (boughtItem) {
+            itemDiv.style.display = 'none';
+        } else if (!boughtItem) {
+            alert('You dont have enough money for that, partner!');
+        }
     //remove item from view;
 
     });
@@ -64,10 +66,8 @@ user.equipment.forEach(item => {
 
     button.addEventListener('click', () => {
         sellItem(item);
-    //remove item from view;
+        itemDiv.style.display = 'none';
         updateHeader();
-
-      
 
     });
 
