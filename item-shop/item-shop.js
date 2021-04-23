@@ -15,7 +15,7 @@ body.prepend(header);
 items.forEach(item => {
     const itemDiv = document.createElement('div');
     const h2 = document.createElement('h2');
-    //const image = document.createElement('image');
+    const image = document.createElement('img');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -23,13 +23,16 @@ items.forEach(item => {
 
     h2.textContent = item.name;
 
-    //image.src = item.image;
+    image.src = `../assets/${item.image}`;
+    image.classList.add('item-images');
 
     p.textContent = `${(item.value) * 1.2}c`;
 
     button.innerText = 'Buy';
 
     button.addEventListener('click', () => {
+        
+
         const header2 = document.querySelector('#user-header');
 
         header2.remove();
@@ -38,6 +41,8 @@ items.forEach(item => {
         
         if (boughtItem) {
             itemDiv.style.display = 'none';
+            const newItem = renderItem(item);
+            userSection.append(newItem);
         } else if (!boughtItem) {
             alert('You dont have enough credits for that, partner!');
         }
@@ -52,7 +57,7 @@ items.forEach(item => {
 
     });
 
-    itemDiv.append(h2, p, button);
+    itemDiv.append(h2, image, p, button);
     itemShopSection.append(itemDiv);
 });
 
@@ -61,7 +66,7 @@ user.equipment.forEach(item => {
     const itemDiv = document.createElement('div');
 
     const h2 = document.createElement('h2');
-    //const image = document.createElement('image');
+    const image = document.createElement('img');
     const p = document.createElement('p');
     const button = document.createElement('button');
 
@@ -69,7 +74,8 @@ user.equipment.forEach(item => {
 
     h2.textContent = item.name;
 
-    //image.src = item.image;
+    image.src = `../assets/${item.image}`;
+    image.classList.add('item-images');
 
     p.textContent = `${(item.value) * .8}c`;
 
@@ -92,8 +98,49 @@ user.equipment.forEach(item => {
 
     });
 
-    itemDiv.append(h2, p, button);
+    itemDiv.append(h2, image, p, button);
 
     userSection.append(itemDiv);
 });
 
+
+function renderItem(item) {
+    const itemDiv = document.createElement('div');
+
+    const h2 = document.createElement('h2');
+    const image = document.createElement('img');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
+
+    itemDiv.classList.add('item');
+
+    h2.textContent = item.name;
+
+    image.src = `../assets/${item.image}`;
+    image.classList.add('item-images');
+
+    p.textContent = `${(item.value) * .8}c`;
+
+    button.innerText = 'Sell';
+
+    button.addEventListener('click', () => {
+        const header2 = document.querySelector('#user-header');
+
+        header2.remove();
+
+        sellItem(item);
+
+        itemDiv.style.display = 'none';
+        
+        const newUser = getUser();
+
+        const sellItemHeader = renderHeader(newUser);
+
+        body.prepend(sellItemHeader);
+
+    });
+
+    itemDiv.append(h2, image, p, button);
+
+    return itemDiv;
+}

@@ -67,7 +67,7 @@ export function renderHeader(user) {
         });
     });
 
-    image.src = `./assets/main-display.png`;
+    image.src = `../assets/main-display.png`;
 
     header.append(image, pName, pHp, pCredits, equipmentUl, friendsUl);
     return header;

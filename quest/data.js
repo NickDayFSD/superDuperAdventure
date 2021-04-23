@@ -145,7 +145,7 @@ const sheriff = {
                 equipment: {
                     id: 'laser rifle',
                     name: 'Laser Rifle',
-                    img: '',
+                    img: 'laser-rifle.png',
                     value: 2000,
                 },
                 friend: null,
@@ -238,9 +238,10 @@ const saloon = {
         positiveResult: {
             reward: {
                 equipment: {
-                    id: 'blaster',
-                    name: 'blaster',
-                    value: 1000
+                    id: 'blaser',
+                    name: 'Laser Blaster',
+                    image: 'laser-gun.png',
+                    value: 1000,
                 },
                 friend: null,
                 credits: null,
@@ -538,39 +539,8 @@ const fugitive = {
             },
             message: 'You call out for Sheila and she\'s nowhere to be found. The runaway fires back at you and hits you in the shoulder. Lose 20 health and 500 credits. '
         },
-    }, {
-        id: 'sheila',
-        description: 'Call sheila over',
-        required: {
-            id: 'sheila'
-        },
-    
-            // add bonus to roll
-        attribute: 'charisma',
-        morality: 1,
-        positiveResult: {
-            reward: {
-                equipment: {
-                    id: 'baton',
-                    name: "The fugitive's baton",
-                    strength: 1,
-                    value: 500,
-                },
-                friend: null,
-                credits: 2000,
-            },
-            message: 'Sheila comes out of nowhere and gives the runaway a round house kick to the face. Gain the fugitive\'s baton and gain 2000 credits.'
-        },
-        negativeResult: {
-            reward: {
-                equipment: null,
-                friend: null,
-                credits: -500,
-                hp: -20
-            },
-            message: 'You call out for Sheila and she\'s nowhere to be found. The runaway fires back at you and hits you in the shoulder. Lose 20 health and 500 credits. '
-        },
-    }, {
+    }, 
+    {
         id: 'dead',
         description: 'Take him out with your laser rifle.',
         required: {},
@@ -582,8 +552,8 @@ const fugitive = {
             reward: {
                 equipment: {
                     id: 'pistol',
-                    name: 'laser blaster',
-                    marksmanship: 1,
+                    name: 'Laser Blaster',
+                    image: 'laser-gun.png',
                     value: 1000,
                 },
                 friend: null,
@@ -658,6 +628,7 @@ const gangbusters = {
                     id: 'spaceship',
                     name: 'Vigilance',
                     value: 50000,
+                    image: 'spaceship_right.png'
                 },
                 friend: null,
                 credits: 500,
