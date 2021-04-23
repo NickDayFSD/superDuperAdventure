@@ -6,7 +6,7 @@ const audio = document.querySelector('audio');
 
 const form = document.querySelector('form');
 
-audio.volume = 0.4;
+audio.volume = 0.2;
 
 
 form.addEventListener('change', (e) => {

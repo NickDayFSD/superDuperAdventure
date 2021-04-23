@@ -39,16 +39,16 @@ const intro = {
 
 const panapolis = {
     id: 'panapolis',
-    title: 'Town of panapolis',
+    title: 'Town of Panapolis',
     image: 'panapolis-2.webp',
     audio: 'The good the bad and the ugly - Theme.mp3',
-    description: `You've begin your adventure at the town of panapolis. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
+    description: `You've begin your adventure at the town of Panapolis. This place has built a reputation for itself that keeps good do-ers away. The people need someone that will offer their hand. Where would you like to go next?`,
 
     // number required for success
     difficulty: 0,
     choices: [{
         id: 'saloon',
-        description: 'Visit the saloon',
+        description: 'Visit the Saloon',
         required: {},
 
         // add bonus to roll
@@ -125,9 +125,9 @@ const panapolis = {
 
 const sheriff = {
     id: 'sheriff',
-    title: 'Sheriff of panapolis',
+    title: 'Sheriff of Panapolis',
     image: 'sheriffJail.jpg',
-    audio: '',
+    audio: 'The good the bad and the ugly - Theme.mp3',
     description: `The sheriff's sitting at his desk and a single convict in the cell behind him. You notice the case of rifles on the wall.`,
 
     // number required for success
@@ -220,9 +220,9 @@ const sheriff = {
 
 const saloon = {
     id: 'saloon',
-    title: 'panapolis Saloon',
+    title: 'Panapolis Saloon',
     image: 'space_saloon.jpg',
-    audio: '',
+    audio: 'The good the bad and the ugly - Theme.mp3',
     description: `The smell of Ragnook, the planetary drink of Terran, fills the air. Scowls from across the room darken the mood. You approach the bar and ask for a glass of Ragnook. Someone approaches from behind. "You've come to wrong place, stranger." What do you do?`,
 
     // number required for success
@@ -276,8 +276,7 @@ const hotel = {
 
     title: 'panapolis Hotel',
     image: 'hotel.jpg',
-
-    audio: '',
+    audio: 'The good the bad and the ugly - Theme.mp3',
     description: `You walk into the Monsoon Hotel and are greated by a cheery face behind the counter. 'Howdy!' she says 'Can I interest you in a night's stay?`,
 
     // number required for success
@@ -625,6 +624,7 @@ const gangbusters = {
             reward: {
                 equipment: {
                     id: 'spaceship',
+                    image: 'spaceship_right.png',
                     name: 'Vigilance',
                     value: 50000,
                 },
@@ -654,6 +654,7 @@ const gangbusters = {
             reward: {
                 equipment: {
                     id: 'spaceship',
+                    image: 'spaceship_right.png',
                     name: 'Vigilance',
                     value: 50000,
                 },
@@ -683,6 +684,7 @@ const gangbusters = {
             reward: {
                 equipment: {
                     id: 'spaceship',
+                    image: 'spaceship_right.png',
                     name: 'Vigilance',
                     value: 50000,
                 },

@@ -25,7 +25,7 @@ const resultsButton = document.getElementById('results-button');
 
 const audio = document.createElement('audio');
 audio.autoplay = true;
-audio.volume = 0.5;
+audio.volume = 0.1;
 const sourceTag = document.createElement('source');
 
 const questId = params.get('id');
