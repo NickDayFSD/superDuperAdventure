@@ -1,8 +1,2 @@
-## Making a plan
-1) Make a drawing of your app. Simple "wireframes"
-2) Once you have a drawing, name the HTML elements you'll need to realize your vision
-3) For each HTML element ask: Why do I need this?
-    - This is your pseudocode
-4) Once we know _why_ we need each element, think about how to implement the "Why" as a "How"
-5) Find all the 'events' (user clicks, form submit, etc) in your app. Ask one by one, "What happens when" for each of these events.
-6) Think about how to validate each of your steps
+#Project Description
+The project my team and I built is an Adventure Quest interactive, dynamic experience that included click-through quests as well as open-world character navigation in a two-dimensional space. While similar games or experiences follow a more linear direction of game/character development, we designed our Adventure Quest with an emphasis on surprise and high re-playability. The choices a user makes will not only affect future outcomes of upcoming quests, but those outcomes themselves can change upon a second playthrough even if other factors such as previous choices and character attribute points remain constant. This is due to the randomness generator my team and I implemented that, while fully taking into account the character attribute points the user puts in, will always leave open a chance for the failure of a given choice (or in likewise fashion, its success).
