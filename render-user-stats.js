@@ -35,6 +35,7 @@ export function renderHeader(user) {
 
         equipmentUl.append(li);
 
+        // so cool! nice work digging into the different event listener optionsw
         equipmentUl.addEventListener('pointerenter', () => {
             li.style.display = 'block';
         });

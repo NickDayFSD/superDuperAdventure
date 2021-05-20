@@ -11,6 +11,7 @@ retryButton.addEventListener('click', () => {
 
 let userMorality;
 
+// this code is used here and in results.js...should probably be a function used in both places
 if (user.morality < -1) {
     userMorality = 'an Evil';
 } else if (user.morality > 1) {
