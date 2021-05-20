@@ -56,42 +56,27 @@ function intersectRect() {
     }
 }
 
+const makeSpriteArgs = (sprite, planet, player) => [
+    sprite,
+    planet.width * player.frameX,
+    planet.height * player.frameY,
+    planet.width,
+    planet.height,
+    planet.x,
+    planet.y,
+    planet.width,
+    planet.height
+];
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, 1200, 900);
-    drawSprite(
-        playerSprite,
-        player.width * player.frameX,
-        player.height * player.frameY,
-        player.width,
-        player.height,
-        player.x,
-        player.y,
-        player.width,
-        player.height
-    );
-    drawSprite(
-        planetOneSprite,
-        planetOne.width * player.frameX,
-        planetOne.height * player.frameY,
-        planetOne.width,
-        planetOne.height,
-        planetOne.x,
-        planetOne.y,
-        planetOne.width,
-        planetOne.height
-    );
-    drawSprite(
-        planetTwoSprite,
-        planetTwo.width * player.frameX,
-        planetTwo.height * player.frameY,
-        planetTwo.width,
-        planetTwo.height,
-        planetTwo.x,
-        planetTwo.y,
-        planetTwo.width,
-        planetTwo.height
-    );
+    
+    // spreading this array should work, if memory serves
+    drawSprite(...makeSpriteArgs(playerSprite, player, player));
+    drawSprite(...makeSpriteArgs(planetOneSprite, planetOne, player));
+    drawSprite(...makeSpriteArgs(planetTwoSprite, planetTwo, player));
+
     movePlayer();
     requestAnimationFrame(animate);
     intersectRect(planetOne, player);
@@ -108,14 +93,15 @@ window.addEventListener('keyup', (e) => {
 });
 
 function movePlayer() {
-    if (keys['w'] && player.y > 70) {
+    // dot notation should work, right?
+    if (keys.w && player.y > 70) {
         player.y -= player.speed;
-    } else if (keys['s'] && player.y < 800) {
+    } else if (keys.s && player.y < 800) {
         player.y += player.speed;
-    } else if (keys['a'] && player.x > 150) {
+    } else if (keys.a && player.x > 150) {
         player.x -= player.speed;
         playerSprite.src = '../assets/spaceship_left.png';
-    } else if (keys['d'] && player.x < 960) {
+    } else if (keys.d && player.x < 960) {
         player.x += player.speed;
         playerSprite.src = '../assets/spaceship_right.png';
     }

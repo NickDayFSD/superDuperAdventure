@@ -1,3 +1,5 @@
+// wish we'd seen the item shop during the presentation! i seem to remember that it didn't make it to the big screengi
+
 export const items = [
     {
         id: 'blaser',

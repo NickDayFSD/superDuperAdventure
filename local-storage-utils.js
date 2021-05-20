@@ -11,19 +11,28 @@ export function getUser() {
 }
 
 export function createUser(name, tagline, formArray) {
+    // you can destructure from an array like so
+    const [
+        intelligence, 
+        strength, 
+        marksmanship, 
+        charisma, 
+        luck
+    ] = formArray;
+
     const user = {
         name,
-        hp: 30 + 3 * formArray[1],
+        hp: 30 + 3 * strength,
         credits: 0,
         equipment: [],
         friends: [],
         completedQuests: {},
         tagline,
-        intelligence: Number(formArray[0]),
-        strength: Number(formArray[1]),
-        marksmanship: Number(formArray[2]),
-        charisma: Number(formArray[3]),
-        luck: Number(formArray[4]),
+        intelligence,
+        strength,
+        marksmanship,
+        charisma,
+        luck,
         morality: 0,
     };
 
@@ -35,11 +44,7 @@ export function areQuestsCompleted(user) {
     const fugitive = 'fugitive';
     const beast = 'beast';
 
-    if (!user.completedQuests[fugitive, beast, gangbusters]) {
-        return false;
-    } else {
-        return true;
-    }
+    return user.completedQuests[fugitive, beast, gangbusters];
 }
 
 export function positiveUserUpdate(choice, quest) {
@@ -65,18 +70,34 @@ export function positiveUserUpdate(choice, quest) {
 export function negativeUserUpdate(choice, quest) {
     const user = getUser();
 
-    user.credits += choice.negativeResult.reward.credits;
+        // destructuring should work here
+    const {
+        morality,
+        negativeResult: {
+            reward: {
+                equipment,
+                friend,
+                credits,
+                hp
+            }
+        }
+    } = choice;
+
+        
+    user.credits += credits;
     user.credits += quest.credits;
-    user.hp += choice.negativeResult.reward.hp;
+    user.hp += hp;
 
-    if (choice.negativeResult.reward.equipment) {
-        user.equipment.push(choice.negativeResult.reward.equipment);
-    }
-    if (choice.negativeResult.reward.friend) {
-        user.friends.push(choice.negativeResult.reward.friend);
+
+    if (equipment) {
+        user.equipment.push(equipment);
     }
 
-    user.morality += choice.morality;
+    if (friend) {
+        user.friends.push(friend);
+    }
+
+    user.morality += morality;
 
     user.completedQuests[quest.id] = true;
 
@@ -88,6 +109,7 @@ export function sellItem(item) {
 
     const matchingItem = user.equipment.find(object => object.id === item.id);
 
+    // does this work if matchingItem is an object? I thought you'd have to use findIndex for complex data types
     const index = user.equipment.indexOf(matchingItem);
 
     if (index > -1) {
@@ -103,6 +125,7 @@ export function sellItem(item) {
 export function buyItem(item) {
     const user = getUser();
 
+    // 1.2 should be a named const for maintainability
     if (user.credits < ((item.value) * 1.2)) {
         return false;
     }
@@ -126,6 +149,7 @@ export function findHighestStat(user) {
         luck: user.luck
     };
 
+    // i was about to criticize this code as unreadable, but then i remembered that i was responsible for it...:grimacing:
     // voodoo magic
     return (Object.entries(userStats).sort((a, b) => a[1] - b[1])[Object.entries(userStats).length - 1][0]);
 }

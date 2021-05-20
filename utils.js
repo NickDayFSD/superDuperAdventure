@@ -22,13 +22,11 @@ export function luckRoll(luck, stat) {
 
 export function userSuccess(quest, questChoice) {
     const user = getUser();
-    const userRoll = luckRoll(user.luck, user[questChoice.attribute]);
+    // needs an extra layer here for readability. I'm guessing this is the stat for a given attribute?
+    const stat = user[questChoice.attribute];
+    const userRoll = luckRoll(user.luck, stat);
 
-    const difficulty = quest.difficulty;
-    if (difficulty <= userRoll) {
-        return true;
-    }
-    return false;
+    return quest.difficulty <= userRoll;
 }
 
 export function doesUserSatisfyRequirements(requiredParamId, user) {
@@ -44,8 +42,6 @@ export function doesUserSatisfyRequirements(requiredParamId, user) {
     // }
 
 
-    if (matchingItem || matchingFriend || !requiredParamId) return true;
-
-    return false;
+    return matchingItem || matchingFriend || !requiredParamId; 
 }
 

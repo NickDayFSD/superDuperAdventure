@@ -5,7 +5,7 @@ const user = getUser();
 const body = document.querySelector('body');
 const audio = document.querySelector('audio');
 
-audio.volume = 0.1
+audio.volume = 0.1;
 
 const header = renderHeader(user);
 
@@ -119,59 +119,27 @@ function intersectRect() {
     }
 }
 
-
-
+const makeSpriteArgs = (sprite, other) => [
+    sprite,
+    other.width * other.frameX,
+    other.height * other.frameY,
+    other.width,
+    other.height,
+    other.x,
+    other.y,
+    other.width,
+    other.height
+];
 
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, 1200, 900);
-    drawSprite(
-        playerSprite,
-        player.width * player.frameX,
-        player.height * player.frameY,
-        player.width,
-        player.height,
-        player.x,
-        player.y,
-        player.width,
-        player.height
-    );
-    drawSprite(
-        fugitiveSprite,
-        fugitive.width * fugitive.frameX,
-        fugitive.height * fugitive.frameY,
-        fugitive.width,
-        fugitive.height,
-        fugitive.x,
-        fugitive.y,
-        fugitive.width,
-        fugitive.height
-    );
+    drawSprite(...makeSpriteArgs(playerSprite, player));
+    drawSprite(...makeSpriteArgs(fugitiveSprite, fugitive));
+    drawSprite(...makeSpriteArgs(beastSprite, beast));
+    drawSprite(...makeSpriteArgs(gangbustersSprite, gangbusters));
 
-    drawSprite(
-        beastSprite,
-        beast.width * beast.frameX,
-        beast.height * beast.frameY,
-        beast.width,
-        beast.height,
-        beast.x,
-        beast.y,
-        beast.width,
-        beast.height
-    );
-
-    drawSprite(
-        gangbustersSprite,
-        gangbusters.width * gangbusters.frameX,
-        gangbusters.height * gangbusters.frameY,
-        gangbusters.width,
-        gangbusters.height,
-        gangbusters.x,
-        gangbusters.y,
-        gangbusters.width,
-        gangbusters.height
-    );
     movePlayer();
     requestAnimationFrame(animate);
     intersectRect();

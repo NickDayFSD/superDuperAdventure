@@ -26,6 +26,7 @@ items.forEach(item => {
     image.src = `../assets/${item.image}`;
     image.classList.add('item-images');
 
+    // again, wishing 1.2 were a const for maintainability
     p.textContent = `${(item.value) * 1.2}c`;
 
     button.innerText = 'Buy';
@@ -119,6 +120,7 @@ function renderItem(item) {
     image.src = `../assets/${item.image}`;
     image.classList.add('item-images');
 
+    // .8 should also be a named const
     p.textContent = `${(item.value) * .8}c`;
 
     button.innerText = 'Sell';

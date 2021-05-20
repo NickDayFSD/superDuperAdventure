@@ -1,3 +1,4 @@
+// lots of repeated code in these files. I bet with more time y'all could have made more functions to prevent this duplication and make the code easier to maintainable
 import { getUser, findHighestStat } from '../local-storage-utils.js';
 
 const user = getUser();
@@ -39,6 +40,7 @@ canvas.height = 900;
 
 const keys = [];
 
+// might be nice for these blobs to live in a separate data file
 const player = {
     x: 250,
     y: 50,
@@ -129,80 +131,29 @@ function intersectRect() {
     } }
 
 
+
+const makeSpriteArgs = (sprite, other) => [
+    sprite,
+    other.width * player.frameX,
+    other.height * player.frameY,
+    other.width,
+    other.height,
+    other.x,
+    other.y,
+    other.width,
+    other.height
+];
+
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, 0, 0, 1200, 900);
-    drawSprite(
-        playerSprite,
-        player.width * player.frameX,
-        player.height * player.frameY,
-        player.width,
-        player.height,
-        player.x,
-        player.y,
-        player.width,
-        player.height
-    );
-
-    drawSprite(
-        bluePlanetSprite,
-        bluePlanet.width * bluePlanet.frameX,
-        bluePlanet.height * bluePlanet.frameY,
-        bluePlanet.width,
-        bluePlanet.height,
-        bluePlanet.x,
-        bluePlanet.y,
-        bluePlanet.width,
-        bluePlanet.height
-    );
-
-    drawSprite(
-        barenSprite,
-        baren.width * baren.frameX,
-        baren.height * baren.frameY,
-        baren.width,
-        baren.height,
-        baren.x,
-        baren.y,
-        baren.width,
-        baren.height
-    );
-
-    drawSprite(
-        iceSprite,
-        ice.width * ice.frameX,
-        ice.height * ice.frameY,
-        ice.width,
-        ice.height,
-        ice.x,
-        ice.y,
-        ice.width,
-        ice.height
-    );
-
-    drawSprite(
-        lavaSprite,
-        lava.width * lava.frameX,
-        lava.height * lava.frameY,
-        lava.width,
-        lava.height,
-        lava.x,
-        lava.y,
-        lava.width,
-        lava.height
-    );
-
-    drawSprite(
-        terranSprite,
-        terran.width * terran.frameX,
-        terran.height * terran.frameY,
-        terran.width,
-        terran.height,
-        terran.x,
-        terran.y,
-        terran.width,
-        terran.height
-    );
+    drawSprite(...makeSpriteArgs(playerSprite, player));
+    drawSprite(...makeSpriteArgs(bluePlanetSprite, bluePlanet));
+    drawSprite(...makeSpriteArgs(barenSprite, baren));
+    drawSprite(...makeSpriteArgs(iceSprite, ice));
+    drawSprite(...makeSpriteArgs(lavaSprite, lava));
+    drawSprite(...makeSpriteArgs(terranSprite, terran));
 
     movePlayer();
     requestAnimationFrame(animate);
